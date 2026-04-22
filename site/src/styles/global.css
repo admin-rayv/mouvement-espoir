@@ -8,17 +8,17 @@
 
 /* CSS Variables */
 :root {
-  /* Palette sobre - inspirée fondations luxe */
-  --color-noir: #1a1a1a;
-  --color-charcoal: #2d2d2d;
-  --color-gris: #7a7a7a;
-  --color-gris-clair: #a0a0a0;
+  /* Palette sobre - bleu-gris inspiré du logo */
+  --color-noir: #1a2530;
+  --color-charcoal: #2a3a48;
+  --color-gris: #5a6d7a;
+  --color-gris-clair: #8a9ba8;
 
-  /* Neutres chaleureux */
+  /* Neutres avec touche bleutée */
   --color-white: #FFFFFF;
-  --color-ivory: #FAFAF8;
-  --color-cream: #F5F4F0;
-  --color-sand: #E8E6E0;
+  --color-ivory: #F8F9FA;
+  --color-cream: #F0F2F4;
+  --color-sand: #E2E6EA;
 
   /* Accent - plus discret */
   --color-accent: #B8926A;
