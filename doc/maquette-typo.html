@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maquette Typographie - Mouvement solidaire eSPoir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&family=Sora:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Palette révisée - tons chauds */
+      --blue-marine: #1B3A5F;
+      --blue-ocean: #2D5A87;
+      --white-warm: #FAFBFC;
+      --gray-warm: #F0EDE8;
+      --sand: #E8E2D9;
+      --anthracite: #2D3436;
+      --orange-hope: #E67E22;
+      --orange-dark: #D35400;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--white-warm);
+      color: var(--anthracite);
+      line-height: 1.6;
+    }
+
+    .option {
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .option:nth-child(even) {
+      background: var(--gray-warm);
+    }
+
+    .option-label {
+      display: inline-block;
+      background: var(--blue-marine);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .logo-text {
+      color: var(--blue-marine);
+      font-size: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--anthracite);
+      font-size: 15px;
+    }
+
+    .btn-donate {
+      background: linear-gradient(135deg, var(--orange-hope), var(--orange-dark));
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: 0 4px 14px rgba(230, 126, 34, 0.3);
+    }
+
+    h1 {
+      color: var(--blue-marine);
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      font-size: 20px;
+      color: var(--anthracite);
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .tagline {
+      color: var(--blue-ocean);
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--blue-ocean);
+      color: var(--blue-ocean);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .card-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(27, 58, 95, 0.06);
+    }
+
+    .card h3 {
+      color: var(--blue-marine);
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: var(--anthracite);
+      opacity: 0.85;
+    }
+
+    /* OPTION A - Élégant moderne */
+    .option-a .logo-text,
+    .option-a h1,
+    .option-a h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .option-a .nav-links a,
+    .option-a .lead,
+    .option-a .tagline,
+    .option-a .card p,
+    .option-a .btn-donate,
+    .option-a .btn-secondary {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .option-a h1 {
+      font-size: 52px;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .option-a .tagline {
+      font-size: 18px;
+    }
+
+    /* OPTION B - Géométrique contemporain */
+    .option-b .logo-text,
+    .option-b h1,
+    .option-b h3,
+    .option-b .btn-donate,
+    .option-b .btn-secondary {
+      font-family: 'Sora', sans-serif;
+    }
+
+    .option-b .nav-links a,
+    .option-b .lead,
+    .option-b .tagline,
+    .option-b .card p {
+      font-family: 'Work Sans', sans-serif;
+    }
+
+    .option-b h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .option-b .tagline {
+      font-size: 17px;
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    /* OPTION C - Humaniste accessible */
+    .option-c .logo-text,
+    .option-c h1,
+    .option-c h3 {
+      font-family: 'Fraunces', serif;
+      font-optical-sizing: auto;
+    }
+
+    .option-c .nav-links a,
+    .option-c .lead,
+    .option-c .tagline,
+    .option-c .card p,
+    .option-c .btn-donate,
+    .option-c .btn-secondary {
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+    }
+
+    .option-c h1 {
+      font-size: 50px;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .option-c .tagline {
+      font-size: 18px;
+    }
+
+    .option-c .logo-text {
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .option {
+        padding: 40px 20px;
+      }
+      h1 {
+        font-size: 32px !important;
+      }
+      .card-section {
+        grid-template-columns: 1fr;
+      }
+      .nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- OPTION A -->
+  <section class="option option-a">
+    <span class="option-label">Option A - Élégant moderne (Playfair + Inter)</span>
+    <div class="hero">
+      <nav class="nav">
+        <div class="logo-text">Mouvement solidaire eSPoir</div>
+        <ul class="nav-links">
+          <li><a href="#">Notre mission</a></li>
+          <li><a href="#">La recherche</a></li>
+          <li><a href="#">Événements</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <a href="#" class="btn-donate">Faire un don</a>
+      </nav>
+
+      <h1>Ensemble, finançons l'espoir de guérison</h1>
+      <p class="tagline">Financer. Chercher. Guérir la sclérose en plaques.</p>
+      <p class="lead">Le Mouvement solidaire eSPoir mobilise la communauté de Lanaudière pour financer la recherche sur la sclérose en plaques. 100% de votre don va directement à la recherche.</p>
+
+      <div class="cta-group">
+        <a href="#" class="btn-donate">Faire un don</a>
+        <a href="#" class="btn-secondary">Découvrir notre mission</a>
+      </div>
+
+      <div class="card-section">
+        <div class="card">
+          <h3>100% vers la recherche</h3>
+          <p>Chaque dollar que vous donnez finance directement les travaux de recherche pour guérir la SP.</p>
+        </div>
+        <div class="card">
+          <h3>Événements communautaires</h3>
+          <p>Spectacles, soupers-bénéfice et activités familiales dans Lanaudière.</p>
+        </div>
+        <div class="card">
+          <h3>Transparence totale</h3>
+          <p>Rapports annuels publics. Aucun frais administratif caché.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTION B -->
+  <section class="option option-b">
+    <span class="option-label">Option B - Géométrique contemporain (Sora + Work Sans)</span>
+    <div class="hero">
+      <nav class="nav">
+        <div class="logo-text">Mouvement solidaire eSPoir</div>
+        <ul class="nav-links">
+          <li><a href="#">Notre mission</a></li>
+          <li><a href="#">La recherche</a></li>
+          <li><a href="#">Événements</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <a href="#" class="btn-donate">Faire un don</a>
+      </nav>
+
+      <h1>Ensemble, finançons l'espoir de guérison</h1>
+      <p class="tagline">Financer. Chercher. Guérir.</p>
+      <p class="lead">Le Mouvement solidaire eSPoir mobilise la communauté de Lanaudière pour financer la recherche sur la sclérose en plaques. 100% de votre don va directement à la recherche.</p>
+
+      <div class="cta-group">
+        <a href="#" class="btn-donate">Faire un don</a>
+        <a href="#" class="btn-secondary">Découvrir notre mission</a>
+      </div>
+
+      <div class="card-section">
+        <div class="card">
+          <h3>100% vers la recherche</h3>
+          <p>Chaque dollar que vous donnez finance directement les travaux de recherche pour guérir la SP.</p>
+        </div>
+        <div class="card">
+          <h3>Événements communautaires</h3>
+          <p>Spectacles, soupers-bénéfice et activités familiales dans Lanaudière.</p>
+        </div>
+        <div class="card">
+          <h3>Transparence totale</h3>
+          <p>Rapports annuels publics. Aucun frais administratif caché.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTION C -->
+  <section class="option option-c">
+    <span class="option-label">Option C - Humaniste accessible (Fraunces + Atkinson)</span>
+    <div class="hero">
+      <nav class="nav">
+        <div class="logo-text">Mouvement solidaire eSPoir</div>
+        <ul class="nav-links">
+          <li><a href="#">Notre mission</a></li>
+          <li><a href="#">La recherche</a></li>
+          <li><a href="#">Événements</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <a href="#" class="btn-donate">Faire un don</a>
+      </nav>
+
+      <h1>Ensemble, finançons l'espoir de guérison</h1>
+      <p class="tagline">Financer. Chercher. Guérir la sclérose en plaques.</p>
+      <p class="lead">Le Mouvement solidaire eSPoir mobilise la communauté de Lanaudière pour financer la recherche sur la sclérose en plaques. 100% de votre don va directement à la recherche.</p>
+
+      <div class="cta-group">
+        <a href="#" class="btn-donate">Faire un don</a>
+        <a href="#" class="btn-secondary">Découvrir notre mission</a>
+      </div>
+
+      <div class="card-section">
+        <div class="card">
+          <h3>100% vers la recherche</h3>
+          <p>Chaque dollar que vous donnez finance directement les travaux de recherche pour guérir la SP.</p>
+        </div>
+        <div class="card">
+          <h3>Événements communautaires</h3>
+          <p>Spectacles, soupers-bénéfice et activités familiales dans Lanaudière.</p>
+        </div>
+        <div class="card">
+          <h3>Transparence totale</h3>
+          <p>Rapports annuels publics. Aucun frais administratif caché.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
