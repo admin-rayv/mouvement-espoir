@@ -162,6 +162,54 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
+    <!-- ========== PARTENAIRES ========== -->
+    <section class="partners">
+      <div class="container">
+        <header class="partners-header" data-animate>
+          <span class="text-label">Nos partenaires</span>
+          <h2>Ils soutiennent<br/>notre mission</h2>
+        </header>
+
+        <div class="partners-grid" data-animate data-delay="1">
+          <div class="partner-item">
+            <div class="partner-logo image-placeholder">
+              <span>Logo</span>
+            </div>
+          </div>
+          <div class="partner-item">
+            <div class="partner-logo image-placeholder">
+              <span>Logo</span>
+            </div>
+          </div>
+          <div class="partner-item">
+            <div class="partner-logo image-placeholder">
+              <span>Logo</span>
+            </div>
+          </div>
+          <div class="partner-item">
+            <div class="partner-logo image-placeholder">
+              <span>Logo</span>
+            </div>
+          </div>
+          <div class="partner-item">
+            <div class="partner-logo image-placeholder">
+              <span>Logo</span>
+            </div>
+          </div>
+          <div class="partner-item">
+            <div class="partner-logo image-placeholder">
+              <span>Logo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="partners-cta" data-animate data-delay="2">
+          <p>Vous souhaitez soutenir notre cause ?</p>
+          <a href="/contact" class="link-underline">Devenir partenaire</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ========== QUOTE ========== -->
     <section class="quote">
       <div class="container">
@@ -236,9 +284,9 @@ import Footer from '../components/Footer.astro';
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(26, 26, 26, 0.2) 0%,
-      rgba(26, 26, 26, 0.5) 50%,
-      rgba(26, 26, 26, 0.85) 100%
+      rgba(27, 58, 95, 0.3) 0%,
+      rgba(27, 58, 95, 0.6) 50%,
+      rgba(27, 58, 95, 0.9) 100%
     );
   }
 
@@ -443,6 +491,62 @@ import Footer from '../components/Footer.astro';
     aspect-ratio: 4/3;
   }
 
+  /* ========== PARTNERS ========== */
+  .partners {
+    padding: clamp(8rem, 15vw, 12rem) 0;
+    background: var(--color-white);
+  }
+
+  .partners-header {
+    margin-bottom: clamp(4rem, 8vw, 6rem);
+    max-width: 400px;
+  }
+
+  .partners-header .text-label {
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+    margin-bottom: clamp(4rem, 8vw, 6rem);
+  }
+
+  .partner-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .partner-logo {
+    width: 100%;
+    aspect-ratio: 3/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s var(--ease-elegant);
+  }
+
+  .partner-item:hover .partner-logo {
+    opacity: 0.7;
+  }
+
+  .partners-cta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--color-sand);
+  }
+
+  .partners-cta p {
+    margin: 0;
+    color: var(--color-gris);
+    font-size: 0.9375rem;
+  }
+
   /* ========== QUOTE ========== */
   .quote {
     padding: clamp(10rem, 18vw, 16rem) 0;
@@ -534,6 +638,10 @@ import Footer from '../components/Footer.astro';
       grid-template-columns: 1fr;
       gap: 3rem;
     }
+
+    .partners-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   @media (max-width: 900px) {
@@ -589,6 +697,16 @@ import Footer from '../components/Footer.astro';
   @media (max-width: 600px) {
     .hero-scroll {
       display: none;
+    }
+
+    .partners-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .partners-cta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
     }
   }
 </style>

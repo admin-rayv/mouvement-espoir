@@ -8,17 +8,17 @@
 
 /* CSS Variables */
 :root {
-  /* Palette sobre - bleu-gris inspiré du logo */
-  --color-noir: #1a2530;
-  --color-charcoal: #2a3a48;
-  --color-gris: #5a6d7a;
-  --color-gris-clair: #8a9ba8;
+  /* Palette bleu-gris plus prononcée */
+  --color-noir: #1B3A5F;
+  --color-charcoal: #2D4A6A;
+  --color-gris: #4A6B8A;
+  --color-gris-clair: #7A9AB8;
 
-  /* Neutres avec touche bleutée */
+  /* Neutres avec touche bleutée visible */
   --color-white: #FFFFFF;
-  --color-ivory: #F8F9FA;
-  --color-cream: #F0F2F4;
-  --color-sand: #E2E6EA;
+  --color-ivory: #F5F8FA;
+  --color-cream: #EBF0F5;
+  --color-sand: #DCE5ED;
 
   /* Accent - plus discret */
   --color-accent: #B8926A;
@@ -108,27 +108,28 @@ body {
 [data-delay="3"] { transition-delay: 0.45s; }
 [data-delay="4"] { transition-delay: 0.6s; }
 
-/* Typography - Raffinée, légère */
+/* Typography - Raffinée mais plus affirmée */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   color: var(--color-noir);
   line-height: 1.15;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 h1 {
   font-size: clamp(2.75rem, 7vw, 5rem);
-  font-weight: 300;
+  font-weight: 500;
 }
 
 h2 {
   font-size: clamp(2rem, 4.5vw, 3.25rem);
-  font-weight: 300;
+  font-weight: 500;
 }
 
 h3 {
   font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
 }
 
 p {
@@ -138,7 +139,7 @@ p {
 .text-huge {
   font-family: var(--font-heading);
   font-size: clamp(4rem, 12vw, 9rem);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 0.95;
   letter-spacing: -0.02em;
   color: var(--color-noir);
@@ -147,7 +148,7 @@ p {
 .text-display {
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.35;
 }
 
