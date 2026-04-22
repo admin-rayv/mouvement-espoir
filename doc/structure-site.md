@@ -1,292 +1,412 @@
 # Structure du Site Web - Mouvement solidaire eSPoir
 
 > Architecture des pages et contenu MVP
-> Créé le 22 avril 2026
+> Créé le 22 avril 2026 | Mis à jour le 22 avril 2026
 
 ---
 
 ## 1. Arborescence du site (MVP)
 
+Structure simplifiée pour le lancement — pages longues avec scroll narratif plutôt que sous-pages multiples.
+
 ```
 /
-├── Accueil
-├── Notre mission
-│   ├── L'histoire
-│   ├── L'équipe
-│   └── Transparence
-├── La recherche
-│   ├── Pourquoi la recherche?
-│   └── Projets soutenus
-├── Événements
-│   ├── Événements à venir
-│   └── Événements passés
-├── S'impliquer
-│   ├── Faire un don
-│   ├── Devenir bénévole
-│   └── Organiser une collecte
-├── Actualités (Phase 2)
-└── Contact
+├── Accueil                    ← Page d'atterrissage immersive
+├── Notre histoire             ← Mission + équipe + transparence (une seule page)
+├── La recherche               ← Pourquoi + projets soutenus
+├── Événements                 ← À venir + archives
+├── Faire un don               ← Page dédiée avec formulaire
+└── Contact                    ← Formulaire + coordonnées
 ```
 
+**Navigation principale:** Notre histoire | La recherche | Événements | Contact | **[Faire un don]**
+
 ---
 
-## 2. Page par page
+## 2. Principes de design des pages
 
-### 2.1 Accueil (`/`)
+Chaque page suit une approche **éditoriale et narrative**, pas un layout "grilles de cartes".
 
-**Objectif:** Capter l'attention, inspirer confiance, convertir en don ou inscription
+| Principe | Application |
+|----------|-------------|
+| **Scroll narratif** | Le contenu se déroule comme une histoire, section par section |
+| **Images immersives** | Photos plein écran ou grandes, avec texte superposé quand approprié |
+| **Respiration** | Grands espaces blancs entre les sections |
+| **Asymétrie** | Layouts variés, pas de répétition mécanique |
+| **Typographie expressive** | Grandes citations, titres impactants |
 
-#### Sections:
+---
 
-**Hero Section**
-- Titre: "Ensemble, finançons l'espoir de guérison"
-- Sous-titre: "Le Mouvement solidaire eSPoir mobilise la communauté de Lanaudière pour financer la recherche sur la sclérose en plaques."
-- CTA principal: "Faire un don" (orange)
-- CTA secondaire: "Découvrir notre mission" (outline)
-- Background: Dégradé bleu avec logo en filigrane
+## 3. Page par page
 
-**Section "100% vers la recherche"**
-- Icône/illustration
-- Texte: "Chaque dollar que vous donnez va directement au financement de la recherche. Aucun frais administratif."
-- Chiffres clés (ex: montant total amassé depuis le début)
+### 3.1 Accueil (`/`)
 
-**Section "Comment ça marche"**
-3 étapes visuelles:
-1. Vous participez à nos événements ou faites un don
-2. 100% des bénéfices vont à la recherche
-3. Des chercheurs travaillent à trouver un remède
+**Objectif:** Émouvoir, inspirer confiance, inviter à agir
 
-**Section "Prochain événement"**
-- Carte avec date, titre, lieu
-- CTA: "Réserver ma place" ou "En savoir plus"
-- (Si aucun événement: "Abonnez-vous pour être informé")
+**Flow narratif:**
 
-**Section "Témoignages"**
-- 2-3 citations de participants ou membres de la communauté
-- Photos (avec consentement)
+---
 
-**Section "Rejoignez le mouvement"**
-- Formulaire d'inscription newsletter (email seulement)
-- CTA: "Rester informé"
+**[1] Hero — Plein écran**
+- Image de fond: Photo de communauté ou événement (pas stock)
+- Overlay doux pour lisibilité
+- Titre (Playfair, très grand):
+  > "Ensemble, finançons l'espoir de guérison"
+- Tagline en dessous (italique):
+  > "Financer. Chercher. Guérir la sclérose en plaques."
+- Deux boutons: **Faire un don** (orange) | Découvrir notre histoire (outline)
+- Scroll indicator subtil en bas
 
-**Footer**
+---
+
+**[2] L'essentiel — Message clé**
+- Fond: Blanc cassé
+- Grande citation ou phrase d'impact:
+  > "100% de votre don finance directement la recherche. Aucun frais administratif."
+- Texte court expliquant le pourquoi (2-3 phrases max)
+- Chiffre mis en valeur: montant total amassé ou nombre de personnes touchées dans Lanaudière
+
+---
+
+**[3] Notre promesse — Visuel**
+- Layout asymétrique: image d'un côté, texte de l'autre
+- 3 points clés (pas en "cartes", en liste élégante):
+  1. **Financer** — Événements culturels locaux
+  2. **Chercher** — Fonds dirigés vers la recherche de pointe
+  3. **Guérir** — L'objectif: un remède pour la SP
+- Transition fluide vers section suivante
+
+---
+
+**[4] Prochain événement (si applicable)**
+- Si événement à venir:
+  - Grande image de l'événement
+  - Date mise en évidence (typographie expressive)
+  - Titre + lieu + prix
+  - CTA: "Réserver ma place"
+- Si aucun événement:
+  - Message: "Nos prochains événements arrivent bientôt"
+  - CTA: "S'inscrire pour être informé" (newsletter)
+
+---
+
+**[5] Témoignage**
+- Fond: Ton sable/chaud
+- Grande citation d'un participant ou membre de la communauté
+- Photo de la personne (si disponible et autorisé)
+- Nom + contexte court
+
+---
+
+**[6] Rejoindre le mouvement**
+- Fond: Dégradé subtil ou texture
+- Titre: "Restez informés"
+- Formulaire newsletter minimaliste (email seulement)
+- Texte: "Recevez les nouvelles de nos événements et de la recherche."
+
+---
+
+**[7] Footer**
 - Logo + tagline
-- Liens rapides: Mission, Événements, Faire un don, Contact
+- Liens: Notre histoire | La recherche | Événements | Contact | Faire un don
 - Coordonnées: Adresse Repentigny, courriel
-- Réseaux sociaux
-- Mention légale: OBNL enregistré, NEQ
+- Réseaux sociaux (icônes)
+- Mention: OBNL enregistré au Québec — NEQ 1181 4407 11
 
 ---
 
-### 2.2 Notre mission (`/mission`)
+### 3.2 Notre histoire (`/histoire`)
 
-**Objectif:** Raconter l'histoire, présenter l'équipe, établir la crédibilité
+**Objectif:** Raconter le parcours, présenter l'équipe, établir la crédibilité
 
-#### Sous-pages:
+**Flow narratif:**
 
-**L'histoire** (`/mission/histoire`)
+---
+
+**[1] Hero — L'origine**
 - Titre: "Pourquoi le Mouvement solidaire eSPoir?"
-- Récit:
-  - La SP touche ~20 000 Québécois, ~1 300 dans Lanaudière
-  - En 2023, un proche de Marie-Carole reçoit un diagnostic
-  - Elle décide d'agir: Marche SP 2023 (700$), 2024 (2 410$), 2025 (3 000$)
-  - Constat: Les grands organismes ont des frais admin importants
-  - Idée: Créer un OBNL local où 100% va à la recherche
-  - Octobre 2025: Mouvement solidaire eSPoir est officiellement créé
-- Note: Ne pas mentionner que c'est son fils — garder "un proche"
+- Image: Marie-Carole ou photo de la Marche SP
+- Intro: "En 2023, un proche de Marie-Carole reçoit un diagnostic de sclérose en plaques..."
 
-**L'équipe** (`/mission/equipe`)
-- **Marie-Carole Daigle** - Fondatrice et présidente
-  - 40 ans en communications (journaliste, relationniste)
-  - Bénévole depuis toujours
-  - Photo professionnelle
-  - Lien LinkedIn (optionnel)
+---
 
-- **Hélène Collette** - Cofondatrice
-  - MBA, spécialiste en plans d'affaires
-  - Vit avec la SP depuis 2006
+**[2] Le récit — Scroll storytelling**
+- Format éditorial, pas de bullet points
+- Paragraphes aérés avec chiffres mis en valeur:
+  - "La SP touche **20 000 Québécois**, dont **1 300 dans Lanaudière**."
+  - "Marche SP 2023: **700$**. 2024: **2 410$**. 2025: **3 000$**."
+- Constat qui mène à l'action:
+  > "Et si 100% de chaque dollar allait directement à la recherche?"
+- Naissance du Mouvement: octobre 2025
+
+**Note importante:** Ne jamais mentionner que c'est le fils de Marie-Carole. Garder "un proche".
+
+---
+
+**[3] L'équipe**
+- Pas de grille de cartes — présentation éditoriale
+- **Marie-Carole Daigle** — Fondatrice et présidente
+  - Grande photo
+  - Bio narrative (pas bullets): 40 ans en communications, journaliste, relationniste, bénévole depuis toujours
+  - Citation personnelle si disponible
+- **Hélène Collette** — Cofondatrice
+  - Photo
+  - Bio: MBA, spécialiste plans d'affaires, vit avec la SP depuis 2006
   - Propriétaire de MonPlanDAffaires.ca
-  - Photo + LinkedIn
 
-- **Comité consultatif** (à venir)
-  - Personnes atteintes de SP
-  - Stratèges en événementiel
-  - Bénévoles
+---
 
-**Transparence** (`/mission/transparence`)
+**[4] Transparence**
 - Titre: "Où va votre argent?"
-- Graphique visuel: 100% recherche
-- Comparaison (sans nommer): "Contrairement aux grandes organisations, nous n'avons pas de frais administratifs. Tout est bénévole."
+- Visuel simple et impactant: **100% → Recherche**
+- Texte: "Tout notre travail est bénévole. Chaque dollar amassé finance directement des projets de recherche."
+- Infos légales: OBNL, NEQ 1181 4407 11
 - Lien vers rapport annuel (quand disponible)
-- Structure juridique: OBNL, NEQ 1181 4407 11
-- Adresse du siège social
 
 ---
 
-### 2.3 La recherche (`/recherche`)
-
-**Objectif:** Expliquer pourquoi la recherche est cruciale et où vont les fonds
-
-**Pourquoi la recherche?** (`/recherche`)
-- Qu'est-ce que la SP? (bref, accessible)
-- Statistiques:
-  - 100 000 Canadiens touchés
-  - 20 000 au Québec
-  - Coût annuel pour le Québec: 747 M$ (2019)
-  - Projection: 2 milliards $/an d'ici 2031
-- Avancées récentes:
-  - Greffe de moelle osseuse (CHU Québec)
-  - Remyélinisation (Institut du Cerveau)
-  - Bactéries intestinales (Harvard)
-- Message: "Un remède est possible. La recherche a besoin de financement."
-
-**Projets soutenus** (`/recherche/projets`)
-- Phase 1: "Nos fonds seront dirigés vers SP Canada ou une chaire de recherche reconnue."
-- Phase 2: Liste des projets financés avec descriptions
-- Partenaires de recherche (logos, si applicable)
+**[5] CTA**
+- "Rejoignez le mouvement"
+- Boutons: Faire un don | Voir les événements
 
 ---
 
-### 2.4 Événements (`/evenements`)
+### 3.3 La recherche (`/recherche`)
 
-**Objectif:** Promouvoir les activités et montrer l'historique
+**Objectif:** Expliquer l'urgence, montrer que la guérison est possible
 
-**Événements à venir** (`/evenements`)
-- Liste des prochains événements
-- Chaque carte: Date, titre, lieu, prix, CTA
-- Formulaire d'inscription newsletter si aucun événement
-
-**Événements passés** (`/evenements/archives`)
-- Galerie photos
-- Montants amassés
-- Témoignages de participants
-
-**Types d'événements prévus:**
-- Spectacles musicaux
-- Soupers-spectacles
-- Soirée sushis et art
-- Spectacles d'humour/magie
-- Pique-niques familiaux
+**Flow narratif:**
 
 ---
 
-### 2.5 S'impliquer (`/impliquer`)
-
-**Objectif:** Convertir les visiteurs en donateurs ou bénévoles
-
-**Faire un don** (`/impliquer/don`)
-- Formulaire de don intégré (Stripe, PayPal, ou Zeffy)
-- Montants suggérés: 25$, 50$, 100$, 250$, Autre
-- Option don mensuel
-- Message de remerciement automatique
-- Note: Reçu fiscal (quand statut organisme de bienfaisance obtenu)
-
-**Devenir bénévole** (`/impliquer/benevole`)
-- Formulaire simple: Nom, courriel, téléphone, intérêts
-- Types de bénévolat:
-  - Organisation d'événements
-  - Communications / réseaux sociaux
-  - Logistique (jour d'événement)
-  - Compétences spécifiques
-
-**Organiser une collecte** (`/impliquer/collecte`)
-- Information sur les collectes personnelles
-- Kit téléchargeable (Phase 2)
-- Contact pour coordination
+**[1] Hero**
+- Image évocatrice (lumière, espoir, science)
+- Titre: "La recherche avance. L'espoir est réel."
 
 ---
 
-### 2.6 Contact (`/contact`)
+**[2] Comprendre la SP**
+- Explication accessible (pas médicale/clinique)
+- Chiffres clés présentés de façon impactante:
+  - **100 000** Canadiens touchés
+  - **747 M$** — coût annuel pour le Québec (2019)
+  - **2 milliards $** — projection d'ici 2031
+- Ton: informatif mais porteur d'espoir
+
+---
+
+**[3] Les avancées récentes**
+- Titre: "Un remède est possible"
+- 3 avancées présentées de façon narrative (pas en cartes):
+  - **Greffe de moelle osseuse** — CHU de Québec, première au Québec
+  - **Remyélinisation** — Institut du Cerveau, Paris
+  - **Bactéries intestinales** — Harvard, approche révolutionnaire
+- Sources citées discrètement
+
+---
+
+**[4] Où vont nos fonds**
+- Phase actuelle: "Nos fonds sont dirigés vers SP Canada et des chaires de recherche reconnues."
+- À terme: liste des projets spécifiques financés
+- Logos des partenaires de recherche (si applicable)
+
+---
+
+**[5] CTA**
+- "Contribuez à la recherche"
+- Bouton: Faire un don
+
+---
+
+### 3.4 Événements (`/evenements`)
+
+**Objectif:** Promouvoir les activités, montrer la communauté en action
+
+**Flow narratif:**
+
+---
+
+**[1] Hero**
+- Image d'un événement passé
+- Titre: "Nos événements"
+- Sous-titre: "Spectacles, soupers-bénéfice et rassemblements pour financer l'espoir."
+
+---
+
+**[2] Prochain événement (si applicable)**
+- Mise en avant immersive (grande image, date expressive)
+- Détails: lieu, prix, description
+- CTA: "Réserver" ou "En savoir plus"
+
+**Si aucun événement:**
+- Message: "Nos prochains événements arrivent bientôt."
+- Formulaire newsletter pour être informé
+
+---
+
+**[3] Types d'événements**
+- Liste descriptive (pas de cartes):
+  - **Spectacles musicaux** — Artistes locaux et invités
+  - **Soupers-spectacles** — Gastronomie et divertissement
+  - **Soirées thématiques** — Sushis et art, humour, magie
+  - **Activités familiales** — Pique-niques, rassemblements
+
+---
+
+**[4] Événements passés**
+- Galerie photos (layout organique, pas grille rigide)
+- Chiffres: montants amassés par événement
+- Témoignages courts de participants
+
+---
+
+**[5] CTA**
+- "Vous voulez organiser un événement pour la cause?"
+- Lien vers contact
+
+---
+
+### 3.5 Faire un don (`/don`)
+
+**Objectif:** Convertir — page dédiée, sans distraction
+
+**Flow narratif:**
+
+---
+
+**[1] Hero simple**
+- Titre: "Faites un don"
+- Sous-titre: "100% de votre contribution finance la recherche."
+
+---
+
+**[2] Formulaire de don**
+- **Montants suggérés:** 25$ | 50$ | 100$ | 250$ | Autre
+- **Option don mensuel** (toggle)
+- Champs: Nom, courriel, infos paiement
+- **Plateforme suggérée:** Zeffy (0% frais pour OBNL)
+
+---
+
+**[3] Réassurance**
+- "Chaque dollar compte."
+- Rappel: travail 100% bénévole, pas de frais admin
+- Note: "Reçu fiscal disponible dès l'obtention du statut d'organisme de bienfaisance."
+
+---
+
+**[4] Autres façons de contribuer**
+- Devenir bénévole (lien vers formulaire contact)
+- Organiser une collecte personnelle
+- Partager sur les réseaux sociaux
+
+---
+
+### 3.6 Contact (`/contact`)
 
 **Objectif:** Faciliter la communication
 
-- Formulaire de contact simple
-- Adresse: 243, boul. Brien, bureau 250, Repentigny, QC
-- Courriel: info@mouvementespoir.ca (suggéré)
-- Réseaux sociaux
-- Carte Google Maps (optionnel)
+---
+
+**[1] Hero simple**
+- Titre: "Contactez-nous"
 
 ---
 
-## 3. Éléments globaux
+**[2] Formulaire**
+- Champs: Nom, courriel, sujet (dropdown), message
+- CTA: "Envoyer"
 
-### Header (fixe)
-- Logo (gauche)
-- Navigation: Mission | Recherche | Événements | S'impliquer | Contact
-- CTA: "Faire un don" (bouton orange, toujours visible)
+---
+
+**[3] Coordonnées**
+- **Adresse:** 243, boul. Brien, bureau 250, Repentigny, QC
+- **Courriel:** info@mouvementespoir.ca (à confirmer)
+- **Réseaux sociaux:** Facebook, Instagram
+
+---
+
+## 4. Éléments globaux
+
+### Header
+- **Fixe** en haut de page
+- Logo (gauche) — cliquable vers accueil
+- Navigation: Notre histoire | La recherche | Événements | Contact
+- **CTA permanent:** "Faire un don" (bouton orange, toujours visible)
+- Sur mobile: hamburger menu
 
 ### Footer
 - Logo + tagline
 - Navigation secondaire
-- Newsletter signup
-- Coordonnées
-- Réseaux sociaux: Facebook, Instagram
-- Mention légale
-
-### Pop-up newsletter (optionnel, Phase 2)
-- Apparaît après 30 secondes ou au scroll 50%
-- "Restez informés de nos événements"
+- Formulaire newsletter compact
+- Coordonnées + réseaux sociaux
+- Mention légale: "OBNL enregistré au Québec — NEQ 1181 4407 11"
 
 ---
 
-## 4. Fonctionnalités techniques
+## 5. Fonctionnalités techniques
 
 ### MVP (Phase 1)
-- [ ] Site statique ou JAMstack (Next.js, Astro)
-- [ ] Responsive design
-- [ ] Formulaire de contact (Formspree ou similaire)
-- [ ] Intégration don (Zeffy recommandé pour OBNL - 0% frais)
+- [ ] Site statique (Astro ou Next.js)
+- [ ] Responsive design (mobile-first)
+- [ ] Formulaire de contact (Formspree ou Netlify Forms)
+- [ ] Intégration don (Zeffy — 0% frais pour OBNL)
 - [ ] Google Analytics
-- [ ] SEO de base (meta tags, sitemap)
+- [ ] SEO de base (meta tags, Open Graph, sitemap)
+- [ ] Animations scroll subtiles (intersection observer)
 
 ### Phase 2
 - [ ] Blog / Actualités
-- [ ] Galerie d'événements
-- [ ] Espace membre (optionnel)
-- [ ] Calendrier interactif
+- [ ] Galerie d'événements étendue
 - [ ] Billetterie intégrée
+- [ ] Espace bénévole
 
 ---
 
-## 5. Domaine et hébergement suggérés
+## 6. Domaine et hébergement
 
-**Domaines possibles:**
-- mouvementespoir.ca (recommandé)
-- mouvementsolidaireespoir.ca
-- espoir-sp.ca
+**Domaine recommandé:** `mouvementespoir.ca`
 
 **Hébergement:**
-- Vercel (gratuit, idéal pour Next.js)
-- Netlify (alternative)
-- Domaine: ~15$/an via Namecheap ou Porkbun
+- Vercel (gratuit, déploiement automatique)
+- Domaine: ~15$/an (Porkbun ou Namecheap)
 
 ---
 
-## 6. Contenu à fournir par Marie-Carole
+## 7. Contenu à fournir par Marie-Carole
 
-- [ ] Photos haute résolution de l'équipe
-- [ ] Photos d'événements passés (Marche SP, etc.)
-- [ ] Témoignages écrits (avec autorisation)
-- [ ] Bio courte pour chaque membre de l'équipe
-- [ ] Logo en formats vectoriels (SVG, AI, EPS)
-- [ ] Informations de contact officielles
-- [ ] Texte de présentation validé
+### Priorité haute (bloquant pour le MVP)
+- [ ] Logo en format SVG (vectoriel)
+- [ ] Photos haute résolution de Marie-Carole et Hélène
+- [ ] 3-5 photos d'événements passés (Marche SP, etc.)
+- [ ] Texte de bio validé pour chaque fondatrice
+- [ ] Courriel officiel de contact
+- [ ] Confirmation du nom de domaine souhaité
+
+### Priorité moyenne
+- [ ] Témoignage(s) de participants (avec autorisation)
 - [ ] Dates des prochains événements
+- [ ] Informations sur les événements passés (montants amassés)
+
+### Phase 2
+- [ ] Rapport annuel (quand disponible)
+- [ ] Photos supplémentaires pour galerie
+- [ ] Contenu pour blog/actualités
 
 ---
 
-## 7. Calendrier de développement suggéré
+## 8. Résumé MVP
 
-| Phase | Livrable | Délai |
-|-------|----------|-------|
-| 1 | Design maquettes (Figma) | 1 semaine |
-| 2 | Développement pages principales | 2 semaines |
-| 3 | Intégration don + formulaires | 3-4 jours |
-| 4 | Tests et ajustements | 3 jours |
-| 5 | Mise en ligne | 1 jour |
-
-**Total estimé: 4-5 semaines** pour un MVP fonctionnel
+| Page | Sections | Priorité |
+|------|----------|----------|
+| Accueil | Hero + Essentiel + Promesse + Événement + Témoignage + Newsletter | Haute |
+| Notre histoire | Récit + Équipe + Transparence | Haute |
+| La recherche | Comprendre SP + Avancées + Fonds | Moyenne |
+| Événements | Prochain + Types + Archives | Moyenne |
+| Faire un don | Formulaire + Réassurance | Haute |
+| Contact | Formulaire + Coordonnées | Haute |
 
 ---
 
 *Document préparé pour le projet Mouvement solidaire eSPoir*
+*Design: éditorial, organique, narratif — pas de grilles de cartes*
