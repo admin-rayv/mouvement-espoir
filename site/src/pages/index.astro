@@ -8,124 +8,187 @@ import Footer from '../components/Footer.astro';
   <Header />
 
   <main>
-    <!-- ========== HERO ========== -->
+    <!-- ========== HERO - Full screen, editorial ========== -->
     <section class="hero">
-      <div class="hero-bg">
+      <div class="hero-visual">
+        <div class="hero-image image-placeholder">
+          <span>Photo communauté</span>
+        </div>
         <div class="hero-overlay"></div>
-        <div class="hero-placeholder">
-          <span>Photo de communauté ou événement</span>
-        </div>
       </div>
+
       <div class="hero-content">
-        <h1>Ensemble, finançons l'espoir de guérison</h1>
-        <p class="tagline">Financer. Chercher. Guérir la sclérose en plaques.</p>
-        <div class="hero-cta">
-          <a href="/don" class="btn btn-primary">Faire un don</a>
-          <a href="/histoire" class="btn btn-secondary">Découvrir notre histoire</a>
+        <div class="hero-tagline" data-animate data-delay="1">
+          <span class="text-label">Mouvement solidaire eSPoir</span>
         </div>
-        <div class="scroll-indicator">
-          <span>Défiler</span>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 5v14M5 12l7 7 7-7"/>
-          </svg>
+
+        <h1 data-animate data-delay="2">
+          <span class="hero-line">Ensemble,</span>
+          <span class="hero-line">finançons</span>
+          <span class="hero-line hero-accent">l'espoir</span>
+        </h1>
+
+        <div class="hero-bottom" data-animate data-delay="3">
+          <p class="hero-description">
+            Nous mobilisons la communauté de Lanaudière pour financer
+            la recherche sur la sclérose en plaques.
+          </p>
+          <div class="hero-actions">
+            <a href="/don" class="btn btn-white">
+              Faire un don
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
         </div>
+      </div>
+
+      <div class="hero-scroll">
+        <span>Découvrir</span>
+        <div class="scroll-line"></div>
       </div>
     </section>
 
-    <!-- ========== L'ESSENTIEL ========== -->
-    <section class="essential">
-      <div class="container container-narrow text-center">
-        <p class="essential-highlight">
-          <span class="stat">100%</span>
-          <span class="stat-label">de votre don finance directement la recherche</span>
-        </p>
-        <p class="lead">
-          Aucun frais administratif. Tout notre travail est bénévole.
-          Chaque dollar que vous donnez va directement aux chercheurs qui travaillent à trouver un remède.
-        </p>
-      </div>
-    </section>
-
-    <!-- ========== NOTRE PROMESSE ========== -->
-    <section class="promise section-warm">
+    <!-- ========== IMPACT - Big statement ========== -->
+    <section class="impact">
       <div class="container">
-        <div class="promise-grid">
-          <div class="promise-image">
-            <div class="image-placeholder" style="height: 500px;">
-              Photo du logo ou de la communauté
+        <div class="impact-content" data-animate>
+          <span class="text-huge">100%</span>
+          <p class="text-display">
+            de votre don finance<br/>
+            <em>directement</em> la recherche
+          </p>
+        </div>
+        <div class="impact-detail" data-animate data-delay="2">
+          <div class="divider"></div>
+          <p class="text-large text-muted">
+            Aucun frais administratif. Tout notre travail est bénévole.
+            Chaque dollar va aux chercheurs qui travaillent à trouver un remède.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MISSION - Asymmetric layout ========== -->
+    <section class="mission">
+      <div class="container">
+        <div class="mission-grid">
+          <div class="mission-visual" data-animate="slide-left">
+            <div class="mission-image-wrapper">
+              <div class="mission-image image-placeholder">
+                <span>Photo Marie-Carole ou événement</span>
+              </div>
+              <div class="mission-shape"></div>
             </div>
           </div>
-          <div class="promise-content">
-            <h2>Notre promesse</h2>
-            <p class="lead mb-lg">
-              Le Mouvement solidaire eSPoir mobilise la communauté de Lanaudière
-              pour financer la recherche sur la sclérose en plaques.
-            </p>
 
-            <div class="promise-list">
-              <div class="promise-item">
-                <span class="promise-number">1</span>
-                <div>
-                  <h3>Financer</h3>
-                  <p>Des événements culturels locaux — spectacles, soupers-bénéfice, rassemblements.</p>
-                </div>
-              </div>
-              <div class="promise-item">
-                <span class="promise-number">2</span>
-                <div>
-                  <h3>Chercher</h3>
-                  <p>100% des fonds dirigés vers la recherche de pointe sur la SP.</p>
-                </div>
-              </div>
-              <div class="promise-item">
-                <span class="promise-number">3</span>
-                <div>
-                  <h3>Guérir</h3>
-                  <p>L'objectif: un remède pour les 20 000 Québécois touchés par la sclérose en plaques.</p>
-                </div>
-              </div>
+          <div class="mission-content" data-animate="slide-right">
+            <span class="text-label">Notre mission</span>
+            <h2>Financer.<br/>Chercher.<br/>Guérir.</h2>
+
+            <div class="mission-text">
+              <p>
+                La sclérose en plaques touche <strong>20 000 Québécois</strong>.
+                Dans Lanaudière, ce sont <strong>1 300 personnes</strong> qui vivent avec cette maladie.
+              </p>
+              <p>
+                Le Mouvement solidaire eSPoir organise des événements culturels
+                dont tous les profits sont dirigés vers la recherche de pointe.
+              </p>
             </div>
+
+            <a href="/histoire" class="link-underline">
+              Découvrir notre histoire →
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== PROCHAIN ÉVÉNEMENT ========== -->
+    <!-- ========== APPROACH - Three pillars ========== -->
+    <section class="approach">
+      <div class="container">
+        <div class="approach-header" data-animate>
+          <span class="text-label">Notre approche</span>
+          <h2>Comment nous<br/>faisons la différence</h2>
+        </div>
+
+        <div class="approach-items">
+          <div class="approach-item" data-animate data-delay="1">
+            <span class="approach-number">01</span>
+            <h3>Événements culturels</h3>
+            <p>
+              Spectacles, soupers-bénéfice, activités familiales.
+              Des rassemblements qui unissent la communauté.
+            </p>
+          </div>
+
+          <div class="approach-item" data-animate data-delay="2">
+            <span class="approach-number">02</span>
+            <h3>Transparence totale</h3>
+            <p>
+              100% des profits vont à la recherche.
+              Zéro frais administratif. Travail 100% bénévole.
+            </p>
+          </div>
+
+          <div class="approach-item" data-animate data-delay="3">
+            <span class="approach-number">03</span>
+            <h3>Recherche de pointe</h3>
+            <p>
+              Nos fonds soutiennent des projets menés par des chercheurs
+              reconnus pour leur expertise sur la SP.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EVENT - Featured ========== -->
     <section class="event">
-      <div class="container">
-        <div class="event-card">
-          <div class="event-image">
-            <div class="image-placeholder" style="height: 100%;">
-              Photo de l'événement
+      <div class="container-wide">
+        <div class="event-wrapper" data-animate>
+          <div class="event-visual">
+            <div class="event-image image-placeholder">
+              <span>Photo événement</span>
             </div>
           </div>
+
           <div class="event-content">
-            <span class="event-label">Prochain événement</span>
-            <p class="event-date">
-              <span class="event-day">À venir</span>
-              <span class="event-month">2026</span>
-            </p>
-            <h2>Nos prochains événements arrivent bientôt</h2>
+            <span class="text-label">Prochain événement</span>
+            <div class="event-date">
+              <span class="event-coming">À venir</span>
+              <span class="event-year">2026</span>
+            </div>
+            <h2>Nos événements<br/>arrivent bientôt</h2>
             <p>
               Spectacles, soupers-bénéfice et activités familiales dans Lanaudière.
-              Inscrivez-vous pour être informé dès qu'un événement est annoncé.
             </p>
-            <a href="#newsletter" class="btn btn-primary">M'inscrire pour être informé</a>
+            <a href="#newsletter" class="btn btn-primary">
+              Être informé
+              <span class="btn-arrow">→</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== TÉMOIGNAGE ========== -->
-    <section class="testimonial section-sand">
-      <div class="container container-narrow text-center">
-        <blockquote>
-          "Participer à la Marche SP m'a permis de réaliser que nous sommes nombreux à vouloir faire avancer la recherche. Le Mouvement solidaire eSPoir, c'est cette énergie collective canalisée vers un seul objectif: la guérison."
-          <cite>— Témoignage à venir</cite>
-        </blockquote>
-        <div class="testimonial-avatar">
-          <div class="image-placeholder" style="width: 80px; height: 80px; border-radius: 50%;">
-            Photo
+    <!-- ========== QUOTE ========== -->
+    <section class="quote">
+      <div class="container">
+        <div class="quote-content" data-animate>
+          <blockquote>
+            "Le Mouvement solidaire eSPoir, c'est l'énergie
+            collective canalisée vers un seul objectif:
+            <em>la guérison</em>."
+          </blockquote>
+          <div class="quote-author">
+            <div class="quote-avatar image-placeholder">
+              <span>Photo</span>
+            </div>
+            <div class="quote-info">
+              <span class="quote-name">Témoignage à venir</span>
+              <span class="quote-role">Participant</span>
+            </div>
           </div>
         </div>
       </div>
@@ -133,24 +196,30 @@ import Footer from '../components/Footer.astro';
 
     <!-- ========== NEWSLETTER ========== -->
     <section class="newsletter" id="newsletter">
-      <div class="container container-narrow text-center">
-        <h2>Restez informés</h2>
-        <p class="lead">
-          Recevez les nouvelles de nos événements et les avancées de la recherche.
-        </p>
-        <form class="newsletter-form" action="#" method="POST">
-          <input
-            type="email"
-            name="email"
-            placeholder="Votre adresse courriel"
-            required
-            aria-label="Adresse courriel"
-          />
-          <button type="submit" class="btn btn-primary">S'inscrire</button>
-        </form>
-        <p class="newsletter-note">
-          Nous respectons votre vie privée. Aucun spam, promis.
-        </p>
+      <div class="container">
+        <div class="newsletter-wrapper" data-animate>
+          <div class="newsletter-content">
+            <span class="text-label">Restez informés</span>
+            <h2>Joignez-vous<br/>au mouvement</h2>
+            <p>
+              Recevez les nouvelles de nos événements
+              et les avancées de la recherche.
+            </p>
+          </div>
+          <form class="newsletter-form" action="#" method="POST">
+            <input
+              type="email"
+              name="email"
+              placeholder="votre@courriel.com"
+              required
+              aria-label="Adresse courriel"
+            />
+            <button type="submit" class="btn btn-primary">
+              S'inscrire
+              <span class="btn-arrow">→</span>
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -163,286 +232,398 @@ import Footer from '../components/Footer.astro';
   .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 80px;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+    overflow: hidden;
   }
 
-  .hero-bg {
+  .hero-visual {
     position: absolute;
     inset: 0;
     z-index: 0;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
   }
 
   .hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      135deg,
-      rgba(27, 58, 95, 0.85) 0%,
-      rgba(45, 90, 135, 0.75) 50%,
-      rgba(90, 138, 184, 0.65) 100%
+      to bottom,
+      rgba(27, 58, 95, 0.3) 0%,
+      rgba(27, 58, 95, 0.7) 60%,
+      rgba(27, 58, 95, 0.95) 100%
     );
-    z-index: 1;
-  }
-
-  .hero-placeholder {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--color-sand) 0%, var(--color-gray-warm) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-ocean);
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
   }
 
   .hero-content {
     position: relative;
-    z-index: 2;
-    text-align: center;
+    z-index: 1;
+    padding: clamp(2rem, 8vw, 6rem);
+    padding-top: 30vh;
     color: white;
-    padding: var(--space-md);
-    max-width: 900px;
+  }
+
+  .hero-tagline {
+    margin-bottom: 2rem;
+  }
+
+  .hero-tagline .text-label {
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .hero h1 {
     color: white;
-    margin-bottom: var(--space-sm);
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 3rem;
   }
 
-  .hero .tagline {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.5rem;
-    margin-bottom: var(--space-lg);
+  .hero-line {
+    display: block;
   }
 
-  .hero-cta {
+  .hero-accent {
+    color: var(--color-hope);
+    font-style: italic;
+  }
+
+  .hero-bottom {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 4rem;
     flex-wrap: wrap;
   }
 
-  .hero .btn-secondary {
-    border-color: white;
-    color: white;
+  .hero-description {
+    max-width: 400px;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin: 0;
   }
 
-  .hero .btn-secondary:hover {
-    background: white;
-    color: var(--color-marine);
-  }
-
-  .scroll-indicator {
+  .hero-scroll {
     position: absolute;
-    bottom: var(--space-md);
-    left: 50%;
-    transform: translateX(-50%);
+    right: clamp(2rem, 5vw, 4rem);
+    bottom: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    color: rgba(255, 255, 255, 0.7);
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    animation: bounce 2s infinite;
+    letter-spacing: 0.15em;
+    writing-mode: vertical-rl;
   }
 
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-    40% { transform: translateX(-50%) translateY(-10px); }
-    60% { transform: translateX(-50%) translateY(-5px); }
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
   }
 
-  /* ========== ESSENTIAL ========== */
-  .essential {
-    padding: var(--space-2xl) 0;
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.5; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
   }
 
-  .essential-highlight {
-    margin-bottom: var(--space-lg);
+  /* ========== IMPACT ========== */
+  .impact {
+    padding: clamp(6rem, 15vw, 12rem) 0;
+    background: var(--color-white);
   }
 
-  .essential .stat {
-    display: block;
+  .impact-content {
+    margin-bottom: 4rem;
   }
 
-  .essential .stat-label {
-    display: block;
-    margin-top: var(--space-sm);
+  .impact-content .text-huge {
+    margin-bottom: 1rem;
   }
 
-  /* ========== PROMISE ========== */
-  .promise-grid {
+  .impact-content .text-display em {
+    font-style: italic;
+    color: var(--color-ocean);
+  }
+
+  .impact-detail {
+    max-width: 600px;
+  }
+
+  /* ========== MISSION ========== */
+  .mission {
+    padding: clamp(6rem, 12vw, 10rem) 0;
+    background: var(--color-cream);
+  }
+
+  .mission-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: var(--space-xl);
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(4rem, 8vw, 8rem);
     align-items: center;
   }
 
-  .promise-image {
+  .mission-image-wrapper {
     position: relative;
   }
 
-  .promise-image .image-placeholder {
-    border-radius: 20px 80px 20px 80px;
+  .mission-image {
+    aspect-ratio: 4/5;
+    position: relative;
+    z-index: 1;
   }
 
-  .promise-list {
-    margin-top: var(--space-md);
-  }
-
-  .promise-item {
-    display: flex;
-    gap: var(--space-md);
-    margin-bottom: var(--space-md);
-    align-items: flex-start;
-  }
-
-  .promise-number {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+  .mission-shape {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    width: 60%;
+    height: 60%;
     background: var(--color-ocean);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  .mission-content .text-label {
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .mission-content h2 {
+    margin-bottom: 2rem;
+  }
+
+  .mission-text {
+    margin-bottom: 2rem;
+  }
+
+  .mission-text p {
+    color: var(--color-gray);
+  }
+
+  .mission-text strong {
+    color: var(--color-anthracite);
+  }
+
+  /* ========== APPROACH ========== */
+  .approach {
+    padding: clamp(6rem, 12vw, 10rem) 0;
+    background: var(--color-white);
+  }
+
+  .approach-header {
+    margin-bottom: clamp(4rem, 8vw, 6rem);
+  }
+
+  .approach-header .text-label {
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .approach-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .approach-item {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-sand);
+  }
+
+  .approach-number {
+    display: block;
     font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-ocean);
+    margin-bottom: 2rem;
   }
 
-  .promise-item h3 {
-    margin-bottom: 0.25rem;
-    font-size: 1.25rem;
+  .approach-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
-  .promise-item p {
+  .approach-item p {
+    color: var(--color-gray);
     margin: 0;
-    opacity: 0.85;
   }
 
   /* ========== EVENT ========== */
   .event {
-    padding: var(--space-xl) 0;
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: var(--color-marine);
   }
 
-  .event-card {
+  .container-wide {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .event-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(27, 58, 95, 0.1);
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .event-visual {
+    margin: -6rem 0;
   }
 
   .event-image {
-    min-height: 400px;
+    aspect-ratio: 4/3;
   }
 
   .event-content {
-    padding: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    color: white;
+    padding: 2rem 0;
   }
 
-  .event-label {
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 0.75rem;
-    color: var(--color-ocean);
-    font-weight: 600;
-    margin-bottom: var(--space-sm);
+  .event-content .text-label {
+    color: var(--color-sky);
+    margin-bottom: 1.5rem;
+    display: block;
   }
 
   .event-date {
-    font-family: var(--font-heading);
-    margin-bottom: var(--space-sm);
+    margin-bottom: 1.5rem;
   }
 
-  .event-day {
+  .event-coming {
     display: block;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--color-marine);
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 500;
     line-height: 1;
+    letter-spacing: -0.02em;
   }
 
-  .event-month {
+  .event-year {
+    display: block;
     font-size: 1.25rem;
-    color: var(--color-ocean);
+    color: var(--color-sky);
+    margin-top: 0.5rem;
   }
 
   .event-content h2 {
-    font-size: 1.75rem;
-    margin-bottom: var(--space-sm);
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
   }
 
   .event-content p {
-    margin-bottom: var(--space-md);
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
   }
 
-  /* ========== TESTIMONIAL ========== */
-  .testimonial {
-    padding: var(--space-2xl) 0;
+  /* ========== QUOTE ========== */
+  .quote {
+    padding: clamp(6rem, 12vw, 10rem) 0;
+    background: var(--color-sand);
   }
 
-  .testimonial blockquote {
+  .quote-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .quote-content blockquote {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-marine);
     border: none;
     padding: 0;
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-    max-width: 700px;
-    margin: 0 auto var(--space-md);
+    margin: 0 0 3rem 0;
   }
 
-  .testimonial cite {
+  .quote-content blockquote em {
+    font-style: italic;
     color: var(--color-ocean);
   }
 
-  .testimonial-avatar {
+  .quote-author {
     display: flex;
+    align-items: center;
     justify-content: center;
+    gap: 1rem;
+  }
+
+  .quote-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .quote-info {
+    text-align: left;
+  }
+
+  .quote-name {
+    display: block;
+    font-weight: 500;
+    color: var(--color-anthracite);
+  }
+
+  .quote-role {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-gray);
   }
 
   /* ========== NEWSLETTER ========== */
   .newsletter {
-    padding: var(--space-2xl) 0;
-    background: linear-gradient(180deg, var(--color-white-warm) 0%, var(--color-gray-warm) 100%);
+    padding: clamp(6rem, 12vw, 10rem) 0;
+    background: var(--color-cream);
   }
 
-  .newsletter h2 {
-    margin-bottom: var(--space-sm);
+  .newsletter-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(4rem, 8vw, 8rem);
+    align-items: center;
   }
 
-  .newsletter .lead {
-    margin-bottom: var(--space-md);
+  .newsletter-content .text-label {
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .newsletter-content h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .newsletter-content p {
+    color: var(--color-gray);
+    margin: 0;
   }
 
   .newsletter-form {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
-    max-width: 500px;
-    margin: 0 auto var(--space-sm);
   }
 
   .newsletter-form input {
-    flex: 1;
-    padding: 1rem 1.5rem;
-    border: 2px solid var(--color-sand);
-    border-radius: 0;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--color-sand);
+    background: white;
     font-family: var(--font-body);
     font-size: 1rem;
-    background: white;
-    transition: border-color 0.2s;
+    transition: border-color 0.3s;
   }
 
   .newsletter-form input:focus {
@@ -450,56 +631,70 @@ import Footer from '../components/Footer.astro';
     border-color: var(--color-ocean);
   }
 
-  .newsletter-form .btn {
-    white-space: nowrap;
-  }
-
-  .newsletter-note {
-    font-size: 0.8125rem;
-    opacity: 0.6;
-    margin: 0;
+  .newsletter-form input::placeholder {
+    color: var(--color-gray);
   }
 
   /* ========== RESPONSIVE ========== */
   @media (max-width: 900px) {
-    .promise-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
+    .hero-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
     }
 
-    .promise-image {
+    .mission-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .mission-visual {
       order: -1;
     }
 
-    .promise-image .image-placeholder {
-      height: 300px !important;
+    .mission-image {
+      aspect-ratio: 16/9;
     }
 
-    .event-card {
+    .approach-items {
       grid-template-columns: 1fr;
     }
 
-    .event-image {
-      min-height: 250px;
+    .event-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .event-visual {
+      margin: 0;
+      order: -1;
+    }
+
+    .newsletter-wrapper {
+      grid-template-columns: 1fr;
+      gap: 3rem;
     }
   }
 
   @media (max-width: 600px) {
-    .hero h1 {
-      font-size: 2rem;
-    }
-
-    .hero .tagline {
-      font-size: 1.125rem;
-    }
-
-    .hero-cta {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .newsletter-form {
-      flex-direction: column;
+    .hero-scroll {
+      display: none;
     }
   }
 </style>
+
+<script>
+  // Scroll animations
+  const animatedElements = document.querySelectorAll('[data-animate]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  animatedElements.forEach(el => observer.observe(el));
+</script>

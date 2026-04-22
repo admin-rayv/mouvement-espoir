@@ -1,94 +1,128 @@
 ---
-// Footer component
+// Footer component - Modern, minimal
 ---
 
 <footer class="footer">
   <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-cta">
+        <h2>Prêt à faire<br/>la différence?</h2>
+        <a href="/don" class="btn btn-white">
+          Faire un don
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
     <div class="footer-main">
       <div class="footer-brand">
-        <span class="footer-logo">Mouvement solidaire <em>eSPoir</em></span>
-        <p class="footer-tagline">Financer. Chercher. Guérir la sclérose en plaques.</p>
+        <span class="footer-logo">eSPoir</span>
+        <p class="footer-tagline">
+          Financer. Chercher. Guérir<br/>
+          la sclérose en plaques.
+        </p>
       </div>
 
       <nav class="footer-nav">
+        <span class="footer-nav-title">Navigation</span>
         <ul>
           <li><a href="/histoire">Notre histoire</a></li>
           <li><a href="/recherche">La recherche</a></li>
           <li><a href="/evenements">Événements</a></li>
           <li><a href="/contact">Contact</a></li>
-          <li><a href="/don" class="footer-cta">Faire un don</a></li>
         </ul>
       </nav>
 
       <div class="footer-contact">
+        <span class="footer-nav-title">Contact</span>
         <p>
           243, boul. Brien, bureau 250<br />
           Repentigny, QC
         </p>
-        <p>
-          <a href="mailto:info@mouvementespoir.ca">info@mouvementespoir.ca</a>
-        </p>
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-            </svg>
-          </a>
-          <a href="#" aria-label="Instagram">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-            </svg>
-          </a>
+        <a href="mailto:info@mouvementespoir.ca" class="footer-email">
+          info@mouvementespoir.ca
+        </a>
+      </div>
+
+      <div class="footer-social">
+        <span class="footer-nav-title">Suivez-nous</span>
+        <div class="footer-social-links">
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Instagram">IG</a>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
       <p>OBNL enregistré au Québec — NEQ 1181 4407 11</p>
-      <p>&copy; {new Date().getFullYear()} Mouvement solidaire eSPoir. Tous droits réservés.</p>
+      <p>© {new Date().getFullYear()} Mouvement solidaire eSPoir</p>
     </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: var(--color-marine);
+    background: var(--color-anthracite);
     color: white;
-    padding: var(--space-xl) 0 var(--space-md);
   }
 
   .footer-container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 var(--space-md);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .footer-top {
+    padding: clamp(4rem, 10vw, 8rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-cta h2 {
+    color: white;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    margin: 0;
   }
 
   .footer-main {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: var(--space-lg);
-    margin-bottom: var(--space-lg);
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    padding: clamp(3rem, 6vw, 5rem) 0;
   }
 
   .footer-logo {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
-  }
-
-  .footer-logo em {
-    font-style: normal;
-    color: var(--color-pale);
+    display: block;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
 
   .footer-tagline {
-    font-family: var(--font-heading);
-    font-style: italic;
-    opacity: 0.8;
-    margin-top: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  .footer-nav-title {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.4;
+    margin-bottom: 1.5rem;
   }
 
   .footer-nav ul {
@@ -102,73 +136,88 @@
   }
 
   .footer-nav a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9375rem;
-    transition: color 0.2s;
+    transition: color 0.3s;
   }
 
   .footer-nav a:hover {
     color: white;
   }
 
-  .footer-cta {
-    color: var(--color-hope) !important;
-    font-weight: 600;
-  }
-
-  .footer-contact {
+  .footer-contact p {
     font-size: 0.9375rem;
     line-height: 1.6;
+    opacity: 0.7;
+    margin: 0 0 1rem 0;
   }
 
-  .footer-contact p {
-    margin-bottom: 1rem;
-    opacity: 0.8;
-  }
-
-  .footer-contact a {
+  .footer-email {
     color: white;
+    font-size: 0.9375rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.3s;
   }
 
-  .footer-social {
+  .footer-email:hover {
+    border-color: white;
+  }
+
+  .footer-social-links {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 1.5rem;
   }
 
-  .footer-social a {
+  .footer-social-links a {
     color: rgba(255, 255, 255, 0.7);
-    transition: color 0.2s;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.3s;
   }
 
-  .footer-social a:hover {
+  .footer-social-links a:hover {
     color: white;
   }
 
   .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: var(--space-md);
     display: flex;
     justify-content: space-between;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8125rem;
-    opacity: 0.6;
+    opacity: 0.4;
   }
 
   .footer-bottom p {
     margin: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
+    .footer-main {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-cta {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .footer-main {
       grid-template-columns: 1fr;
-      gap: var(--space-md);
+      gap: 2rem;
     }
 
     .footer-bottom {
       flex-direction: column;
       gap: 0.5rem;
-      text-align: center;
     }
   }
 </style>
