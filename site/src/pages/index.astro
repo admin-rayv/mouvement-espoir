@@ -8,7 +8,7 @@ import Footer from '../components/Footer.astro';
   <Header />
 
   <main>
-    <!-- ========== HERO - Full screen, editorial ========== -->
+    <!-- ========== HERO - Épuré, élégant ========== -->
     <section class="hero">
       <div class="hero-visual">
         <div class="hero-image image-placeholder">
@@ -33,51 +33,47 @@ import Footer from '../components/Footer.astro';
             Nous mobilisons la communauté de Lanaudière pour financer
             la recherche sur la sclérose en plaques.
           </p>
-          <div class="hero-actions">
-            <a href="/don" class="btn btn-white">
-              Faire un don
-              <span class="btn-arrow">→</span>
-            </a>
-          </div>
+          <a href="/don" class="btn btn-white">
+            Faire un don
+            <span class="btn-arrow">→</span>
+          </a>
         </div>
       </div>
 
       <div class="hero-scroll">
-        <span>Découvrir</span>
-        <div class="scroll-line"></div>
+        <span>Défiler</span>
       </div>
     </section>
 
-    <!-- ========== IMPACT - Big statement ========== -->
+    <!-- ========== IMPACT - Statement épuré ========== -->
     <section class="impact">
       <div class="container">
-        <div class="impact-content" data-animate>
-          <span class="text-huge">100%</span>
-          <p class="text-display">
-            de votre don finance<br/>
-            <em>directement</em> la recherche
-          </p>
-        </div>
-        <div class="impact-detail" data-animate data-delay="2">
-          <div class="divider"></div>
-          <p class="text-large text-muted">
-            Aucun frais administratif. Tout notre travail est bénévole.
-            Chaque dollar va aux chercheurs qui travaillent à trouver un remède.
-          </p>
+        <div class="impact-grid">
+          <div class="impact-number" data-animate>
+            <span class="text-huge">100%</span>
+          </div>
+          <div class="impact-content" data-animate data-delay="2">
+            <p class="text-display">
+              de votre don finance<br/>
+              <em>directement</em> la recherche
+            </p>
+            <div class="divider"></div>
+            <p class="text-muted">
+              Aucun frais administratif. Tout notre travail est bénévole.
+              Chaque dollar va aux chercheurs.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== MISSION - Asymmetric layout ========== -->
+    <!-- ========== MISSION ========== -->
     <section class="mission">
       <div class="container">
         <div class="mission-grid">
           <div class="mission-visual" data-animate="slide-left">
-            <div class="mission-image-wrapper">
-              <div class="mission-image image-placeholder">
-                <span>Photo Marie-Carole ou événement</span>
-              </div>
-              <div class="mission-shape"></div>
+            <div class="mission-image image-placeholder">
+              <span>Photo</span>
             </div>
           </div>
 
@@ -85,88 +81,82 @@ import Footer from '../components/Footer.astro';
             <span class="text-label">Notre mission</span>
             <h2>Financer.<br/>Chercher.<br/>Guérir.</h2>
 
-            <div class="mission-text">
-              <p>
-                La sclérose en plaques touche <strong>20 000 Québécois</strong>.
-                Dans Lanaudière, ce sont <strong>1 300 personnes</strong> qui vivent avec cette maladie.
-              </p>
-              <p>
-                Le Mouvement solidaire eSPoir organise des événements culturels
-                dont tous les profits sont dirigés vers la recherche de pointe.
-              </p>
-            </div>
+            <p>
+              La sclérose en plaques touche 20 000 Québécois.
+              Dans Lanaudière, 1 300 personnes vivent avec cette maladie.
+            </p>
+            <p>
+              Le Mouvement solidaire eSPoir organise des événements culturels
+              dont tous les profits sont dirigés vers la recherche.
+            </p>
 
             <a href="/histoire" class="link-underline">
-              Découvrir notre histoire →
+              Découvrir notre histoire
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== APPROACH - Three pillars ========== -->
+    <!-- ========== APPROACH ========== -->
     <section class="approach">
       <div class="container">
-        <div class="approach-header" data-animate>
+        <header class="approach-header" data-animate>
           <span class="text-label">Notre approche</span>
           <h2>Comment nous<br/>faisons la différence</h2>
-        </div>
+        </header>
 
         <div class="approach-items">
-          <div class="approach-item" data-animate data-delay="1">
+          <article class="approach-item" data-animate data-delay="1">
             <span class="approach-number">01</span>
             <h3>Événements culturels</h3>
             <p>
               Spectacles, soupers-bénéfice, activités familiales.
               Des rassemblements qui unissent la communauté.
             </p>
-          </div>
+          </article>
 
-          <div class="approach-item" data-animate data-delay="2">
+          <article class="approach-item" data-animate data-delay="2">
             <span class="approach-number">02</span>
             <h3>Transparence totale</h3>
             <p>
               100% des profits vont à la recherche.
-              Zéro frais administratif. Travail 100% bénévole.
+              Zéro frais administratif. Travail bénévole.
             </p>
-          </div>
+          </article>
 
-          <div class="approach-item" data-animate data-delay="3">
+          <article class="approach-item" data-animate data-delay="3">
             <span class="approach-number">03</span>
             <h3>Recherche de pointe</h3>
             <p>
               Nos fonds soutiennent des projets menés par des chercheurs
-              reconnus pour leur expertise sur la SP.
+              reconnus pour leur expertise.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ========== EVENT - Featured ========== -->
+    <!-- ========== EVENT ========== -->
     <section class="event">
-      <div class="container-wide">
+      <div class="container">
         <div class="event-wrapper" data-animate>
+          <div class="event-content">
+            <span class="text-label">Prochain événement</span>
+            <h2>Nos événements<br/>arrivent bientôt</h2>
+            <p>
+              Spectacles, soupers-bénéfice et activités
+              familiales dans Lanaudière.
+            </p>
+            <a href="#newsletter" class="btn btn-secondary">
+              Être informé
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
           <div class="event-visual">
             <div class="event-image image-placeholder">
               <span>Photo événement</span>
             </div>
-          </div>
-
-          <div class="event-content">
-            <span class="text-label">Prochain événement</span>
-            <div class="event-date">
-              <span class="event-coming">À venir</span>
-              <span class="event-year">2026</span>
-            </div>
-            <h2>Nos événements<br/>arrivent bientôt</h2>
-            <p>
-              Spectacles, soupers-bénéfice et activités familiales dans Lanaudière.
-            </p>
-            <a href="#newsletter" class="btn btn-primary">
-              Être informé
-              <span class="btn-arrow">→</span>
-            </a>
           </div>
         </div>
       </div>
@@ -177,19 +167,13 @@ import Footer from '../components/Footer.astro';
       <div class="container">
         <div class="quote-content" data-animate>
           <blockquote>
-            "Le Mouvement solidaire eSPoir, c'est l'énergie
-            collective canalisée vers un seul objectif:
-            <em>la guérison</em>."
+            « Le Mouvement solidaire eSPoir, c'est l'énergie
+            collective canalisée vers un seul objectif :
+            <em>la guérison</em>. »
           </blockquote>
-          <div class="quote-author">
-            <div class="quote-avatar image-placeholder">
-              <span>Photo</span>
-            </div>
-            <div class="quote-info">
-              <span class="quote-name">Témoignage à venir</span>
-              <span class="quote-role">Participant</span>
-            </div>
-          </div>
+          <footer class="quote-author">
+            <span class="quote-name">Témoignage à venir</span>
+          </footer>
         </div>
       </div>
     </section>
@@ -201,10 +185,6 @@ import Footer from '../components/Footer.astro';
           <div class="newsletter-content">
             <span class="text-label">Restez informés</span>
             <h2>Joignez-vous<br/>au mouvement</h2>
-            <p>
-              Recevez les nouvelles de nos événements
-              et les avancées de la recherche.
-            </p>
           </div>
           <form class="newsletter-form" action="#" method="POST">
             <input
@@ -256,31 +236,33 @@ import Footer from '../components/Footer.astro';
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(27, 58, 95, 0.3) 0%,
-      rgba(27, 58, 95, 0.7) 60%,
-      rgba(27, 58, 95, 0.95) 100%
+      rgba(26, 26, 26, 0.2) 0%,
+      rgba(26, 26, 26, 0.5) 50%,
+      rgba(26, 26, 26, 0.85) 100%
     );
   }
 
   .hero-content {
     position: relative;
     z-index: 1;
-    padding: clamp(2rem, 8vw, 6rem);
-    padding-top: 30vh;
+    padding: clamp(3rem, 10vw, 8rem);
+    padding-top: 35vh;
     color: white;
+    max-width: 900px;
   }
 
   .hero-tagline {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
   .hero-tagline .text-label {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.6);
   }
 
   .hero h1 {
     color: white;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
   }
 
   .hero-line {
@@ -288,7 +270,7 @@ import Footer from '../components/Footer.astro';
   }
 
   .hero-accent {
-    color: var(--color-hope);
+    color: var(--color-accent);
     font-style: italic;
   }
 
@@ -296,297 +278,212 @@ import Footer from '../components/Footer.astro';
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 3rem;
     flex-wrap: wrap;
   }
 
   .hero-description {
-    max-width: 400px;
-    font-size: 1.125rem;
-    line-height: 1.7;
-    opacity: 0.85;
+    max-width: 380px;
+    font-size: 1rem;
+    line-height: 1.8;
+    opacity: 0.75;
     margin: 0;
+    font-weight: 300;
   }
 
   .hero-scroll {
     position: absolute;
-    right: clamp(2rem, 5vw, 4rem);
+    left: clamp(3rem, 10vw, 8rem);
     bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.6875rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    writing-mode: vertical-rl;
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
-
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.5; transform: scaleY(1); }
-    50% { opacity: 1; transform: scaleY(1.2); }
+    letter-spacing: 0.2em;
   }
 
   /* ========== IMPACT ========== */
   .impact {
-    padding: clamp(6rem, 15vw, 12rem) 0;
+    padding: clamp(8rem, 18vw, 14rem) 0;
     background: var(--color-white);
   }
 
-  .impact-content {
-    margin-bottom: 4rem;
+  .impact-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(4rem, 10vw, 10rem);
+    align-items: baseline;
   }
 
-  .impact-content .text-huge {
-    margin-bottom: 1rem;
+  .impact-content {
+    max-width: 480px;
   }
 
   .impact-content .text-display em {
     font-style: italic;
-    color: var(--color-ocean);
   }
 
-  .impact-detail {
-    max-width: 600px;
+  .impact-content .text-muted {
+    font-size: 0.9375rem;
+    line-height: 1.8;
   }
 
   /* ========== MISSION ========== */
   .mission {
-    padding: clamp(6rem, 12vw, 10rem) 0;
+    padding: clamp(8rem, 15vw, 12rem) 0;
     background: var(--color-cream);
   }
 
   .mission-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(4rem, 8vw, 8rem);
+    gap: clamp(5rem, 10vw, 10rem);
     align-items: center;
-  }
-
-  .mission-image-wrapper {
-    position: relative;
   }
 
   .mission-image {
     aspect-ratio: 4/5;
-    position: relative;
-    z-index: 1;
-  }
-
-  .mission-shape {
-    position: absolute;
-    top: -2rem;
-    right: -2rem;
-    width: 60%;
-    height: 60%;
-    background: var(--color-ocean);
-    opacity: 0.1;
-    z-index: 0;
   }
 
   .mission-content .text-label {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     display: block;
   }
 
   .mission-content h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
-  .mission-text {
-    margin-bottom: 2rem;
+  .mission-content p {
+    color: var(--color-gris);
+    margin-bottom: 1.5rem;
   }
 
-  .mission-text p {
-    color: var(--color-gray);
-  }
-
-  .mission-text strong {
-    color: var(--color-anthracite);
+  .mission-content .link-underline {
+    margin-top: 1rem;
+    display: inline-block;
   }
 
   /* ========== APPROACH ========== */
   .approach {
-    padding: clamp(6rem, 12vw, 10rem) 0;
+    padding: clamp(8rem, 15vw, 12rem) 0;
     background: var(--color-white);
   }
 
   .approach-header {
-    margin-bottom: clamp(4rem, 8vw, 6rem);
+    margin-bottom: clamp(5rem, 10vw, 8rem);
+    max-width: 500px;
   }
 
   .approach-header .text-label {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     display: block;
   }
 
   .approach-items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: clamp(2rem, 4vw, 4rem);
+    gap: clamp(3rem, 6vw, 6rem);
   }
 
   .approach-item {
-    padding-top: 2rem;
+    padding-top: 2.5rem;
     border-top: 1px solid var(--color-sand);
   }
 
   .approach-number {
     display: block;
     font-family: var(--font-heading);
-    font-size: 0.875rem;
-    color: var(--color-ocean);
-    margin-bottom: 2rem;
+    font-size: 0.8125rem;
+    color: var(--color-gris);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.1em;
   }
 
   .approach-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.375rem;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
   }
 
   .approach-item p {
-    color: var(--color-gray);
+    color: var(--color-gris);
     margin: 0;
+    font-size: 0.9375rem;
   }
 
   /* ========== EVENT ========== */
   .event {
-    padding: clamp(4rem, 8vw, 6rem) 0;
-    background: var(--color-marine);
-  }
-
-  .container-wide {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    padding: clamp(8rem, 15vw, 12rem) 0;
+    background: var(--color-ivory);
   }
 
   .event-wrapper {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: clamp(3rem, 6vw, 6rem);
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(4rem, 8vw, 8rem);
     align-items: center;
   }
 
-  .event-visual {
-    margin: -6rem 0;
+  .event-content .text-label {
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .event-content h2 {
+    margin-bottom: 2rem;
+  }
+
+  .event-content p {
+    color: var(--color-gris);
+    margin-bottom: 2.5rem;
+    max-width: 320px;
   }
 
   .event-image {
     aspect-ratio: 4/3;
   }
 
-  .event-content {
-    color: white;
-    padding: 2rem 0;
-  }
-
-  .event-content .text-label {
-    color: var(--color-sky);
-    margin-bottom: 1.5rem;
-    display: block;
-  }
-
-  .event-date {
-    margin-bottom: 1.5rem;
-  }
-
-  .event-coming {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  .event-year {
-    display: block;
-    font-size: 1.25rem;
-    color: var(--color-sky);
-    margin-top: 0.5rem;
-  }
-
-  .event-content h2 {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-  }
-
-  .event-content p {
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 2rem;
-  }
-
   /* ========== QUOTE ========== */
   .quote {
-    padding: clamp(6rem, 12vw, 10rem) 0;
+    padding: clamp(10rem, 18vw, 16rem) 0;
     background: var(--color-sand);
   }
 
   .quote-content {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
   }
 
   .quote-content blockquote {
     font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: 400;
-    line-height: 1.4;
-    color: var(--color-marine);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--color-noir);
     border: none;
     padding: 0;
     margin: 0 0 3rem 0;
+    font-style: normal;
   }
 
   .quote-content blockquote em {
     font-style: italic;
-    color: var(--color-ocean);
   }
 
   .quote-author {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .quote-avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-
-  .quote-info {
-    text-align: left;
+    display: block;
   }
 
   .quote-name {
-    display: block;
-    font-weight: 500;
-    color: var(--color-anthracite);
-  }
-
-  .quote-role {
-    display: block;
-    font-size: 0.875rem;
-    color: var(--color-gray);
+    font-size: 0.8125rem;
+    color: var(--color-gris);
+    letter-spacing: 0.05em;
   }
 
   /* ========== NEWSLETTER ========== */
   .newsletter {
-    padding: clamp(6rem, 12vw, 10rem) 0;
+    padding: clamp(8rem, 15vw, 12rem) 0;
     background: var(--color-cream);
   }
 
@@ -598,23 +495,18 @@ import Footer from '../components/Footer.astro';
   }
 
   .newsletter-content .text-label {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     display: block;
   }
 
   .newsletter-content h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .newsletter-content p {
-    color: var(--color-gray);
-    margin: 0;
+    margin-bottom: 0;
   }
 
   .newsletter-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
   }
 
   .newsletter-form input {
@@ -622,29 +514,38 @@ import Footer from '../components/Footer.astro';
     border: 1px solid var(--color-sand);
     background: white;
     font-family: var(--font-body);
-    font-size: 1rem;
-    transition: border-color 0.3s;
+    font-size: 0.9375rem;
+    font-weight: 300;
+    transition: border-color 0.5s var(--ease-elegant);
   }
 
   .newsletter-form input:focus {
     outline: none;
-    border-color: var(--color-ocean);
+    border-color: var(--color-noir);
   }
 
   .newsletter-form input::placeholder {
-    color: var(--color-gray);
+    color: var(--color-gris-clair);
   }
 
   /* ========== RESPONSIVE ========== */
+  @media (max-width: 1000px) {
+    .impact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
   @media (max-width: 900px) {
     .hero-bottom {
       flex-direction: column;
       align-items: flex-start;
-      gap: 2rem;
+      gap: 2.5rem;
     }
 
     .mission-grid {
       grid-template-columns: 1fr;
+      gap: 4rem;
     }
 
     .mission-visual {
@@ -652,19 +553,30 @@ import Footer from '../components/Footer.astro';
     }
 
     .mission-image {
-      aspect-ratio: 16/9;
+      aspect-ratio: 16/10;
     }
 
     .approach-items {
       grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .approach-item {
+      padding: 2.5rem 0;
+      border-top: none;
+      border-bottom: 1px solid var(--color-sand);
+    }
+
+    .approach-item:first-child {
+      border-top: 1px solid var(--color-sand);
     }
 
     .event-wrapper {
       grid-template-columns: 1fr;
+      gap: 4rem;
     }
 
     .event-visual {
-      margin: 0;
       order: -1;
     }
 
@@ -682,7 +594,7 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <script>
-  // Scroll animations
+  // Scroll animations - plus subtiles
   const animatedElements = document.querySelectorAll('[data-animate]');
 
   const observer = new IntersectionObserver((entries) => {
@@ -692,8 +604,8 @@ import Footer from '../components/Footer.astro';
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
   });
 
   animatedElements.forEach(el => observer.observe(el));
