@@ -11,7 +11,7 @@
 **"Financer. Chercher. Guérir la sclérose en plaques."**
 
 ### Positionnement
-Un OBNL communautaire de Repentigny qui canalise **100% des bénéfices** vers la recherche pour **guérir** la SP — pas seulement la gérer.
+Un OBNL communautaire de Repentigny qui canalise **100% des bénéfices** vers la recherche pour **guérir** la sclérose en plaques.
 
 ### Valeurs fondamentales
 | Valeur | Manifestation |
