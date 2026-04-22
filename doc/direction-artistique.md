@@ -1,7 +1,7 @@
 # Direction Artistique - Mouvement solidaire eSPoir
 
 > Document de référence pour l'identité visuelle et le ton du site web
-> Créé le 22 avril 2026
+> Créé le 22 avril 2026 | Mis à jour le 22 avril 2026
 
 ---
 
@@ -40,69 +40,107 @@ Le logo représente une **vague de mains entrelacées** formant un mouvement cir
 
 ### Couleurs principales (extraites du logo)
 
-| Nom | Code HEX | RGB | Usage |
-|-----|----------|-----|-------|
-| **Bleu Marine** | `#1B3A5F` | 27, 58, 95 | Titres, texte principal, CTA primaires |
-| **Bleu Océan** | `#2D5A87` | 45, 90, 135 | Éléments interactifs, liens, accents |
-| **Bleu Ciel** | `#5A8AB8` | 90, 138, 184 | Icônes, bordures, éléments secondaires |
-| **Bleu Pâle** | `#8BB5D9` | 139, 181, 217 | Arrière-plans, dégradés, hover states |
-| **Bleu Glace** | `#C4DCF0` | 196, 220, 240 | Fonds de sections, cartes |
+| Nom | Code HEX | Usage |
+|-----|----------|-------|
+| **Bleu Marine** | `#1B3A5F` | Titres, accents forts |
+| **Bleu Océan** | `#2D5A87` | Liens, éléments interactifs |
 
-### Couleurs complémentaires
+### Couleurs neutres chaudes (équilibre avec le bleu)
 
 | Nom | Code HEX | Usage |
 |-----|----------|-------|
-| **Blanc** | `#FFFFFF` | Fond principal, texte sur foncé |
-| **Gris Doux** | `#F5F7FA` | Fonds de sections alternées |
-| **Gris Texte** | `#4A5568` | Texte secondaire, paragraphes |
-| **Noir Doux** | `#1A202C` | Texte d'emphase |
+| **Blanc Cassé** | `#FAFBFC` | Fond principal (pas blanc pur) |
+| **Gris Chaud** | `#F0EDE8` | Sections alternées |
+| **Sable** | `#E8E2D9` | Arrière-plans doux, textures |
+| **Anthracite** | `#2D3436` | Texte corps (pas noir pur) |
 
-### Couleurs d'accent (usage limité)
+### Couleurs d'accent
 
 | Nom | Code HEX | Usage |
 |-----|----------|-------|
-| **Orange Espoir** | `#E67E22` | CTA "Faire un don", alertes positives |
-| **Vert Succès** | `#27AE60` | Confirmations, progression |
+| **Orange Espoir** | `#E67E22` | CTA "Faire un don" uniquement |
+| **Orange Foncé** | `#D35400` | Hover sur CTA orange |
 
-### Dégradés suggérés
-
-```css
-/* Dégradé principal (hero section) */
-background: linear-gradient(135deg, #1B3A5F 0%, #2D5A87 50%, #5A8AB8 100%);
-
-/* Dégradé doux (cartes) */
-background: linear-gradient(180deg, #FFFFFF 0%, #C4DCF0 100%);
-```
+### Principe d'équilibre
+- Le bleu vient du logo et doit rester **accent**, pas dominant
+- Les tons **chauds/naturels** créent un environnement accueillant
+- Éviter le "tout bleu" qui fait froid et générique
 
 ---
 
 ## 4. Typographie
 
-### Police principale: **Montserrat**
-- **Usage**: Titres, navigation, boutons
-- **Poids**: 600 (Semi-bold) pour titres, 500 (Medium) pour navigation
-- **Caractère**: Moderne, accessible, professionnelle mais chaleureuse
+### Police des titres: **Playfair Display**
+- **Style**: Serif élégant, moderne
+- **Poids**: 500 (Medium), 600 (Semi-bold), 700 (Bold)
+- **Caractère**: Sophistiqué, fondation crédible, éditorial
+- **Usage**: H1, H2, H3, logo texte
 
-### Police secondaire: **Open Sans** ou **Source Sans Pro**
-- **Usage**: Corps de texte, paragraphes
-- **Poids**: 400 (Regular), 600 (Semi-bold) pour emphase
-- **Caractère**: Lisibilité optimale, neutre et accueillante
+### Police du corps: **Inter**
+- **Style**: Sans-serif moderne, très lisible
+- **Poids**: 400 (Regular), 500 (Medium), 600 (Semi-bold)
+- **Caractère**: Épuré, contemporain, accessible
+- **Usage**: Paragraphes, navigation, boutons, formulaires
 
 ### Hiérarchie typographique
 
 | Élément | Police | Taille | Poids | Couleur |
 |---------|--------|--------|-------|---------|
-| H1 | Montserrat | 48px / 3rem | 700 | #1B3A5F |
-| H2 | Montserrat | 36px / 2.25rem | 600 | #1B3A5F |
-| H3 | Montserrat | 24px / 1.5rem | 600 | #2D5A87 |
-| Paragraphe | Open Sans | 16px / 1rem | 400 | #4A5568 |
-| Lead text | Open Sans | 20px / 1.25rem | 400 | #4A5568 |
-| Caption | Open Sans | 14px / 0.875rem | 400 | #718096 |
-| Bouton | Montserrat | 16px / 1rem | 600 | #FFFFFF |
+| H1 | Playfair Display | 52px / 3.25rem | 600 | #1B3A5F |
+| H2 | Playfair Display | 40px / 2.5rem | 600 | #1B3A5F |
+| H3 | Playfair Display | 28px / 1.75rem | 500 | #2D5A87 |
+| Paragraphe | Inter | 17px / 1.0625rem | 400 | #2D3436 |
+| Lead text | Inter | 21px / 1.3rem | 400 | #2D3436 |
+| Navigation | Inter | 15px / 0.9375rem | 500 | #2D3436 |
+| Bouton | Inter | 15px / 0.9375rem | 600 | #FFFFFF |
+| Tagline | Playfair Display | 18px | 400 italic | #2D5A87 |
 
 ---
 
-## 5. Ton et voix
+## 5. Direction du design — Le "feel" recherché
+
+### Philosophie
+Le site doit avoir l'apparence d'un **magazine éditorial** ou d'une **fondation artistique**, pas d'un site SaaS ou tech. Il doit **respirer**, être **organique** et refléter le mouvement fluide du logo.
+
+### Ce qu'on veut
+
+| Caractéristique | Description |
+|-----------------|-------------|
+| **Éditorial** | Grandes typographies, textes aérés, mise en page magazine |
+| **Organique** | Formes courbes inspirées du logo, pas de grilles rigides |
+| **Narratif** | Scroll qui raconte une histoire, pas juste des sections empilées |
+| **Respirant** | Beaucoup d'espace blanc, pas de surcharge visuelle |
+| **Authentique** | Photos réelles, pas de stock générique |
+| **Chaleureux** | Tons naturels, accueillant, humain |
+
+### Ce qu'on évite
+
+| À éviter | Pourquoi |
+|----------|----------|
+| Grilles de 3 cartes identiques | Trop "template SaaS", générique |
+| Sections empilées mécaniquement | Manque de flow narratif |
+| Coins arrondis systématiques | Effet "développeur pas designer" |
+| Icônes génériques (FontAwesome) | Impersonnel |
+| Fond blanc plat partout | Froid, clinique |
+| Symétrie parfaite | Trop rigide, pas organique |
+
+### Inspirations visuelles
+- Sites de fondations artistiques et culturelles
+- Magazines éditoriaux en ligne
+- Layouts avec images plein écran et texte superposé
+- Scroll smooth avec animations subtiles
+- Asymétrie élégante
+
+### Éléments de design organiques
+- Formes inspirées de la vague de mains du logo
+- Lignes courbes, pas d'angles durs
+- Dégradés subtils dans les arrière-plans
+- Textures légères (grain, bruit subtil)
+- Images avec masques organiques (pas rectangulaires)
+
+---
+
+## 6. Ton et voix
 
 ### Personnalité de marque
 - **Inspirante** sans être naïve
@@ -113,14 +151,14 @@ background: linear-gradient(180deg, #FFFFFF 0%, #C4DCF0 100%);
 
 ### Exemples de ton
 
-#### ✅ À faire:
+#### À faire:
 > "Ensemble, nous finançons l'espoir de guérison."
 
 > "Chaque billet de spectacle rapproche la recherche d'une solution."
 
 > "100% de votre don va directement à la recherche."
 
-#### ❌ À éviter:
+#### À éviter:
 > "Aidez les pauvres malades..." (ton victimisant)
 
 > "Urgence! Donnez maintenant!" (ton alarmiste)
@@ -140,7 +178,7 @@ background: linear-gradient(180deg, #FFFFFF 0%, #C4DCF0 100%);
 
 ---
 
-## 6. Imagerie
+## 7. Imagerie
 
 ### Style photographique
 - **Authentique**: Vrais visages de la communauté (avec consentement)
@@ -153,21 +191,24 @@ background: linear-gradient(180deg, #FFFFFF 0%, #C4DCF0 100%);
 - Portraits souriants (avec permission)
 - Images de Repentigny / Lanaudière
 - Symbolisme d'espoir (lumière, horizon, nature)
+- Photos grand format, immersives
 
 ### À éviter
 - Photos stock génériques
 - Images médicales cliniques (IRM, hôpital)
 - Visages tristes ou souffrants
 - Fauteuils roulants comme seule représentation
+- Photos petites dans des cartes
 
-### Illustrations
-- Style fluide rappelant le logo
-- Lignes courbes, organiques
-- Palette bleu cohérente
+### Traitement des images
+- Masques organiques (formes courbes, pas rectangles)
+- Superposition de texte avec contraste suffisant
+- Filtres légers pour cohérence de ton
+- Pas d'effets "glossy" ou trop retouchés
 
 ---
 
-## 7. Éléments UI
+## 8. Éléments UI
 
 ### Boutons
 
@@ -176,60 +217,50 @@ background: linear-gradient(180deg, #FFFFFF 0%, #C4DCF0 100%);
 .btn-primary {
   background: linear-gradient(135deg, #E67E22, #D35400);
   color: #FFFFFF;
-  border-radius: 8px;
   padding: 16px 32px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  box-shadow: 0 4px 14px rgba(230, 126, 34, 0.4);
+  font-size: 15px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(230, 126, 34, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
 }
 
 /* Bouton secondaire */
 .btn-secondary {
-  background: #1B3A5F;
-  color: #FFFFFF;
-  border-radius: 8px;
-  padding: 14px 28px;
-}
-
-/* Bouton outline */
-.btn-outline {
   background: transparent;
   border: 2px solid #2D5A87;
   color: #2D5A87;
-  border-radius: 8px;
+  padding: 14px 28px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #2D5A87;
+  color: #FFFFFF;
 }
 ```
 
-### Cartes
-
-```css
-.card {
-  background: #FFFFFF;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(27, 58, 95, 0.08);
-  padding: 24px;
-}
-
-.card:hover {
-  box-shadow: 0 8px 30px rgba(27, 58, 95, 0.15);
-  transform: translateY(-4px);
-}
-```
-
-### Espacement
-- Utiliser une grille de 8px
-- Marges sections: 80px (desktop), 48px (mobile)
-- Padding cartes: 24px
-
-### Coins arrondis
-- Boutons: 8px
-- Cartes: 12px
-- Images: 8px ou 12px
-- Conteneurs: 16px
+### Principes de layout
+- **Pas de grilles rigides** — layouts asymétriques
+- **Espaces généreux** — laisser respirer le contenu
+- **Scroll narratif** — chaque section amène à la suivante
+- **Full-width images** — photos immersives
+- **Texte sur image** quand approprié (avec overlay)
 
 ---
 
-## 8. Responsive Design
+## 9. Responsive Design
 
 ### Breakpoints
 | Nom | Largeur | Usage |
@@ -243,13 +274,14 @@ background: linear-gradient(180deg, #FFFFFF 0%, #C4DCF0 100%);
 - Navigation hamburger sur mobile
 - Images optimisées (WebP avec fallback)
 - Touch targets minimum 44x44px
+- Typographie qui s'adapte (clamp())
 
 ---
 
-## 9. Accessibilité
+## 10. Accessibilité
 
 ### Contrastes
-- Texte sur fond blanc: minimum ratio 4.5:1
+- Texte sur fond clair: minimum ratio 4.5:1
 - Boutons: ratio 4.5:1 minimum
 - Liens: distinguables sans couleur seule
 
@@ -261,87 +293,56 @@ background: linear-gradient(180deg, #FFFFFF 0%, #C4DCF0 100%);
 
 ---
 
-## 10. Applications
-
-### Site web
-- Header fixe avec logo + navigation
-- Hero section avec CTA "Faire un don"
-- Sections alternées (blanc / bleu pâle)
-- Footer avec coordonnées et réseaux sociaux
-
-### Réseaux sociaux
-- Photo de profil: Logo seul (cercle)
-- Bannière: Logo + tagline sur dégradé bleu
-
-### Documents imprimés
-- En-tête: Logo + coordonnées
-- Palette: Privilégier bleu marine + blanc pour impression N&B
-
----
-
-## 11. Fichiers de référence
-
-```
-/assets
-├── /logo
-│   ├── logo-full.svg          # Logo complet avec texte
-│   ├── logo-icon.svg           # Icône seule (vague de mains)
-│   ├── logo-white.svg          # Version blanche
-│   └── logo-favicon.ico        # Favicon
-├── /fonts
-│   ├── Montserrat/
-│   └── OpenSans/
-└── /colors
-    └── palette.css             # Variables CSS
-```
-
----
-
-## 12. Variables CSS
+## 11. Variables CSS
 
 ```css
 :root {
-  /* Couleurs principales */
+  /* Couleurs principales (logo) */
   --color-marine: #1B3A5F;
   --color-ocean: #2D5A87;
-  --color-sky: #5A8AB8;
-  --color-pale: #8BB5D9;
-  --color-ice: #C4DCF0;
 
-  /* Couleurs neutres */
-  --color-white: #FFFFFF;
-  --color-gray-light: #F5F7FA;
-  --color-gray-text: #4A5568;
-  --color-black-soft: #1A202C;
+  /* Couleurs neutres chaudes */
+  --color-white-warm: #FAFBFC;
+  --color-gray-warm: #F0EDE8;
+  --color-sand: #E8E2D9;
+  --color-anthracite: #2D3436;
 
   /* Accents */
   --color-hope: #E67E22;
-  --color-success: #27AE60;
+  --color-hope-dark: #D35400;
 
   /* Typographie */
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
 
-  /* Espacements */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 48px;
-  --space-2xl: 80px;
+  /* Espacements généreux */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 120px;
+  --space-2xl: 160px;
 
-  /* Rayons */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-
-  /* Ombres */
-  --shadow-sm: 0 2px 8px rgba(27, 58, 95, 0.06);
-  --shadow-md: 0 4px 20px rgba(27, 58, 95, 0.08);
-  --shadow-lg: 0 8px 30px rgba(27, 58, 95, 0.15);
+  /* Ombres douces */
+  --shadow-sm: 0 2px 8px rgba(45, 52, 54, 0.06);
+  --shadow-md: 0 4px 20px rgba(45, 52, 54, 0.08);
+  --shadow-lg: 0 8px 30px rgba(45, 52, 54, 0.12);
 }
 ```
+
+---
+
+## 12. Résumé des choix validés
+
+| Aspect | Choix |
+|--------|-------|
+| **Typo titres** | Playfair Display (serif élégant) |
+| **Typo corps** | Inter (sans-serif moderne) |
+| **Couleurs accent** | Bleus du logo (accent uniquement) |
+| **Couleurs fond** | Tons chauds (blanc cassé, sable, gris chaud) |
+| **CTA principal** | Orange Espoir (#E67E22) |
+| **Style général** | Éditorial, organique, narratif |
+| **À éviter** | Grilles de cartes, style SaaS/tech |
 
 ---
 
