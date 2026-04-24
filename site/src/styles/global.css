@@ -8,25 +8,25 @@
 
 /* CSS Variables */
 :root {
-  /* Palette bleu-gris plus prononcée */
-  --color-noir: #1B3A5F;
-  --color-charcoal: #2D4A6A;
-  --color-gris: #4A6B8A;
-  --color-gris-clair: #7A9AB8;
+  /* Palette bleu logo eSPoir - #264559 (foncé) et #6B9ABE (clair) */
+  --color-noir: #264559;
+  --color-charcoal: #2F5269;
+  --color-gris: #3A6079;
+  --color-gris-clair: #6B9ABE;
 
-  /* Neutres avec touche bleutée visible */
+  /* Neutres avec touche bleutée */
   --color-white: #FFFFFF;
   --color-ivory: #F5F8FA;
   --color-cream: #EBF0F5;
   --color-sand: #DCE5ED;
 
-  /* Accent - plus discret */
-  --color-accent: #B8926A;
-  --color-accent-dark: #9A7B59;
+  /* Accent - bleu clair du logo */
+  --color-accent: #6B9ABE;
+  --color-accent-dark: #4A7A9E;
 
-  /* Bleu marine - conservé du logo mais plus sobre */
-  --color-marine: #1B3A5F;
-  --color-marine-light: #2D5A87;
+  /* Bleu marine du logo */
+  --color-marine: #264559;
+  --color-marine-light: #6B9ABE;
 
   /* Typographie */
   --font-heading: 'Cormorant Garamond', Georgia, serif;
