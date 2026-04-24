@@ -8,11 +8,11 @@
 
 /* CSS Variables */
 :root {
-  /* Palette bleu logo eSPoir - #264559 (foncé) et #6B9ABE (clair) */
-  --color-noir: #264559;
-  --color-charcoal: #2F5269;
-  --color-gris: #3A6079;
-  --color-gris-clair: #6B9ABE;
+  /* Texte - gris foncé neutre (pas bleu) */
+  --color-noir: #2D2D2D;
+  --color-charcoal: #404040;
+  --color-gris: #666666;
+  --color-gris-clair: #888888;
 
   /* Neutres avec touche bleutée */
   --color-white: #FFFFFF;
@@ -20,11 +20,11 @@
   --color-cream: #EBF0F5;
   --color-sand: #DCE5ED;
 
-  /* Accent - bleu clair du logo */
+  /* Accents bleus du logo - pour titres, liens, boutons */
   --color-accent: #6B9ABE;
-  --color-accent-dark: #4A7A9E;
+  --color-accent-dark: #264559;
 
-  /* Bleu marine du logo */
+  /* Bleu marine du logo - accents forts */
   --color-marine: #264559;
   --color-marine-light: #6B9ABE;
 
@@ -221,12 +221,12 @@ a {
 }
 
 .btn-primary {
-  background: var(--color-noir);
+  background: var(--color-marine);
   color: white;
 }
 
 .btn-primary:hover {
-  background: var(--color-charcoal);
+  background: var(--color-accent-dark);
 }
 
 .btn-secondary {
