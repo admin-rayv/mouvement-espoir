@@ -1,7 +1,7 @@
 # Direction Artistique - Mouvement solidaire eSPoir
 
 > Document de référence pour l'identité visuelle et le ton du site web
-> Créé le 22 avril 2026 | Mis à jour le 22 avril 2026
+> Créé le 22 avril 2026 | Mis à jour le 24 avril 2026
 
 ---
 
@@ -42,43 +42,44 @@ Le logo représente une **vague de mains entrelacées** formant un mouvement cir
 
 | Nom | Code HEX | Usage |
 |-----|----------|-------|
-| **Bleu Marine** | `#1B3A5F` | Titres, accents forts |
-| **Bleu Océan** | `#2D5A87` | Liens, éléments interactifs |
+| **Bleu Marine** | `#264559` | Boutons, accents forts, CTA |
+| **Bleu Clair** | `#6B9ABE` | Liens, éléments interactifs, accents secondaires |
 
-### Couleurs neutres chaudes (équilibre avec le bleu)
-
-| Nom | Code HEX | Usage |
-|-----|----------|-------|
-| **Blanc Cassé** | `#FAFBFC` | Fond principal (pas blanc pur) |
-| **Gris Chaud** | `#F0EDE8` | Sections alternées |
-| **Sable** | `#E8E2D9` | Arrière-plans doux, textures |
-| **Anthracite** | `#2D3436` | Texte corps (pas noir pur) |
-
-### Couleurs d'accent
+### Couleurs de texte (gris neutre)
 
 | Nom | Code HEX | Usage |
 |-----|----------|-------|
-| **Orange Espoir** | `#E67E22` | CTA "Faire un don" uniquement |
-| **Orange Foncé** | `#D35400` | Hover sur CTA orange |
+| **Gris Foncé** | `#2D2D2D` | Titres, texte principal |
+| **Gris Moyen** | `#404040` | Texte secondaire |
+| **Gris Clair** | `#666666` | Texte désactivé, légendes |
+
+### Couleurs neutres
+
+| Nom | Code HEX | Usage |
+|-----|----------|-------|
+| **Blanc** | `#FFFFFF` | Fond principal |
+| **Ivoire** | `#F5F8FA` | Sections alternées |
+| **Crème** | `#EBF0F5` | Arrière-plans doux |
+| **Sable** | `#DCE5ED` | Textures légères |
 
 ### Principe d'équilibre
-- Le bleu vient du logo et doit rester **accent**, pas dominant
-- Les tons **chauds/naturels** créent un environnement accueillant
+- **Texte principal** en gris foncé neutre (pas bleu)
+- **Bleus du logo** réservés aux **accents** : boutons, liens, titres importants
 - Éviter le "tout bleu" qui fait froid et générique
 
 ---
 
 ## 4. Typographie
 
-### Police des titres: **Playfair Display**
-- **Style**: Serif élégant, moderne
-- **Poids**: 500 (Medium), 600 (Semi-bold), 700 (Bold)
+### Police des titres: **Cormorant Garamond**
+- **Style**: Serif élégant, classique raffiné
+- **Poids**: 300 (Light), 400 (Regular), 500 (Medium), 600 (Semi-bold)
 - **Caractère**: Sophistiqué, fondation crédible, éditorial
-- **Usage**: H1, H2, H3, logo texte
+- **Usage**: H1, H2, H3, grandes citations
 
 ### Police du corps: **Inter**
 - **Style**: Sans-serif moderne, très lisible
-- **Poids**: 400 (Regular), 500 (Medium), 600 (Semi-bold)
+- **Poids**: 300 (Light), 400 (Regular), 500 (Medium)
 - **Caractère**: Épuré, contemporain, accessible
 - **Usage**: Paragraphes, navigation, boutons, formulaires
 
@@ -86,14 +87,14 @@ Le logo représente une **vague de mains entrelacées** formant un mouvement cir
 
 | Élément | Police | Taille | Poids | Couleur |
 |---------|--------|--------|-------|---------|
-| H1 | Playfair Display | 52px / 3.25rem | 600 | #1B3A5F |
-| H2 | Playfair Display | 40px / 2.5rem | 600 | #1B3A5F |
-| H3 | Playfair Display | 28px / 1.75rem | 500 | #2D5A87 |
-| Paragraphe | Inter | 17px / 1.0625rem | 400 | #2D3436 |
-| Lead text | Inter | 21px / 1.3rem | 400 | #2D3436 |
-| Navigation | Inter | 15px / 0.9375rem | 500 | #2D3436 |
-| Bouton | Inter | 15px / 0.9375rem | 600 | #FFFFFF |
-| Tagline | Playfair Display | 18px | 400 italic | #2D5A87 |
+| H1 | Cormorant Garamond | clamp(2.75rem, 7vw, 5rem) | 500 | #2D2D2D |
+| H2 | Cormorant Garamond | clamp(2rem, 4.5vw, 3.25rem) | 500 | #2D2D2D |
+| H3 | Cormorant Garamond | clamp(1.5rem, 2.5vw, 2rem) | 500 | #2D2D2D |
+| Paragraphe | Inter | 17px / 1.0625rem | 400 | #404040 |
+| Lead text | Inter | 1.125rem (18px) | 400 | #404040 |
+| Navigation | Inter | 0.75rem (12px) uppercase | 400 | #404040 |
+| Bouton | Inter | 0.875rem (14px) uppercase | 500 | #FFFFFF |
+| Labels | Inter | 0.8125rem (13px) uppercase | 500 | #666666 |
 
 ---
 
@@ -215,39 +216,41 @@ Le site doit avoir l'apparence d'un **magazine éditorial** ou d'une **fondation
 ```css
 /* Bouton primaire (Faire un don) */
 .btn-primary {
-  background: linear-gradient(135deg, #E67E22, #D35400);
+  background: #264559; /* Bleu marine du logo */
   color: #FFFFFF;
-  padding: 16px 32px;
+  padding: 1rem 2rem;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   border: none;
-  box-shadow: 0 4px 14px rgba(230, 126, 34, 0.3);
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+  background: #264559; /* Même couleur, légère variation */
 }
 
 /* Bouton secondaire */
 .btn-secondary {
   background: transparent;
-  border: 2px solid #2D5A87;
-  color: #2D5A87;
-  padding: 14px 28px;
+  border: 1px solid #888888;
+  color: #404040;
+  padding: 1rem 2rem;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .btn-secondary:hover {
-  background: #2D5A87;
-  color: #FFFFFF;
+  border-color: #2D2D2D;
+  color: #2D2D2D;
 }
 ```
 
@@ -297,36 +300,34 @@ Le site doit avoir l'apparence d'un **magazine éditorial** ou d'une **fondation
 
 ```css
 :root {
-  /* Couleurs principales (logo) */
-  --color-marine: #1B3A5F;
-  --color-ocean: #2D5A87;
+  /* Texte - gris foncé neutre */
+  --color-noir: #2D2D2D;
+  --color-charcoal: #404040;
+  --color-gris: #666666;
+  --color-gris-clair: #888888;
 
-  /* Couleurs neutres chaudes */
-  --color-white-warm: #FAFBFC;
-  --color-gray-warm: #F0EDE8;
-  --color-sand: #E8E2D9;
-  --color-anthracite: #2D3436;
+  /* Neutres */
+  --color-white: #FFFFFF;
+  --color-ivory: #F5F8FA;
+  --color-cream: #EBF0F5;
+  --color-sand: #DCE5ED;
 
-  /* Accents */
-  --color-hope: #E67E22;
-  --color-hope-dark: #D35400;
+  /* Accents bleus du logo */
+  --color-accent: #6B9ABE;
+  --color-accent-dark: #264559;
+
+  /* Bleu marine du logo - accents forts */
+  --color-marine: #264559;
+  --color-marine-light: #6B9ABE;
 
   /* Typographie */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Espacements généreux */
-  --space-xs: 8px;
-  --space-sm: 16px;
-  --space-md: 32px;
-  --space-lg: 64px;
-  --space-xl: 120px;
-  --space-2xl: 160px;
-
-  /* Ombres douces */
-  --shadow-sm: 0 2px 8px rgba(45, 52, 54, 0.06);
-  --shadow-md: 0 4px 20px rgba(45, 52, 54, 0.08);
-  --shadow-lg: 0 8px 30px rgba(45, 52, 54, 0.12);
+  /* Transitions élégantes */
+  --ease-elegant: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-slow: 0.8s var(--ease-elegant);
+  --transition-medium: 0.5s var(--ease-elegant);
 }
 ```
 
@@ -336,11 +337,13 @@ Le site doit avoir l'apparence d'un **magazine éditorial** ou d'une **fondation
 
 | Aspect | Choix |
 |--------|-------|
-| **Typo titres** | Playfair Display (serif élégant) |
+| **Typo titres** | Cormorant Garamond (serif classique raffiné) |
 | **Typo corps** | Inter (sans-serif moderne) |
-| **Couleurs accent** | Bleus du logo (accent uniquement) |
-| **Couleurs fond** | Tons chauds (blanc cassé, sable, gris chaud) |
-| **CTA principal** | Orange Espoir (#E67E22) |
+| **Texte principal** | Gris foncé neutre (#2D2D2D) |
+| **Couleurs accent** | Bleus du logo (#264559, #6B9ABE) pour boutons et liens |
+| **Couleurs fond** | Tons neutres (blanc, ivoire, crème) |
+| **CTA principal** | Bleu marine du logo (#264559) |
+| **Logo** | Image PNG avec vague de mains (header + footer) |
 | **Style général** | Éditorial, organique, narratif |
 | **À éviter** | Grilles de cartes, style SaaS/tech |
 

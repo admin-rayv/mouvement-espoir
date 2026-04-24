@@ -1,7 +1,7 @@
 # Structure du Site Web - Mouvement solidaire eSPoir
 
 > Architecture des pages et contenu MVP
-> Créé le 22 avril 2026 | Mis à jour le 22 avril 2026
+> Créé le 22 avril 2026 | Mis à jour le 24 avril 2026
 
 ---
 
@@ -124,9 +124,9 @@ Chaque page suit une approche **éditoriale et narrative**, pas un layout "grill
 ---
 
 **[1] Hero — L'origine**
-- Titre: "Pourquoi le Mouvement solidaire eSPoir?"
+- Titre: "Tout a commencé par une volonté d'agir"
 - Image: Marie-Carole ou photo de la Marche SP
-- Intro: "En 2023, un proche de Marie-Carole reçoit un diagnostic de sclérose en plaques..."
+- Intro: "En 2023, Marie-Carole Daigle découvre la réalité de la sclérose en plaques."
 
 ---
 
@@ -139,7 +139,7 @@ Chaque page suit une approche **éditoriale et narrative**, pas un layout "grill
   > "Et si 100% de chaque dollar allait directement à la recherche?"
 - Naissance du Mouvement: octobre 2025
 
-**Note importante:** Ne jamais mentionner que c'est le fils de Marie-Carole. Garder "un proche".
+**Note importante:** Ne jamais mentionner de lien personnel/familial avec la maladie. Rester sur la mission et l'engagement communautaire.
 
 ---
 
@@ -330,17 +330,19 @@ Chaque page suit une approche **éditoriale et narrative**, pas un layout "grill
 
 ### Header
 - **Fixe** en haut de page
-- Logo (gauche) — cliquable vers accueil
+- Logo image (vague de mains) — cliquable vers accueil
 - Navigation: Notre histoire | La recherche | Événements | Contact
-- **CTA permanent:** "Faire un don" (bouton orange, toujours visible)
+- **CTA permanent:** "Faire un don" (bouton bleu marine #264559, toujours visible)
 - Sur mobile: hamburger menu
+- Effet scroll: fond blanc avec ombre légère après 80px de scroll
 
 ### Footer
-- Logo + tagline
+- Logo image (vague de mains, avec tagline intégré)
 - Navigation secondaire
-- Formulaire newsletter compact
-- Coordonnées + réseaux sociaux
-- Mention légale: "OBNL enregistré au Québec — NEQ 1181 4407 11"
+- Coordonnées: 243, boul. Brien, bureau 250, Repentigny, QC
+- Courriel: info@mouvementespoir.ca
+- Réseaux sociaux: Facebook, Instagram
+- Mention légale: "OBNL enregistré au Québec"
 
 ---
 
