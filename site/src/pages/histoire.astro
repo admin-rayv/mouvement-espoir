@@ -11,8 +11,8 @@ import Footer from '../components/Footer.astro';
     <!-- ========== HERO ========== -->
     <section class="hero">
       <div class="hero-visual">
-        <div class="hero-image image-placeholder">
-          <span>Photo Marie-Carole ou Marche SP</span>
+        <div class="hero-image">
+          <img src="/images/activite-2025.jpg" alt="Membres du Mouvement solidaire eSPoir lors d'une activité-bénéfice" />
         </div>
         <div class="hero-overlay"></div>
       </div>
@@ -284,6 +284,14 @@ import Footer from '../components/Footer.astro';
   .hero-image {
     position: absolute;
     inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .hero-overlay {
