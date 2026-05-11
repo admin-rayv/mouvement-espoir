@@ -19,24 +19,24 @@ import Footer from '../components/Footer.astro';
 
       <div class="hero-content">
         <div class="hero-tagline" data-animate data-delay="1">
-          <span class="text-label">Mouvement solidaire eSPoir</span>
+          <span class="text-label">Mouvement solidaire e<span class="sp-emphasis">SP</span>oir</span>
         </div>
 
         <h1 data-animate data-delay="2">
-          <span class="hero-line">Ensemble,</span>
-          <span class="hero-line">finançons</span>
-          <span class="hero-line hero-accent">l'espoir</span>
+          <span class="hero-line">Financer.</span>
+          <span class="hero-line">Chercher.</span>
+          <span class="hero-line hero-line-sm"><span class="hero-accent">Guérir</span> la sclérose en plaques.</span>
         </h1>
 
         <div class="hero-bottom" data-animate data-delay="3">
           <p class="hero-description">
-            Nous mobilisons la communauté québécoise pour financer
-            la recherche sur la sclérose en plaques.
+            Nous organisons des activités, culturelles et autres, afin de
+            rassembler la communauté autour d'une cause porteuse d'espoir :
+            la guérison de la sclérose en plaques. Les fonds ainsi recueillis
+            sont entièrement consacrés au soutien de projets de recherche
+            menés par des équipes reconnues pour leur expertise de pointe
+            dans le domaine.
           </p>
-          <a href="/don" class="btn btn-white">
-            Faire un don
-            <span class="btn-arrow">→</span>
-          </a>
         </div>
       </div>
 
@@ -320,6 +320,19 @@ import Footer from '../components/Footer.astro';
   .hero-accent {
     color: var(--color-accent);
     font-style: italic;
+  }
+
+  .hero-line-sm {
+    font-size: 0.55em;
+    letter-spacing: 0;
+    margin-top: 0.75rem;
+    display: block;
+  }
+
+  .sp-emphasis {
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1;
   }
 
   .hero-bottom {
