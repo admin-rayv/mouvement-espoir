@@ -107,6 +107,7 @@ body {
 [data-delay="2"] { transition-delay: 0.3s; }
 [data-delay="3"] { transition-delay: 0.45s; }
 [data-delay="4"] { transition-delay: 0.6s; }
+[data-delay="5"] { transition-delay: 0.75s; }
 
 /* Typography - Light, aérée (Montserrat) */
 h1, h2, h3, h4 {

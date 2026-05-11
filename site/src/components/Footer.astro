@@ -7,10 +7,16 @@
     <div class="footer-top">
       <div class="footer-cta">
         <h2>Envie de donner<br/>un coup de pouce&#8239;?</h2>
-        <a href="/don" class="btn btn-secondary btn-light">
-          Faire un don
-          <span class="btn-arrow">→</span>
-        </a>
+        <div class="footer-cta-buttons">
+          <a href="/benevole" class="btn btn-secondary btn-light">
+            Devenir bénévole
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="/don" class="btn btn-secondary btn-light">
+            Faire un don
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -87,6 +93,12 @@
     font-weight: 300;
     margin: 0;
     line-height: 1.3;
+  }
+
+  .footer-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .btn-light {
