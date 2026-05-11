@@ -157,8 +157,7 @@ import Footer from '../components/Footer.astro';
   /* ========== HERO ========== */
   .hero {
     position: relative;
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -201,7 +200,7 @@ import Footer from '../components/Footer.astro';
     position: relative;
     z-index: 1;
     padding: clamp(3rem, 6vw, 6rem);
-    padding-top: 35vh;
+    padding-top: clamp(7rem, 12vh, 10rem);
     color: white;
     max-width: 1200px;
   }
