@@ -14,19 +14,19 @@
   --color-gris: #666666;
   --color-gris-clair: #888888;
 
-  /* Neutres avec touche bleutée */
+  /* Neutres avec touche bleutée - éclaircis, moins gris */
   --color-white: #FFFFFF;
-  --color-ivory: #F5F8FA;
-  --color-cream: #EBF0F5;
-  --color-sand: #DCE5ED;
+  --color-ivory: #F7FBFE;
+  --color-cream: #EDF5FC;
+  --color-sand: #DDEBF7;
 
   /* Accents bleus du logo - pour titres, liens, boutons */
-  --color-accent: #6B9ABE;
+  --color-accent: #4FA3D6;
   --color-accent-dark: #264559;
 
   /* Bleu marine du logo - accents forts */
   --color-marine: #264559;
-  --color-marine-light: #6B9ABE;
+  --color-marine-light: #4FA3D6;
 
   /* Typographie */
   --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
