@@ -12,7 +12,7 @@ import Footer from '../components/Footer.astro';
     <section class="hero">
       <div class="hero-visual">
         <div class="hero-image">
-          <img src="/images/mc-parle.jpg" alt="" />
+          <img src="/images/souper-spectacle-hommage-crooners-2025.jpg" alt="" />
         </div>
         <div class="hero-overlay"></div>
       </div>
@@ -69,13 +69,29 @@ import Footer from '../components/Footer.astro';
           <article class="passees-item" data-animate data-delay="1">
             <span class="passees-year">Nov. 2025</span>
             <div class="passees-content">
-              <h3>Premier souper-spectacle</h3>
+              <h3>Souper-spectacle «&nbsp;Hommage aux crooners&nbsp;»</h3>
               <p>
-                Première activité officielle du Mouvement, offerte à un
-                prix abordable grâce à des dons en biens et services et
-                à l'engagement du milieu. Bénéfice : <strong>3 424&nbsp;$</strong>,
-                versé entièrement à la recherche.
+                Première activité officielle du Mouvement : un
+                souper-spectacle à <strong>75&nbsp;$</strong> mettant
+                en vedette le chanteur Gil Albert, tenu le
+                15 novembre 2025 à l'Oasis Marina de Repentigny.
+                Offerte à prix abordable grâce à des dons en biens et
+                services et à l'engagement du milieu, l'activité a
+                dégagé un bénéfice de <strong>3 424&nbsp;$</strong>,
+                versé entièrement à la recherche sur la sclérose en
+                plaques.
               </p>
+              <div class="passees-photos">
+                <div class="image-frame photos-main">
+                  <img src="/images/souper-spectacle-hommage-crooners-2025.jpg" alt="Gil Albert, accompagné de son pianiste, sur la scène du souper-spectacle Hommage aux crooners" loading="lazy" />
+                </div>
+                <div class="image-frame">
+                  <img src="/images/marie-carole-daigle-allocution-souper-spectacle.jpg" alt="Marie-Carole Daigle s'adresse aux convives du souper-spectacle" loading="lazy" />
+                </div>
+                <div class="image-frame">
+                  <img src="/images/affiche-souper-spectacle-crooners-2025.jpg" alt="Affiche du souper-spectacle Hommage aux crooners 2025" loading="lazy" />
+                </div>
+              </div>
             </div>
           </article>
 
@@ -347,6 +363,23 @@ import Footer from '../components/Footer.astro';
     line-height: 1.7;
   }
 
+  .passees-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+    max-width: 640px;
+  }
+
+  .passees-photos .image-frame {
+    aspect-ratio: 13/20;
+  }
+
+  .passees-photos .photos-main {
+    grid-column: 1 / -1;
+    aspect-ratio: 4/3;
+  }
+
   .passees-content strong {
     color: var(--color-noir);
     font-weight: 500;
@@ -434,6 +467,10 @@ import Footer from '../components/Footer.astro';
     .passees-item {
       grid-template-columns: 1fr;
       gap: 1rem;
+    }
+
+    .passees-photos {
+      grid-template-columns: 1fr;
     }
 
     .formules-items {

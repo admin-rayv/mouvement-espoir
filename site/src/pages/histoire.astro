@@ -72,6 +72,10 @@ import Footer from '../components/Footer.astro';
           <h2>De la marche<br/>au mouvement</h2>
         </header>
 
+        <div class="parcours-photo image-frame" data-animate>
+          <img src="/images/marche-benefice-sclerose-en-plaques-equipe-espoir.jpg" alt="L'équipe eSPoir souriante lors d'une marche-bénéfice pour la sclérose en plaques" />
+        </div>
+
         <div class="parcours-timeline">
           <article class="parcours-item" data-animate data-delay="1">
             <span class="parcours-year">2023</span>
@@ -138,6 +142,13 @@ import Footer from '../components/Footer.astro';
             </div>
           </article>
         </div>
+
+        <figure class="parcours-photo" data-animate>
+          <div class="image-frame">
+            <img src="/images/marche-benefice-sclerose-en-plaques-equipe-espoir.jpg" alt="L'équipe eSPoir lors d'une marche-bénéfice pour la sclérose en plaques" loading="lazy" />
+          </div>
+          <figcaption>L'équipe eSPoir réunie lors d'une marche-bénéfice.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -154,6 +165,13 @@ import Footer from '../components/Footer.astro';
             Le Mouvement solidaire eSPoir est né de cette conviction :
             maximiser l'impact des contributions.
           </p>
+
+          <figure class="vision-photo" data-animate data-delay="2">
+            <div class="image-frame">
+              <img src="/images/fondatrices-mouvement-espoir-seance-travail.jpg" alt="Marie-Carole Daigle et Hélène Collette en séance de travail" loading="lazy" />
+            </div>
+            <figcaption>Marie-Carole et Hélène, là où tout se planifie.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -169,7 +187,7 @@ import Footer from '../components/Footer.astro';
         <div class="equipe-grid">
           <article class="membre" data-animate data-delay="1">
             <div class="membre-photo image-frame">
-              <img src="/images/marie-carole.jpg" alt="Marie-Carole Daigle, fondatrice et présidente du Mouvement solidaire eSPoir" />
+              <img src="/images/marie-carole-daigle-fondatrice-mouvement-espoir.jpg" alt="Marie-Carole Daigle, fondatrice et présidente du Mouvement solidaire eSPoir" />
             </div>
             <div class="membre-info">
               <h3>Marie-Carole Daigle</h3>
@@ -190,7 +208,7 @@ import Footer from '../components/Footer.astro';
 
           <article class="membre" data-animate data-delay="2">
             <div class="membre-photo image-frame">
-              <img src="/images/helene.jpg" alt="Hélène Collette, cofondatrice du Mouvement solidaire eSPoir" />
+              <img src="/images/helene-collette-cofondatrice-mouvement-espoir.jpg" alt="Hélène Collette, cofondatrice du Mouvement solidaire eSPoir" />
             </div>
             <div class="membre-info">
               <h3>Hélène Collette</h3>
@@ -406,6 +424,15 @@ import Footer from '../components/Footer.astro';
     display: block;
   }
 
+  .parcours-photo {
+    aspect-ratio: 16/9;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .parcours-photo img {
+    object-position: center 30%;
+  }
+
   .parcours-timeline {
     display: flex;
     flex-direction: column;
@@ -466,6 +493,23 @@ import Footer from '../components/Footer.astro';
     font-weight: 500;
   }
 
+  .parcours-photo {
+    margin: clamp(4rem, 8vw, 6rem) 0 0;
+    max-width: 680px;
+  }
+
+  .parcours-photo .image-frame {
+    aspect-ratio: 1 / 1;
+  }
+
+  .parcours-photo figcaption,
+  .vision-photo figcaption {
+    margin-top: 1.25rem;
+    font-size: 0.8125rem;
+    color: var(--color-gris-clair);
+    letter-spacing: 0.04em;
+  }
+
   /* ========== VISION ========== */
   .vision {
     padding: clamp(10rem, 18vw, 16rem) 0;
@@ -500,6 +544,15 @@ import Footer from '../components/Footer.astro';
     line-height: 1.8;
     max-width: 540px;
     margin: 0 auto;
+  }
+
+  .vision-photo {
+    margin: clamp(3.5rem, 7vw, 5rem) auto 0;
+    max-width: 460px;
+  }
+
+  .vision-photo .image-frame {
+    aspect-ratio: 1 / 1;
   }
 
   /* ========== ÉQUIPE ========== */
