@@ -4,7 +4,30 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "OBNL dédié à la recherche sur la sclérose en plaques. 100% des dons financent la recherche." } = Astro.props;
+const { title, description = "OBNL québécois entièrement bénévole : 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques." } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL('/images/og-image.jpg', Astro.site);
+
+const organisation = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: "Mouvement solidaire eSPoir",
+  url: Astro.site?.toString(),
+  logo: new URL('/images/logo-espoir.png', Astro.site).toString(),
+  description: "Organisme à but non lucratif québécois qui organise des activités-bénéfice dont 100 % des revenus nets financent la recherche sur la guérison de la sclérose en plaques.",
+  email: "info@msespoir.ca",
+  foundingDate: "2025-10",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "243, boul. Brien, bureau 250",
+    addressLocality: "Repentigny",
+    addressRegion: "QC",
+    postalCode: "J6A 6M4",
+    addressCountry: "CA",
+  },
+  areaServed: "Québec, Canada",
+};
 ---
 
 <!DOCTYPE html>
@@ -12,17 +35,34 @@ const { title, description = "OBNL dédié à la recherche sur la sclérose en p
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#1B3A5F" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph -->
+    <meta property="og:site_name" content="Mouvement solidaire eSPoir" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content="fr_CA" />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Deux mains qui se tiennent — Mouvement solidaire eSPoir" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(organisation)} />
   </head>
   <body>
     <slot />

@@ -12,6 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.1.8"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.42.0"
   }
 }
