@@ -171,33 +171,18 @@ import Footer from '../components/Footer.astro';
 
         <div class="partners-grid" data-animate data-delay="1">
           <div class="partner-item">
-            <div class="partner-logo image-placeholder">
-              <span>Logo</span>
+            <div class="partner-logo">
+              <img src="/images/partenaires/club-lions.png" alt="Club Lions" loading="lazy" />
             </div>
           </div>
           <div class="partner-item">
-            <div class="partner-logo image-placeholder">
-              <span>Logo</span>
+            <div class="partner-logo">
+              <img src="/images/partenaires/aquadetect.png" alt="AquaDétect — Prévention de dégâts d'eau" loading="lazy" />
             </div>
           </div>
           <div class="partner-item">
-            <div class="partner-logo image-placeholder">
-              <span>Logo</span>
-            </div>
-          </div>
-          <div class="partner-item">
-            <div class="partner-logo image-placeholder">
-              <span>Logo</span>
-            </div>
-          </div>
-          <div class="partner-item">
-            <div class="partner-logo image-placeholder">
-              <span>Logo</span>
-            </div>
-          </div>
-          <div class="partner-item">
-            <div class="partner-logo image-placeholder">
-              <span>Logo</span>
+            <div class="partner-logo">
+              <img src="/images/partenaires/communications-mcd.png" alt="Communications MCD" loading="lazy" />
             </div>
           </div>
         </div>
@@ -554,6 +539,13 @@ import Footer from '../components/Footer.astro';
 
   .partner-item:hover .partner-logo {
     opacity: 0.7;
+  }
+
+  .partner-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
   }
 
   .partners-cta {
