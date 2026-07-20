@@ -21,10 +21,22 @@
       Faire un don
     </a>
 
-    <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+    <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span>
       <span></span>
     </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-nav" aria-label="Navigation mobile">
+      <ul class="mobile-nav-list">
+        <li><a href="/histoire" class="mobile-nav-link">Notre histoire</a></li>
+        <li><a href="/recherche" class="mobile-nav-link">La recherche</a></li>
+        <li><a href="/activites" class="mobile-nav-link">Activités</a></li>
+        <li><a href="/contact" class="mobile-nav-link">Nous joindre</a></li>
+      </ul>
+      <a href="/don" class="btn btn-primary mobile-donate">Faire un don</a>
+    </nav>
   </div>
 </header>
 
@@ -142,6 +154,74 @@
     background: white;
   }
 
+  .mobile-menu-toggle.open span,
+  .header:not(.scrolled) .mobile-menu-toggle.open span {
+    background: var(--color-noir);
+  }
+
+  .mobile-menu-toggle.open span:first-child {
+    transform: translateY(3px) rotate(45deg);
+  }
+
+  .mobile-menu-toggle.open span:last-child {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-ivory);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s var(--ease-elegant), visibility 0.5s var(--ease-elegant);
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .mobile-nav-link {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-noir);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: opacity 0.4s var(--ease-elegant);
+  }
+
+  .mobile-nav-link:hover {
+    opacity: 0.6;
+  }
+
+  .mobile-donate {
+    padding: 0.875rem 2rem;
+    font-size: 0.75rem;
+  }
+
   @media (max-width: 900px) {
     .nav {
       display: none;
@@ -153,6 +233,10 @@
 
     .mobile-menu-toggle {
       display: flex;
+    }
+
+    .mobile-menu {
+      display: block;
     }
   }
 </style>
@@ -168,4 +252,29 @@
       header?.classList.remove('scrolled');
     }
   }, { passive: true });
+
+  // Menu mobile
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function setMenuOpen(open: boolean) {
+    toggle?.classList.toggle('open', open);
+    mobileMenu?.classList.toggle('open', open);
+    toggle?.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  toggle?.addEventListener('click', () => {
+    setMenuOpen(!toggle.classList.contains('open'));
+  });
+
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggle?.classList.contains('open')) {
+      setMenuOpen(false);
+    }
+  });
 </script>
