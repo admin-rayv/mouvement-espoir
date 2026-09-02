@@ -2,56 +2,37 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <Layout title="Nouvelles — Mouvement solidaire eSPoir"
-  description="Activités-bénéfice, jalons et avancées du Mouvement solidaire eSPoir : suivez les nouvelles de notre engagement pour la recherche sur la sclérose en plaques.">
+  description="Activités-bénéfice, jalons et avancées du Mouvement solidaire eSPoir : suivez les nouvelles de notre engagement pour la recherche sur la sclérose en plaques."
+  preloadImage="/images/hero-home.jpg">
   <Header />
 
-  <main>
-    <!-- ========== HERO ========== -->
-    <section class="hero">
-      <div class="hero-visual">
-        <div class="hero-image">
-          <img src="/images/hero-home.jpg" alt="" />
-        </div>
-        <div class="hero-overlay"></div>
-      </div>
-
-      <div class="hero-content">
-        <div class="hero-tagline" data-animate data-delay="1">
-          <span class="text-label">Nouvelles</span>
-        </div>
-
-        <h1 data-animate data-delay="2">
-          <span class="hero-line">Le Mouvement,</span>
-          <span class="hero-line hero-accent">en mouvement.</span>
-        </h1>
-
-        <div class="hero-bottom" data-animate data-delay="3">
-          <p class="hero-description">
-            Activités-bénéfice, jalons franchis, nouvelles de la cause :
-            suivez ici les avancées du Mouvement solidaire eSPoir et de
-            notre engagement envers la recherche sur la guérison de la
-            sclérose en plaques.
-          </p>
-        </div>
-      </div>
-    </section>
+  <main id="contenu">
+    <PageHero
+      image="/images/hero-home.jpg"
+      label="Nouvelles"
+      lines={['Le Mouvement,', '<em>en mouvement.</em>']}
+      description="Activités-bénéfice, jalons franchis, nouvelles de la cause&#8239;: suivez ici les avancées du Mouvement solidaire eSPoir et de notre engagement envers la recherche sur la guérison de la sclérose en plaques."
+    />
 
     <!-- ========== À LA UNE ========== -->
     <section class="featured">
       <div class="container">
-        <header class="section-head" data-animate>
+        <header class="section-head featured-head" data-animate>
           <span class="text-label">À la une</span>
         </header>
 
-        <article class="featured-item" data-animate data-delay="1">
-          <div class="featured-photo image-frame">
-            <img src="/images/mc-parle.jpg" alt="Marie-Carole Daigle lors du premier souper-spectacle du Mouvement solidaire eSPoir" />
+        <article class="featured-item">
+          <div class="featured-photo frame-offset" data-animate="reveal">
+            <div class="image-frame">
+              <img src="/images/mc-parle.jpg" alt="Marie-Carole Daigle lors du premier souper-spectacle du Mouvement solidaire eSPoir" width="1600" height="1200" loading="lazy" decoding="async" />
+            </div>
           </div>
-          <div class="featured-text">
-            <div class="featured-meta">
+          <div class="featured-text" data-animate data-delay="2">
+            <div class="meta">
               <span class="meta-date">Novembre 2025</span>
               <span class="meta-cat">Activité-bénéfice</span>
             </div>
@@ -77,14 +58,14 @@ import Footer from '../components/Footer.astro';
     <!-- ========== TOUTES LES NOUVELLES ========== -->
     <section class="nouvelles">
       <div class="container">
-        <header class="section-head" data-animate>
+        <header class="section-head nouvelles-head" data-animate>
           <span class="text-label">Toutes les nouvelles</span>
           <h2>Les dernières<br/>avancées</h2>
         </header>
 
         <div class="nouvelles-list">
           <article class="nouvelle-item" data-animate data-delay="1">
-            <div class="nouvelle-meta">
+            <div class="meta meta-col">
               <span class="meta-date">Octobre 2025</span>
               <span class="meta-cat">Annonce</span>
             </div>
@@ -101,7 +82,7 @@ import Footer from '../components/Footer.astro';
           </article>
 
           <article class="nouvelle-item" data-animate data-delay="2">
-            <div class="nouvelle-meta">
+            <div class="meta meta-col">
               <span class="meta-date">2025</span>
               <span class="meta-cat">Jalon</span>
             </div>
@@ -117,7 +98,7 @@ import Footer from '../components/Footer.astro';
           </article>
 
           <article class="nouvelle-item" data-animate data-delay="3">
-            <div class="nouvelle-meta">
+            <div class="meta meta-col">
               <span class="meta-date">En cours</span>
               <span class="meta-cat">Reçus fiscaux</span>
             </div>
@@ -137,20 +118,23 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ========== RESTEZ INFORMÉ ========== -->
-    <section class="suivez">
+    <section class="cta-section">
       <div class="container">
-        <div class="suivez-content" data-animate>
-          <span class="text-label">Restez informé</span>
+        <div class="cta-content" data-animate>
+          <span class="text-label suivez-label">Restez informé</span>
           <h2>Ne manquez<br/>aucune nouvelle.</h2>
           <p>
             Activités à venir, résultats, coulisses du Mouvement :
             suivez-nous sur les réseaux sociaux ou écrivez-nous pour
             recevoir nos prochaines annonces.
           </p>
-          <div class="suivez-links">
+          <div class="cta-buttons">
             <a href="#" class="link-underline">Facebook</a>
             <a href="#" class="link-underline">Instagram</a>
-            <a href="mailto:info@msespoir.ca" class="link-underline">Nous écrire</a>
+            <a href="mailto:info@msespoir.ca" class="link-underline">
+              Nous écrire
+              <span class="arrow">→</span>
+            </a>
           </div>
         </div>
       </div>
@@ -161,134 +145,26 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-  /* ========== HERO ========== */
-  .hero {
-    position: relative;
-    min-height: 55vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .hero-visual {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .hero-image {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    display: block;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(27, 58, 95, 0.3) 0%,
-      rgba(27, 58, 95, 0.6) 50%,
-      rgba(27, 58, 95, 0.9) 100%
-    );
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    padding: clamp(3rem, 6vw, 6rem);
-    padding-top: clamp(7rem, 12vh, 10rem);
-    color: white;
-    max-width: 1200px;
-  }
-
-  .hero-tagline {
-    margin-bottom: 3rem;
-  }
-
-  .hero-tagline .text-label {
-    color: #ffffff;
-  }
-
-  .hero h1 {
-    color: #ffffff;
-    margin-bottom: 4rem;
-    font-weight: 300;
-  }
-
-  .hero-line {
-    display: block;
-  }
-
-  .hero-accent {
-    color: var(--color-accent);
-    font-style: normal;
-  }
-
-  .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .hero-description {
-    max-width: 720px;
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #ffffff;
-    margin: 0;
-    font-weight: 300;
-  }
-
-  /* ========== SECTION HEAD ========== */
-  .section-head {
-    margin-bottom: clamp(3.5rem, 7vw, 5rem);
-    max-width: 500px;
-  }
-
-  .section-head .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
   /* ========== À LA UNE ========== */
   .featured {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-white);
   }
+
+  .featured-head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 
   .featured-item {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
-    gap: clamp(3rem, 6vw, 6rem);
+    gap: clamp(3rem, 7vw, 7rem);
     align-items: center;
   }
 
-  .featured-photo {
-    aspect-ratio: 4/3;
-  }
-
-  .featured-meta {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    margin-bottom: 1.75rem;
-  }
+  .featured-photo .image-frame { aspect-ratio: 4/3; }
 
   .featured-text h2 {
     margin-bottom: 2rem;
+    font-size: clamp(1.875rem, 3.4vw, 2.75rem);
   }
 
   .featured-text p {
@@ -297,36 +173,40 @@ import Footer from '../components/Footer.astro';
     line-height: 1.8;
   }
 
-  .featured-text strong {
-    color: var(--color-noir);
-    font-weight: 500;
+  /* ========== META ========== */
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
   }
 
-  /* ========== META ========== */
   .meta-date {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-accent-dark);
+    letter-spacing: 0.16em;
+    color: var(--color-marine);
   }
 
   .meta-cat {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-gris-clair);
-    padding-left: 1.25rem;
-    border-left: 1px solid var(--color-sand);
+    letter-spacing: 0.14em;
+    color: var(--color-marine);
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--color-line-strong);
+    border-radius: 999px;
   }
 
   /* ========== TOUTES LES NOUVELLES ========== */
   .nouvelles {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-cream);
   }
+
+  .nouvelles-head { margin-bottom: clamp(3.5rem, 7vw, 5rem); }
 
   .nouvelles-list {
     display: flex;
@@ -337,69 +217,36 @@ import Footer from '../components/Footer.astro';
     display: grid;
     grid-template-columns: 220px 1fr;
     gap: 3rem;
-    padding: 3rem 0;
-    border-bottom: 1px solid var(--color-sand);
+    padding: 2.75rem 0;
+    border-bottom: 1px solid var(--color-line);
+    transition: padding-left 0.6s var(--ease-elegant);
   }
 
-  .nouvelle-item:first-child {
-    border-top: 1px solid var(--color-sand);
-  }
+  .nouvelle-item:first-child { border-top: 1px solid var(--color-line); }
 
-  .nouvelle-meta {
-    display: flex;
+  .meta-col {
     flex-direction: column;
-    gap: 0.75rem;
     align-items: flex-start;
-  }
-
-  .nouvelle-meta .meta-cat {
-    padding-left: 0;
-    border-left: none;
+    gap: 0.875rem;
+    margin: 0;
+    padding-top: 0.35rem;
   }
 
   .nouvelle-content h3 {
     font-size: 1.375rem;
-    margin-bottom: 1rem;
-    font-weight: 300;
+    margin-bottom: 0.875rem;
+    font-weight: 400;
   }
 
   .nouvelle-content p {
     color: var(--color-gris);
     margin: 0;
-    max-width: 560px;
+    max-width: 580px;
     line-height: 1.8;
   }
 
   /* ========== RESTEZ INFORMÉ ========== */
-  .suivez {
-    padding: clamp(8rem, 15vw, 12rem) 0;
-    background: var(--color-ivory);
-  }
-
-  .suivez-content {
-    max-width: 540px;
-  }
-
-  .suivez-content .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .suivez-content h2 {
-    margin-bottom: 2rem;
-  }
-
-  .suivez-content p {
-    color: var(--color-gris);
-    margin: 0 0 2.5rem 0;
-    line-height: 1.8;
-  }
-
-  .suivez-links {
-    display: flex;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-  }
+  .suivez-label { margin-bottom: 1.75rem; }
 
   /* ========== RESPONSIVE ========== */
   @media (max-width: 900px) {
@@ -408,48 +255,18 @@ import Footer from '../components/Footer.astro';
       gap: 2.5rem;
     }
 
-    .featured-photo {
-      aspect-ratio: 16/10;
-    }
+    .featured-photo .image-frame { aspect-ratio: 16/10; }
 
     .nouvelle-item {
       grid-template-columns: 1fr;
       gap: 1.25rem;
     }
 
-    .nouvelle-meta {
+    .meta-col {
       flex-direction: row;
       align-items: center;
       gap: 1.25rem;
-    }
-
-    .nouvelle-meta .meta-cat {
-      padding-left: 1.25rem;
-      border-left: 1px solid var(--color-sand);
-    }
-  }
-
-  @media (max-width: 600px) {
-    .suivez-links {
-      flex-direction: column;
-      gap: 1.5rem;
+      padding-top: 0;
     }
   }
 </style>
-
-<script>
-  const animatedElements = document.querySelectorAll('[data-animate]');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
-  });
-
-  animatedElements.forEach(el => observer.observe(el));
-</script>

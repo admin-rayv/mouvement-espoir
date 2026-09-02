@@ -2,48 +2,28 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <Layout title="Faire un don — Mouvement solidaire eSPoir"
-  description="Faites un don par virement Interac ou par chèque : 100 % des revenus nets financent la recherche sur la guérison de la sclérose en plaques. Aucuns frais administratifs.">
+  description="Faites un don par virement Interac ou par chèque : 100 % des revenus nets financent la recherche sur la guérison de la sclérose en plaques. Aucuns frais administratifs."
+  preloadImage="/images/hero-home.jpg">
   <Header />
 
-  <main>
-    <!-- ========== HERO ========== -->
-    <section class="hero">
-      <div class="hero-visual">
-        <div class="hero-image">
-          <img src="/images/hero-home.jpg" alt="" />
-        </div>
-        <div class="hero-overlay"></div>
-      </div>
-
-      <div class="hero-content">
-        <div class="hero-tagline" data-animate data-delay="1">
-          <span class="text-label">Faire un don</span>
-        </div>
-
-        <h1 data-animate data-delay="2">
-          <span class="hero-line">Chaque dollar</span>
-          <span class="hero-line hero-accent">finance la guérison.</span>
-        </h1>
-
-        <div class="hero-bottom" data-animate data-delay="3">
-          <p class="hero-description">
-            Le Mouvement solidaire eSPoir est entièrement bénévole&#8239;:
-            100&#8239;% des revenus nets de nos activités-bénéfice vont
-            à la recherche sur la guérison de la sclérose en plaques.
-          </p>
-        </div>
-      </div>
-    </section>
+  <main id="contenu">
+    <PageHero
+      image="/images/hero-home.jpg"
+      label="Faire un don"
+      lines={['Chaque dollar', '<em>finance la guérison.</em>']}
+      description="Le Mouvement solidaire eSPoir est entièrement bénévole&#8239;: 100&#8239;% des revenus nets de nos activités-bénéfice vont à la recherche sur la guérison de la sclérose en plaques."
+    />
 
     <!-- ========== PROMESSE ========== -->
     <section class="promesse">
       <div class="container">
         <div class="promesse-grid">
           <div class="promesse-number" data-animate>
-            <span class="text-huge">100&#8239;%</span>
+            <span class="text-huge"><span data-count="100">100</span>&#8239;%</span>
           </div>
           <div class="promesse-content" data-animate data-delay="2">
             <p class="text-display">
@@ -61,7 +41,8 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- ========== MANIFESTE ========== -->
-    <section class="manifeste">
+    <section class="manifeste grain">
+      <div class="manifeste-glow" aria-hidden="true"></div>
       <div class="container">
         <blockquote class="manifeste-quote" data-animate>
           Vous ne pouvez peut-être pas guérir<br/>
@@ -74,14 +55,14 @@ import Footer from '../components/Footer.astro';
     <!-- ========== COMMENT DONNER ========== -->
     <section class="methodes">
       <div class="container">
-        <header class="methodes-header" data-animate>
+        <header class="section-head methodes-head" data-animate>
           <span class="text-label">Comment donner</span>
           <h2>Deux façons simples<br/>de contribuer.</h2>
         </header>
 
         <div class="methodes-items">
-          <article class="methode-item" data-animate data-delay="1">
-            <span class="methode-number">01</span>
+          <article class="methode-card" data-animate data-delay="1">
+            <span class="num-index">01</span>
             <h3>Virement Interac</h3>
             <p>
               Le moyen le plus rapide. Envoyez votre virement à
@@ -91,11 +72,12 @@ import Footer from '../components/Footer.astro';
             </p>
             <a href="mailto:info@msespoir.ca?subject=Don%20%E2%80%94%20Virement%20Interac" class="link-underline">
               Nous écrire pour les détails
+              <span class="arrow">→</span>
             </a>
           </article>
 
-          <article class="methode-item" data-animate data-delay="2">
-            <span class="methode-number">02</span>
+          <article class="methode-card" data-animate data-delay="2">
+            <span class="num-index">02</span>
             <h3>Par chèque</h3>
             <p>
               Libellez votre chèque à l'ordre du <strong>Mouvement
@@ -111,36 +93,40 @@ import Footer from '../components/Footer.astro';
     <!-- ========== REÇUS FISCAUX ========== -->
     <section class="recus">
       <div class="container">
-        <div class="recus-content" data-animate>
-          <span class="text-label">Reçus fiscaux</span>
-          <h2>Une étape encore<br/>à venir.</h2>
+        <div class="recus-grid">
+          <header class="section-head" data-animate>
+            <span class="text-label">Reçus fiscaux</span>
+            <h2>Une étape encore<br/>à venir.</h2>
+          </header>
 
-          <p class="text-lead">
-            Le Mouvement solidaire eSPoir est un organisme à but non
-            lucratif enregistré au Québec (NEQ&nbsp;: 1181 4407 11) et
-            est actuellement en démarches pour obtenir le statut
-            d'organisme de bienfaisance enregistré auprès de l'Agence
-            du revenu du Canada.
-          </p>
-          <p>
-            Pour l'instant, nous ne pouvons pas émettre de reçus
-            officiels aux fins d'impôt. Votre contribution n'en est pas
-            moins précieuse — chaque dollar reçu finance directement
-            la recherche. Nous mettrons cette page à jour dès que les
-            reçus seront disponibles.
-          </p>
+          <div class="recus-content" data-animate data-delay="2">
+            <p class="text-lead">
+              Le Mouvement solidaire eSPoir est un organisme à but non
+              lucratif enregistré au Québec (NEQ&nbsp;: 1181 4407 11) et
+              est actuellement en démarches pour obtenir le statut
+              d'organisme de bienfaisance enregistré auprès de l'Agence
+              du revenu du Canada.
+            </p>
+            <p>
+              Pour l'instant, nous ne pouvons pas émettre de reçus
+              officiels aux fins d'impôt. Votre contribution n'en est pas
+              moins précieuse — chaque dollar reçu finance directement
+              la recherche. Nous mettrons cette page à jour dès que les
+              reçus seront disponibles.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ========== PARTENAIRES ========== -->
-    <section class="partenaires">
+    <section class="cta-section">
       <div class="container">
         <div class="partenaires-grid">
-          <div class="partenaires-text" data-animate>
+          <header class="section-head" data-animate>
             <span class="text-label">Devenir partenaire</span>
             <h2>Entreprises<br/>et organismes.</h2>
-          </div>
+          </header>
 
           <div class="partenaires-content" data-animate data-delay="2">
             <p>
@@ -153,8 +139,9 @@ import Footer from '../components/Footer.astro';
               Écrivez-nous pour discuter de la formule qui vous
               convient. Nous bâtirons un partenariat à votre image.
             </p>
-            <a href="mailto:info@msespoir.ca?subject=Proposition%20de%20partenariat" class="link-underline">
+            <a href="mailto:info@msespoir.ca?subject=Proposition%20de%20partenariat" class="btn btn-primary">
               Proposer un partenariat
+              <span class="btn-arrow">→</span>
             </a>
           </div>
         </div>
@@ -166,271 +153,184 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-  /* ========== HERO ========== */
-  .hero {
-    position: relative;
-    min-height: 55vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .hero-visual {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .hero-image {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    display: block;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(27, 58, 95, 0.3) 0%,
-      rgba(27, 58, 95, 0.6) 50%,
-      rgba(27, 58, 95, 0.9) 100%
-    );
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    padding: clamp(3rem, 6vw, 6rem);
-    padding-top: clamp(7rem, 12vh, 10rem);
-    color: white;
-    max-width: 1200px;
-  }
-
-  .hero-tagline {
-    margin-bottom: 3rem;
-  }
-
-  .hero-tagline .text-label {
-    color: #ffffff;
-  }
-
-  .hero h1 {
-    color: #ffffff;
-    margin-bottom: 4rem;
-    font-weight: 300;
-  }
-
-  .hero-line {
-    display: block;
-  }
-
-  .hero-accent {
-    color: var(--color-accent);
-    font-style: normal;
-  }
-
-  .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .hero-description {
-    max-width: 720px;
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #ffffff;
-    margin: 0;
-    font-weight: 300;
-  }
-
   /* ========== PROMESSE ========== */
   .promesse {
-    padding: clamp(8rem, 18vw, 14rem) 0;
+    padding: clamp(7rem, 16vw, 13rem) 0;
     background: var(--color-white);
+    overflow: hidden;
+  }
+
+  .promesse::before {
+    content: '';
+    position: absolute;
+    left: -15%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(191, 220, 240, 0.35), rgba(191, 220, 240, 0) 65%);
+    pointer-events: none;
   }
 
   .promesse-grid {
+    position: relative;
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: clamp(4rem, 10vw, 10rem);
+    gap: clamp(3rem, 9vw, 9rem);
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 clamp(2rem, 6vw, 5rem);
   }
 
   .promesse-content {
     max-width: 480px;
-  }
-
-  .promesse-content .text-display em {
-    font-style: italic;
+    padding-left: clamp(0rem, 4vw, 3rem);
+    border-left: 1px solid var(--color-line);
   }
 
   .promesse-content .text-muted {
     font-size: 1rem;
     line-height: 1.75;
+    margin: 0;
   }
 
   /* ========== MANIFESTE ========== */
   .manifeste {
-    padding: clamp(10rem, 18vw, 16rem) 0;
-    background: var(--color-sand);
+    padding: clamp(9rem, 17vw, 15rem) 0;
+    background: linear-gradient(180deg, #1B3A5F 0%, #142E4C 100%);
+    color: white;
+    overflow: hidden;
   }
+
+  .manifeste-glow {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 80vw;
+    max-width: 1100px;
+    max-height: 1100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 163, 214, 0.3), rgba(79, 163, 214, 0) 60%);
+    pointer-events: none;
+  }
+
+  .manifeste .container { position: relative; z-index: 2; }
 
   .manifeste-quote {
     font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 4.5vw, 3rem);
+    font-size: clamp(1.75rem, 4.2vw, 3rem);
     font-weight: 300;
-    line-height: 1.4;
-    color: var(--color-noir);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: white;
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
     border: none;
     padding: 0;
-    font-style: normal;
   }
 
   .manifeste-accent {
-    font-style: normal;
-    color: var(--color-marine);
     display: inline-block;
-    margin-top: 1.25rem;
+    margin-top: 1.5rem;
+    color: var(--color-accent);
   }
 
   /* ========== MÉTHODES ========== */
   .methodes {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-cream);
   }
 
-  .methodes-header {
-    margin-bottom: clamp(5rem, 10vw, 8rem);
-    max-width: 500px;
-  }
-
-  .methodes-header .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
+  .methodes-head { margin-bottom: clamp(4rem, 8vw, 6rem); }
 
   .methodes-items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: clamp(3rem, 6vw, 6rem);
+    gap: 1.5rem;
   }
 
-  .methode-item {
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--color-sand);
+  .methode-card {
+    position: relative;
     display: flex;
     flex-direction: column;
+    padding: clamp(2rem, 4vw, 3.25rem);
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    transition: transform 0.7s var(--ease-elegant), box-shadow 0.7s var(--ease-elegant), border-color 0.5s;
   }
 
-  .methode-number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--color-gris-clair);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+  .methode-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 1px;
+    background: var(--color-accent);
+    transition: width 0.9s var(--ease-elegant);
   }
 
-  .methode-item h3 {
+  .methode-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--color-accent-soft);
+  }
+
+  .methode-card:hover::before { width: 100%; }
+
+  .methode-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1.25rem;
-    font-weight: 300;
+    font-weight: 400;
   }
 
-  .methode-item p {
+  .methode-card p {
     color: var(--color-gris);
     margin: 0 0 2rem 0;
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.75;
     flex: 1;
   }
 
-  .methode-item p strong {
-    color: var(--color-noir);
-    font-weight: 500;
-  }
-
-  .methode-item .link-underline {
-    align-self: flex-start;
-  }
+  .methode-card .link-underline { align-self: flex-start; }
 
   /* ========== REÇUS ========== */
   .recus {
-    padding: clamp(8rem, 15vw, 12rem) 0;
-    background: var(--color-ivory);
+    padding: var(--section-y) 0;
+    background: var(--color-white);
   }
 
-  .recus-content {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 clamp(2rem, 6vw, 5rem);
+  .recus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: start;
   }
 
-  .recus-content .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .recus-content h2 {
-    margin-bottom: 3rem;
-  }
-
-  .recus-content .text-lead {
-    font-family: var(--font-heading);
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--color-noir);
-    margin-bottom: 2rem;
-  }
+  .recus-content { max-width: 600px; }
+  .recus-content .text-lead { margin-bottom: 1.75rem; }
 
   .recus-content p {
     color: var(--color-gris);
     font-size: 1rem;
     line-height: 1.8;
+    margin: 0;
   }
 
   /* ========== PARTENAIRES ========== */
-  .partenaires {
-    padding: clamp(8rem, 15vw, 12rem) 0;
-    background: var(--color-white);
-  }
-
   .partenaires-grid {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: clamp(4rem, 10vw, 10rem);
+    gap: clamp(3rem, 8vw, 8rem);
     align-items: start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 clamp(2rem, 6vw, 5rem);
   }
 
-  .partenaires-text .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
+  .partenaires-content { max-width: 560px; }
 
   .partenaires-content p {
     color: var(--color-gris);
@@ -438,53 +338,26 @@ import Footer from '../components/Footer.astro';
     line-height: 1.8;
   }
 
-  .partenaires-content .link-underline {
-    margin-top: 1rem;
-    display: inline-block;
-  }
+  .partenaires-content .btn { margin-top: 1rem; }
 
   /* ========== RESPONSIVE ========== */
   @media (max-width: 1000px) {
     .promesse-grid {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
     }
-
-    .methodes-items {
-      grid-template-columns: 1fr;
-      gap: 0;
+    .promesse-content {
+      border-left: none;
+      padding-left: 0;
     }
+  }
 
-    .methode-item {
-      padding: 2.5rem 0;
-      border-top: none;
-      border-bottom: 1px solid var(--color-sand);
-    }
-
-    .methode-item:first-child {
-      border-top: 1px solid var(--color-sand);
-    }
-
+  @media (max-width: 900px) {
+    .methodes-items { grid-template-columns: 1fr; }
+    .recus-grid,
     .partenaires-grid {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
     }
   }
 </style>
-
-<script>
-  const animatedElements = document.querySelectorAll('[data-animate]');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
-  });
-
-  animatedElements.forEach(el => observer.observe(el));
-</script>

@@ -2,54 +2,33 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <Layout title="Nous joindre — Mouvement solidaire eSPoir"
-  description="Bénévole, partenaire ou donateur : écrivez au Mouvement solidaire eSPoir à Repentigny. Une équipe bénévole à votre écoute, réponse sous 48 heures.">
+  description="Bénévole, partenaire ou donateur : écrivez au Mouvement solidaire eSPoir à Repentigny. Une équipe bénévole à votre écoute, réponse sous 48 heures."
+  preloadImage="/images/hero-contact.jpg">
   <Header />
 
-  <main>
-    <!-- ========== HERO ========== -->
-    <section class="hero">
-      <div class="hero-visual">
-        <div class="hero-image">
-          <img src="/images/hero-contact.jpg" alt="" />
-        </div>
-        <div class="hero-overlay"></div>
-      </div>
-
-      <div class="hero-content">
-        <div class="hero-tagline" data-animate data-delay="1">
-          <span class="text-label">Nous joindre</span>
-        </div>
-
-        <h1 data-animate data-delay="2">
-          <span class="hero-line">Faisons</span>
-          <span class="hero-line hero-accent">connaissance.</span>
-        </h1>
-
-        <div class="hero-bottom" data-animate data-delay="3">
-          <p class="hero-description">
-            Bénévoles, partenaires, donateurs ou simples curieux : il y
-            a plusieurs façons de soutenir la recherche sur la guérison
-            de la sclérose en plaques. Écrivez-nous, on sera heureux
-            de vous lire.
-          </p>
-        </div>
-      </div>
-    </section>
+  <main id="contenu">
+    <PageHero
+      image="/images/hero-contact.jpg"
+      label="Nous joindre"
+      lines={['Faisons', '<em>connaissance.</em>']}
+      description="Bénévoles, partenaires, donateurs ou simples curieux&#8239;: il y a plusieurs façons de soutenir la recherche sur la guérison de la sclérose en plaques. Écrivez-nous, on sera heureux de vous lire."
+    />
 
     <!-- ========== ENGAGE ========== -->
     <section class="engage">
       <div class="container">
-        <header class="engage-header" data-animate>
+        <header class="section-head engage-head" data-animate>
           <span class="text-label">Comment nous joindre</span>
           <h2>Chaque geste<br/>fait avancer la recherche.</h2>
         </header>
 
         <div class="engage-items">
-          <article class="engage-item" data-animate data-delay="1">
-            <span class="engage-number">01</span>
+          <article class="engage-card" data-animate data-delay="1">
+            <span class="num-index">01</span>
             <h3>Devenir bénévole</h3>
             <p>
               Vous avez du temps ou des talents à offrir&#8239;?
@@ -59,11 +38,12 @@ import Footer from '../components/Footer.astro';
             </p>
             <a href="mailto:info@msespoir.ca?subject=Devenir%20b%C3%A9n%C3%A9vole" class="link-underline">
               Écrire pour s'inscrire
+              <span class="arrow">→</span>
             </a>
           </article>
 
-          <article class="engage-item" data-animate data-delay="2">
-            <span class="engage-number">02</span>
+          <article class="engage-card" data-animate data-delay="2">
+            <span class="num-index">02</span>
             <h3>Poser une question</h3>
             <p>
               Une question sur la recherche, une demande médiatique
@@ -73,6 +53,7 @@ import Footer from '../components/Footer.astro';
             </p>
             <a href="mailto:info@msespoir.ca" class="link-underline">
               Nous écrire
+              <span class="arrow">→</span>
             </a>
           </article>
         </div>
@@ -95,7 +76,7 @@ import Footer from '../components/Footer.astro';
 
           <div class="coordonnees-details" data-animate data-delay="2">
             <div class="coord-block">
-              <span class="text-label">Adresse</span>
+              <span class="coord-label">Adresse</span>
               <p>
                 243, boul. Brien, bureau 250<br/>
                 Repentigny (Québec)&nbsp;&nbsp;J6A 6M4
@@ -103,14 +84,14 @@ import Footer from '../components/Footer.astro';
             </div>
 
             <div class="coord-block">
-              <span class="text-label">Courriel</span>
-              <a href="mailto:info@msespoir.ca" class="link-underline">
+              <span class="coord-label">Courriel</span>
+              <a href="mailto:info@msespoir.ca" class="link-underline coord-link">
                 info@msespoir.ca
               </a>
             </div>
 
             <div class="coord-block">
-              <span class="text-label">Suivez-nous</span>
+              <span class="coord-label">Suivez-nous</span>
               <div class="social-links">
                 <a href="#" aria-label="Facebook" class="link-underline">Facebook</a>
                 <a href="#" aria-label="Instagram" class="link-underline">Instagram</a>
@@ -126,204 +107,136 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-  /* ========== HERO ========== */
-  .hero {
-    position: relative;
-    min-height: 55vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .hero-visual {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .hero-image {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    display: block;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(27, 58, 95, 0.3) 0%,
-      rgba(27, 58, 95, 0.6) 50%,
-      rgba(27, 58, 95, 0.9) 100%
-    );
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    padding: clamp(3rem, 6vw, 6rem);
-    padding-top: clamp(7rem, 12vh, 10rem);
-    color: white;
-    max-width: 1200px;
-  }
-
-  .hero-tagline {
-    margin-bottom: 3rem;
-  }
-
-  .hero-tagline .text-label {
-    color: #ffffff;
-  }
-
-  .hero h1 {
-    color: #ffffff;
-    margin-bottom: 4rem;
-    font-weight: 300;
-  }
-
-  .hero-line {
-    display: block;
-  }
-
-  .hero-accent {
-    color: var(--color-accent);
-    font-style: normal;
-  }
-
-  .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .hero-description {
-    max-width: 720px;
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #ffffff;
-    margin: 0;
-    font-weight: 300;
-  }
-
   /* ========== ENGAGE ========== */
   .engage {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-white);
   }
 
-  .engage-header {
-    margin-bottom: clamp(5rem, 10vw, 8rem);
-    max-width: 500px;
-  }
-
-  .engage-header .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
+  .engage-head { margin-bottom: clamp(4rem, 8vw, 6rem); }
 
   .engage-items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: clamp(3rem, 6vw, 6rem);
+    gap: 1.5rem;
   }
 
-  .engage-item {
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--color-sand);
+  .engage-card {
+    position: relative;
     display: flex;
     flex-direction: column;
+    padding: clamp(2rem, 4vw, 3.25rem);
+    background: var(--color-ivory);
+    border: 1px solid var(--color-line);
+    transition: transform 0.7s var(--ease-elegant), box-shadow 0.7s var(--ease-elegant), border-color 0.5s, background 0.5s;
   }
 
-  .engage-number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--color-gris-clair);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+  .engage-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 1px;
+    background: var(--color-accent);
+    transition: width 0.9s var(--ease-elegant);
   }
 
-  .engage-item h3 {
+  .engage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--color-accent-soft);
+    background: var(--color-white);
+  }
+
+  .engage-card:hover::before { width: 100%; }
+
+  .engage-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1.25rem;
-    font-weight: 300;
+    font-weight: 400;
   }
 
-  .engage-item p {
+  .engage-card p {
     color: var(--color-gris);
     margin: 0 0 2rem 0;
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.75;
     flex: 1;
   }
 
-  .engage-item .link-underline {
-    align-self: flex-start;
-  }
+  .engage-card .link-underline { align-self: flex-start; }
 
   /* ========== COORDONNÉES ========== */
   .coordonnees {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-cream);
+    overflow: hidden;
+  }
+
+  .coordonnees::before {
+    content: '';
+    position: absolute;
+    right: -10%;
+    bottom: -30%;
+    width: 55vw;
+    height: 55vw;
+    max-width: 720px;
+    max-height: 720px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 163, 214, 0.16), rgba(79, 163, 214, 0) 65%);
+    pointer-events: none;
   }
 
   .coordonnees-grid {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(5rem, 10vw, 10rem);
+    gap: clamp(4rem, 9vw, 9rem);
     align-items: start;
   }
 
-  .coordonnees-text .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .coordonnees-text h2 {
-    margin-bottom: 3rem;
-  }
+  .coordonnees-text .text-label { margin-bottom: 1.75rem; }
+  .coordonnees-text h2 { margin-bottom: 2.5rem; }
 
   .coordonnees-text p {
     color: var(--color-gris);
     margin: 0;
-    max-width: 420px;
+    max-width: 440px;
   }
 
   .coordonnees-details {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
   }
 
-  .coord-block .text-label {
-    margin-bottom: 1.25rem;
-    display: block;
+  .coord-block {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .coord-block:last-child { border-bottom: 1px solid var(--color-line); }
+
+  .coord-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-marine);
+    padding-top: 0.3rem;
   }
 
   .coord-block p {
-    color: var(--color-charcoal);
+    color: var(--color-noir);
     margin: 0;
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 1.0625rem;
+    line-height: 1.7;
   }
 
-  .coord-block .link-underline {
-    color: var(--color-charcoal);
-    font-size: 1rem;
-  }
+  .coord-link { font-size: 1.0625rem; }
 
   .social-links {
     display: flex;
@@ -331,42 +244,17 @@ import Footer from '../components/Footer.astro';
   }
 
   /* ========== RESPONSIVE ========== */
-  @media (max-width: 1000px) {
-    .engage-items {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
-    .engage-item {
-      padding: 2.5rem 0;
-      border-top: none;
-      border-bottom: 1px solid var(--color-sand);
-    }
-
-    .engage-item:first-child {
-      border-top: 1px solid var(--color-sand);
-    }
+  @media (max-width: 900px) {
+    .engage-items { grid-template-columns: 1fr; }
 
     .coordonnees-grid {
       grid-template-columns: 1fr;
-      gap: 4rem;
+      gap: 3rem;
+    }
+
+    .coord-block {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
     }
   }
 </style>
-
-<script>
-  const animatedElements = document.querySelectorAll('[data-animate]');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
-  });
-
-  animatedElements.forEach(el => observer.observe(el));
-</script>

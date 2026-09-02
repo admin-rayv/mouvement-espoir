@@ -2,58 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <Layout title="Mouvement solidaire eSPoir — Financer. Chercher. Guérir la sclérose en plaques."
-  description="Mouvement solidaire eSPoir : OBNL québécois entièrement bénévole. 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques.">
+  description="Mouvement solidaire eSPoir : OBNL québécois entièrement bénévole. 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques."
+  preloadImage="/images/hero-home.jpg">
   <Header />
 
-  <main>
-    <!-- ========== HERO - Épuré, élégant ========== -->
-    <section class="hero">
-      <div class="hero-visual">
-        <div class="hero-image">
-          <img src="/images/hero-home.jpg" alt="" />
-        </div>
-        <div class="hero-overlay"></div>
-      </div>
+  <main id="contenu">
+    <PageHero
+      tall
+      image="/images/hero-home.jpg"
+      label='Mouvement solidaire e<span class="sp-emphasis">SP</span>oir'
+      lines={['Financer.', 'Chercher.', '<em>Guérir</em> la sclérose en plaques.']}
+      description="Nous organisons des activités, culturelles et autres, afin de rassembler la communauté autour d'une cause porteuse d'espoir&#8239;: la guérison de la sclérose en plaques. Les fonds ainsi recueillis sont entièrement consacrés au soutien de projets de recherche menés par des équipes reconnues pour leur expertise de pointe dans le domaine."
+      meta={['Repentigny · Lanaudière', 'OBNL entièrement bénévole', 'Fondé en octobre 2025']}
+    />
 
-      <div class="hero-content">
-        <div class="hero-tagline" data-animate data-delay="1">
-          <span class="text-label">Mouvement solidaire e<span class="sp-emphasis">SP</span>oir</span>
-        </div>
-
-        <h1 data-animate data-delay="2">
-          <span class="hero-line">Financer.</span>
-          <span class="hero-line">Chercher.</span>
-          <span class="hero-line"><span class="hero-accent">Guérir</span> la sclérose en plaques.</span>
-        </h1>
-
-        <div class="hero-bottom" data-animate data-delay="3">
-          <p class="hero-description">
-            Nous organisons des activités, culturelles et autres, afin de
-            rassembler la communauté autour d'une cause porteuse d'espoir :
-            la guérison de la sclérose en plaques. Les fonds ainsi recueillis
-            sont entièrement consacrés au soutien de projets de recherche
-            menés par des équipes reconnues pour leur expertise de pointe
-            dans le domaine.
-          </p>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ========== IMPACT - Statement épuré ========== -->
-    <section class="impact">
+    <!-- ========== IMPACT ========== -->
+    <section class="impact" id="intro">
       <div class="container">
         <div class="impact-grid">
           <div class="impact-number" data-animate>
-            <span class="text-huge">100&#8239;%</span>
+            <span class="text-huge"><span data-count="100">100</span>&#8239;%</span>
           </div>
           <div class="impact-content" data-animate data-delay="2">
             <p class="text-display">
               de votre don finance<br/>
-              <em>directement</em> la recherche
+              directement la recherche
             </p>
             <div class="divider"></div>
             <p class="text-muted">
@@ -69,13 +46,13 @@ import Footer from '../components/Footer.astro';
     <section class="mission">
       <div class="container">
         <div class="mission-grid">
-          <div class="mission-visual" data-animate="slide-left">
+          <div class="mission-visual frame-offset" data-animate="reveal">
             <div class="mission-image image-frame">
-              <img src="/images/equipe-benevoles-mouvement-solidaire-espoir.jpg" alt="L'équipe de bénévoles du Mouvement solidaire eSPoir réunie autour du logo" />
+              <img src="/images/equipe-benevoles-mouvement-solidaire-espoir.jpg" alt="L'équipe de bénévoles du Mouvement solidaire eSPoir réunie autour du logo" width="1280" height="960" loading="lazy" decoding="async" />
             </div>
           </div>
 
-          <div class="mission-content" data-animate="slide-right">
+          <div class="mission-content" data-animate data-delay="2">
             <span class="text-label">Notre mission</span>
             <h2>Financer.<br/>Chercher.<br/>Guérir la sclérose en plaques.</h2>
 
@@ -92,6 +69,7 @@ import Footer from '../components/Footer.astro';
 
             <a href="/histoire" class="link-underline">
               Découvrir notre histoire
+              <span class="arrow">→</span>
             </a>
           </div>
         </div>
@@ -101,14 +79,14 @@ import Footer from '../components/Footer.astro';
     <!-- ========== APPROACH ========== -->
     <section class="approach">
       <div class="container">
-        <header class="approach-header" data-animate>
+        <header class="section-head" data-animate>
           <span class="text-label">Notre approche</span>
           <h2>Ensemble, nous allons<br/>contribuer à changer les choses&#8239;!</h2>
         </header>
 
-        <div class="approach-items">
-          <article class="approach-item" data-animate data-delay="1">
-            <span class="approach-number">01</span>
+        <div class="num-list approach-items">
+          <article class="num-item" data-animate data-delay="1">
+            <span class="num-index">01</span>
             <h3>Événements culturels</h3>
             <p>
               Spectacles, soupers-bénéfice, activités culturelles.
@@ -116,8 +94,8 @@ import Footer from '../components/Footer.astro';
             </p>
           </article>
 
-          <article class="approach-item" data-animate data-delay="2">
-            <span class="approach-number">02</span>
+          <article class="num-item" data-animate data-delay="2">
+            <span class="num-index">02</span>
             <h3>Transparence totale</h3>
             <p>
               100&#8239;% des bénéfices vont à la recherche.
@@ -125,8 +103,8 @@ import Footer from '../components/Footer.astro';
             </p>
           </article>
 
-          <article class="approach-item" data-animate data-delay="3">
-            <span class="approach-number">03</span>
+          <article class="num-item" data-animate data-delay="3">
+            <span class="num-index">03</span>
             <h3>Recherche de pointe</h3>
             <p>
               Nos fonds sont destinés à soutenir des projets menés par
@@ -140,8 +118,8 @@ import Footer from '../components/Footer.astro';
     <!-- ========== EVENT ========== -->
     <section class="event">
       <div class="container">
-        <div class="event-wrapper" data-animate>
-          <div class="event-content">
+        <div class="event-wrapper">
+          <div class="event-content" data-animate>
             <span class="text-label">Prochain événement</span>
             <h2>On vous prépare<br/>quelque chose pour bientôt&#8239;!</h2>
             <p>
@@ -153,9 +131,9 @@ import Footer from '../components/Footer.astro';
               <span class="btn-arrow">→</span>
             </a>
           </div>
-          <div class="event-visual">
+          <div class="event-visual frame-offset" data-animate="reveal" data-delay="1">
             <div class="event-image image-frame">
-              <img src="/images/mc-parle.jpg" alt="Marie-Carole Daigle s'adresse à la communauté lors d'un événement-bénéfice" />
+              <img src="/images/mc-parle.jpg" alt="Marie-Carole Daigle s'adresse à la communauté lors d'un événement-bénéfice" width="1600" height="1200" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -165,32 +143,29 @@ import Footer from '../components/Footer.astro';
     <!-- ========== PARTENAIRES ========== -->
     <section class="partners">
       <div class="container">
-        <header class="partners-header" data-animate>
+        <header class="section-head" data-animate>
           <span class="text-label">Nos partenaires</span>
           <h2>Ils soutiennent<br/>notre mission</h2>
         </header>
 
         <div class="partners-grid" data-animate data-delay="1">
           <div class="partner-item">
-            <div class="partner-logo">
-              <img src="/images/partenaires/club-lions.png" alt="Club Lions" loading="lazy" />
-            </div>
+            <img src="/images/partenaires/club-lions.png" alt="Club Lions" loading="lazy" decoding="async" width="800" height="600" />
           </div>
           <div class="partner-item">
-            <div class="partner-logo">
-              <img src="/images/partenaires/aquadetect.png" alt="AquaDétect — Prévention de dégâts d'eau" loading="lazy" />
-            </div>
+            <img src="/images/partenaires/aquadetect.png" alt="AquaDétect — Prévention de dégâts d'eau" loading="lazy" decoding="async" width="800" height="600" />
           </div>
           <div class="partner-item">
-            <div class="partner-logo">
-              <img src="/images/partenaires/communications-mcd.png" alt="Communications MCD" loading="lazy" />
-            </div>
+            <img src="/images/partenaires/communications-mcd.png" alt="Communications MCD" loading="lazy" decoding="async" width="800" height="600" />
           </div>
         </div>
 
         <div class="partners-cta" data-animate data-delay="2">
           <p>Vous souhaitez soutenir notre cause&#8239;?</p>
-          <a href="/don" class="link-underline">Devenir partenaire</a>
+          <a href="/don" class="link-underline">
+            Devenir partenaire
+            <span class="arrow">→</span>
+          </a>
         </div>
       </div>
     </section>
@@ -198,15 +173,13 @@ import Footer from '../components/Footer.astro';
     <!-- ========== QUOTE ========== -->
     <section class="quote">
       <div class="container">
-        <div class="quote-content" data-animate>
+        <div class="pull-quote" data-animate>
           <blockquote>
             « Le Mouvement solidaire eSPoir, c'est l'énergie
             collective canalisée vers un seul objectif :
             la guérison. »
           </blockquote>
-          <footer class="quote-author">
-            <span class="quote-name">Témoignage à venir</span>
-          </footer>
+          <footer>Témoignage à venir</footer>
         </div>
       </div>
     </section>
@@ -218,15 +191,22 @@ import Footer from '../components/Footer.astro';
           <div class="newsletter-content">
             <span class="text-label">Pour ne rien manquer</span>
             <h2>Joignez-vous<br/>au Mouvement</h2>
+            <p class="text-muted">
+              Recevez les nouvelles de nos activités et de la recherche.
+              Un courriel à l'occasion, jamais de pourriel.
+            </p>
           </div>
           <form class="newsletter-form" action="#" method="POST">
-            <input
-              type="email"
-              name="email"
-              placeholder="votre@courriel.com"
-              required
-              aria-label="Adresse courriel"
-            />
+            <div class="field">
+              <input
+                type="email"
+                name="email"
+                placeholder="votre@courriel.com"
+                required
+                aria-label="Adresse courriel"
+                autocomplete="email"
+              />
+            </div>
             <button type="submit" class="btn btn-primary">
               S'abonner à l'infolettre
               <span class="btn-arrow">→</span>
@@ -241,236 +221,91 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-  /* ========== HERO ========== */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .hero-visual {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .hero-image {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    display: block;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(27, 58, 95, 0.3) 0%,
-      rgba(27, 58, 95, 0.6) 50%,
-      rgba(27, 58, 95, 0.9) 100%
-    );
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    padding: clamp(3rem, 6vw, 6rem);
-    padding-top: 35vh;
-    color: white;
-    max-width: 1200px;
-  }
-
-  .hero-tagline {
-    margin-bottom: 3rem;
-  }
-
-  .hero-tagline .text-label {
-    color: #ffffff;
-  }
-
-  .hero h1 {
-    color: #ffffff;
-    margin-bottom: 4rem;
-    font-weight: 300;
-  }
-
-  .hero-line {
-    display: block;
-  }
-
-  .hero-accent {
-    color: var(--color-accent);
-    font-style: italic;
-  }
-
-  .hero-line-sm {
-    font-size: 0.55em;
-    letter-spacing: 0;
-    margin-top: 0.75rem;
-    display: block;
-  }
-
-  .sp-emphasis {
-    font-size: 1.5em;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .hero-description {
-    max-width: 720px;
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #ffffff;
-    margin: 0;
-    font-weight: 300;
-  }
-
-  .hero-scroll {
-    position: absolute;
-    left: clamp(3rem, 10vw, 8rem);
-    bottom: 3rem;
-    color: #ffffff;
-    font-size: 0.8125rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-  }
-
   /* ========== IMPACT ========== */
   .impact {
-    padding: clamp(8rem, 18vw, 14rem) 0;
+    padding: clamp(7rem, 16vw, 13rem) 0;
     background: var(--color-white);
+    overflow: hidden;
+  }
+
+  .impact::before {
+    content: '';
+    position: absolute;
+    left: -15%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(191, 220, 240, 0.35), rgba(191, 220, 240, 0) 65%);
+    pointer-events: none;
   }
 
   .impact-grid {
+    position: relative;
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: clamp(4rem, 10vw, 10rem);
+    gap: clamp(3rem, 9vw, 9rem);
     align-items: center;
   }
 
+  .impact-number { position: relative; }
+
   .impact-content {
     max-width: 480px;
-  }
-
-  .impact-content .text-display em {
-    font-style: italic;
+    padding-left: clamp(0rem, 4vw, 3rem);
+    border-left: 1px solid var(--color-line);
   }
 
   .impact-content .text-muted {
-    font-size: 1rem; /* 16px accessible */
+    font-size: 1rem;
     line-height: 1.75;
+    margin: 0;
   }
 
   /* ========== MISSION ========== */
   .mission {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-cream);
   }
 
   .mission-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(5rem, 10vw, 10rem);
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(4rem, 9vw, 9rem);
     align-items: center;
   }
 
-  .mission-image {
-    aspect-ratio: 4/3;
-  }
+  .mission-image { aspect-ratio: 4/3; }
 
   .mission-content .text-label {
-    margin-bottom: 2rem;
-    display: block;
+    margin-bottom: 1.75rem;
   }
 
-  .mission-content h2 {
-    margin-bottom: 3rem;
-  }
+  .mission-content h2 { margin-bottom: 2.5rem; }
 
   .mission-content p {
     color: var(--color-gris);
     margin-bottom: 1.5rem;
   }
 
-  .mission-content .link-underline {
-    margin-top: 1rem;
-    display: inline-block;
-  }
+  .mission-content .link-underline { margin-top: 1rem; }
 
   /* ========== APPROACH ========== */
   .approach {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-white);
   }
 
-  .approach-header {
-    margin-bottom: clamp(5rem, 10vw, 8rem);
-    max-width: 500px;
-  }
-
-  .approach-header .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .approach-items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(3rem, 6vw, 6rem);
-  }
-
-  .approach-item {
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--color-sand);
-  }
-
-  .approach-number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--color-gris-clair);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .approach-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-    font-weight: 300;
-  }
-
-  .approach-item p {
-    color: var(--color-gris);
-    margin: 0;
-    font-size: 1rem; /* 16px accessible */
-    line-height: 1.7;
+  .approach .section-head {
+    margin-bottom: clamp(4rem, 9vw, 7rem);
   }
 
   /* ========== EVENT ========== */
   .event {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-ivory);
   }
 
@@ -481,80 +316,68 @@ import Footer from '../components/Footer.astro';
     align-items: center;
   }
 
-  .event-content .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .event-content h2 {
-    margin-bottom: 2rem;
-  }
+  .event-content .text-label { margin-bottom: 1.75rem; }
+  .event-content h2 { margin-bottom: 1.75rem; }
 
   .event-content p {
     color: var(--color-gris);
     margin-bottom: 2.5rem;
-    max-width: 320px;
+    max-width: 340px;
   }
 
-  .event-image {
-    aspect-ratio: 4/3;
-  }
+  .event-image { aspect-ratio: 4/3; }
 
   /* ========== PARTNERS ========== */
   .partners {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-white);
   }
 
-  .partners-header {
-    margin-bottom: clamp(4rem, 8vw, 6rem);
-    max-width: 400px;
-  }
-
-  .partners-header .text-label {
-    margin-bottom: 2rem;
-    display: block;
+  .partners .section-head {
+    margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
   }
 
   .partners-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 2rem;
-    margin-bottom: clamp(4rem, 8vw, 6rem);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    border-top: 1px solid var(--color-line);
+    border-left: 1px solid var(--color-line);
+    margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
   }
 
   .partner-item {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    aspect-ratio: 4/3;
+    border-right: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    transition: background 0.5s var(--ease-elegant);
   }
 
-  .partner-logo {
-    width: 100%;
-    aspect-ratio: 3/2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.4s var(--ease-elegant);
-  }
+  .partner-item:hover { background: var(--color-ivory); }
 
-  .partner-item:hover .partner-logo {
-    opacity: 0.7;
-  }
-
-  .partner-logo img {
+  .partner-item img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display: block;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.6s var(--ease-elegant), opacity 0.6s var(--ease-elegant), transform 0.6s var(--ease-elegant);
+  }
+
+  .partner-item:hover img {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.04);
   }
 
   .partners-cta {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--color-sand);
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 
   .partners-cta p {
@@ -565,45 +388,24 @@ import Footer from '../components/Footer.astro';
 
   /* ========== QUOTE ========== */
   .quote {
-    padding: clamp(10rem, 18vw, 16rem) 0;
+    padding: clamp(9rem, 17vw, 15rem) 0;
     background: var(--color-sand);
+    overflow: hidden;
   }
 
-  .quote-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .quote-content blockquote {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--color-noir);
-    border: none;
-    padding: 0;
-    margin: 0 0 3rem 0;
-    font-style: normal;
-  }
-
-  .quote-content blockquote em {
-    font-style: italic;
-  }
-
-  .quote-author {
-    display: block;
-  }
-
-  .quote-name {
-    font-size: 0.9375rem; /* 15px */
-    color: var(--color-gris);
-    letter-spacing: 0.02em;
+  .quote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 40%),
+      radial-gradient(circle at 85% 90%, rgba(79, 163, 214, 0.18), rgba(79, 163, 214, 0) 45%);
+    pointer-events: none;
   }
 
   /* ========== NEWSLETTER ========== */
   .newsletter {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-cream);
   }
 
@@ -614,95 +416,42 @@ import Footer from '../components/Footer.astro';
     align-items: center;
   }
 
-  .newsletter-content .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .newsletter-content h2 {
-    margin-bottom: 0;
-  }
+  .newsletter-content .text-label { margin-bottom: 1.75rem; }
+  .newsletter-content h2 { margin-bottom: 1.5rem; }
+  .newsletter-content p { margin: 0; max-width: 380px; }
 
   .newsletter-form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.75rem;
   }
 
-  .newsletter-form input {
-    padding: 1.25rem 1.5rem;
-    border: 1px solid var(--color-sand);
-    background: white;
-    font-family: var(--font-body);
-    font-size: 1rem; /* 16px accessible */
-    font-weight: 400;
-    transition: border-color 0.5s var(--ease-elegant);
-  }
-
-  .newsletter-form input:focus {
-    outline: none;
-    border-color: var(--color-noir);
-  }
-
-  .newsletter-form input::placeholder {
-    color: var(--color-gris-clair);
-  }
+  .newsletter-form .btn { align-self: flex-start; }
 
   /* ========== RESPONSIVE ========== */
   @media (max-width: 1000px) {
     .impact-grid {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
     }
-
-    .partners-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .impact-content {
+      border-left: none;
+      padding-left: 0;
     }
   }
 
   @media (max-width: 900px) {
-    .hero-bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2.5rem;
-    }
-
     .mission-grid {
       grid-template-columns: 1fr;
-      gap: 4rem;
+      gap: 3.5rem;
     }
-
-    .mission-visual {
-      order: -1;
-    }
-
-    .mission-image {
-      aspect-ratio: 16/10;
-    }
-
-    .approach-items {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
-    .approach-item {
-      padding: 2.5rem 0;
-      border-top: none;
-      border-bottom: 1px solid var(--color-sand);
-    }
-
-    .approach-item:first-child {
-      border-top: 1px solid var(--color-sand);
-    }
+    .mission-image { aspect-ratio: 16/10; }
 
     .event-wrapper {
       grid-template-columns: 1fr;
-      gap: 4rem;
+      gap: 3.5rem;
     }
-
-    .event-visual {
-      order: -1;
-    }
+    .event-visual { order: -1; }
 
     .newsletter-wrapper {
       grid-template-columns: 1fr;
@@ -711,36 +460,12 @@ import Footer from '../components/Footer.astro';
   }
 
   @media (max-width: 600px) {
-    .hero-scroll {
-      display: none;
-    }
-
-    .partners-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
+    .partners-grid { grid-template-columns: repeat(2, 1fr); }
     .partners-cta {
       flex-direction: column;
       align-items: flex-start;
       gap: 1rem;
     }
+    .newsletter-form .btn { align-self: stretch; }
   }
 </style>
-
-<script>
-  // Scroll animations - plus subtiles
-  const animatedElements = document.querySelectorAll('[data-animate]');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
-  });
-
-  animatedElements.forEach(el => observer.observe(el));
-</script>

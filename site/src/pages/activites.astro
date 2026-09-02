@@ -2,58 +2,41 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <Layout title="Nos activités — Mouvement solidaire eSPoir"
-  description="Soupers-spectacles, soirées thématiques et marches-bénéfice : nos activités rassemblent la communauté et financent la recherche sur la sclérose en plaques.">
+  description="Soupers-spectacles, soirées thématiques et marches-bénéfice : nos activités rassemblent la communauté et financent la recherche sur la sclérose en plaques."
+  preloadImage="/images/souper-spectacle-hommage-crooners-2025.jpg">
   <Header />
 
-  <main>
-    <!-- ========== HERO ========== -->
-    <section class="hero">
-      <div class="hero-visual">
-        <div class="hero-image">
-          <img src="/images/souper-spectacle-hommage-crooners-2025.jpg" alt="" />
-        </div>
-        <div class="hero-overlay"></div>
-      </div>
-
-      <div class="hero-content">
-        <div class="hero-tagline" data-animate data-delay="1">
-          <span class="text-label">Nos activités</span>
-        </div>
-
-        <h1 data-animate data-delay="2">
-          <span class="hero-line">Des rassemblements</span>
-          <span class="hero-line">qui financent</span>
-          <span class="hero-line hero-accent">l'espoir.</span>
-        </h1>
-
-        <div class="hero-bottom" data-animate data-delay="3">
-          <p class="hero-description">
-            Chaque activité rassemble la communauté — et 100&#8239;% des
-            bénéfices vont à la recherche sur la guérison de la
-            sclérose en plaques.
-          </p>
-        </div>
-      </div>
-    </section>
+  <main id="contenu">
+    <PageHero
+      image="/images/souper-spectacle-hommage-crooners-2025.jpg"
+      label="Nos activités"
+      lines={['Des rassemblements', 'qui financent', '<em>l\'espoir.</em>']}
+      description="Chaque activité rassemble la communauté — et 100&#8239;% des bénéfices vont à la recherche sur la guérison de la sclérose en plaques."
+    />
 
     <!-- ========== À VENIR ========== -->
     <section class="a-venir">
       <div class="container">
-        <div class="a-venir-content" data-animate>
-          <span class="text-label">À venir</span>
-          <h2>On vous prépare<br/>quelque chose pour bientôt&#8239;!</h2>
-          <p>
-            Le Mouvement travaille en ce moment sur sa prochaine
-            activité-bénéfice. Inscrivez-vous à l'infolettre pour être
-            informé en premier — et ne rien manquer.
-          </p>
-          <a href="/#newsletter" class="btn btn-secondary">
-            Être informé
-            <span class="btn-arrow">→</span>
-          </a>
+        <div class="a-venir-grid">
+          <header class="section-head" data-animate>
+            <span class="text-label">À venir</span>
+            <h2>On vous prépare<br/>quelque chose pour bientôt&#8239;!</h2>
+          </header>
+          <div class="a-venir-content" data-animate data-delay="2">
+            <p>
+              Le Mouvement travaille en ce moment sur sa prochaine
+              activité-bénéfice. Inscrivez-vous à l'infolettre pour être
+              informé en premier — et ne rien manquer.
+            </p>
+            <a href="/#newsletter" class="btn btn-secondary">
+              Être informé
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -61,15 +44,15 @@ import Footer from '../components/Footer.astro';
     <!-- ========== ACTIVITÉS PASSÉES ========== -->
     <section class="passees">
       <div class="container">
-        <header class="passees-header" data-animate>
+        <header class="section-head passees-head" data-animate>
           <span class="text-label">Nos réalisations</span>
           <h2>Ce que nous avons<br/>accompli ensemble</h2>
         </header>
 
-        <div class="passees-timeline">
-          <article class="passees-item" data-animate data-delay="1">
-            <span class="passees-year">Nov. 2025</span>
-            <div class="passees-content">
+        <div class="timeline">
+          <article class="timeline-item" data-animate data-delay="1">
+            <span class="timeline-year">Nov. 2025</span>
+            <div>
               <h3>Souper-spectacle «&nbsp;Hommage aux crooners&nbsp;»</h3>
               <p>
                 Première activité officielle du Mouvement : un
@@ -83,19 +66,19 @@ import Footer from '../components/Footer.astro';
                 plaques.
               </p>
               <div class="passees-photos">
-                <div class="image-frame">
-                  <img src="/images/marie-carole-daigle-allocution-souper-spectacle.jpg" alt="Marie-Carole Daigle s'adresse aux convives du souper-spectacle" loading="lazy" />
+                <div class="image-frame" data-animate="reveal">
+                  <img src="/images/marie-carole-daigle-allocution-souper-spectacle.jpg" alt="Marie-Carole Daigle s'adresse aux convives du souper-spectacle" width="1920" height="2560" loading="lazy" decoding="async" />
                 </div>
-                <div class="image-frame">
-                  <img src="/images/affiche-souper-spectacle-crooners-2025.jpg" alt="Affiche du souper-spectacle Hommage aux crooners 2025" loading="lazy" />
+                <div class="image-frame" data-animate="reveal" data-delay="2">
+                  <img src="/images/affiche-souper-spectacle-crooners-2025.jpg" alt="Affiche du souper-spectacle Hommage aux crooners 2025" width="1036" height="1600" loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="passees-item" data-animate data-delay="2">
-            <span class="passees-year">Mai 2025</span>
-            <div class="passees-content">
+          <article class="timeline-item" data-animate data-delay="2">
+            <span class="timeline-year">Mai 2025</span>
+            <div>
               <h3>Marche-bénéfice</h3>
               <p>
                 Avant même la fondation du Mouvement, l'équipe amasse
@@ -105,9 +88,9 @@ import Footer from '../components/Footer.astro';
             </div>
           </article>
 
-          <article class="passees-item" data-animate data-delay="3">
-            <span class="passees-year">Mai 2024</span>
-            <div class="passees-content">
+          <article class="timeline-item" data-animate data-delay="3">
+            <span class="timeline-year">Mai 2024</span>
+            <div>
               <h3>Marche-bénéfice</h3>
               <p>
                 Deuxième participation à la marche-bénéfice d'une grande
@@ -117,9 +100,9 @@ import Footer from '../components/Footer.astro';
             </div>
           </article>
 
-          <article class="passees-item" data-animate data-delay="4">
-            <span class="passees-year">Mai 2023</span>
-            <div class="passees-content">
+          <article class="timeline-item" data-animate data-delay="4">
+            <span class="timeline-year">Mai 2023</span>
+            <div>
               <h3>Première marche-bénéfice</h3>
               <p>
                 Le point de départ de l'aventure : une première marche
@@ -135,14 +118,14 @@ import Footer from '../components/Footer.astro';
     <!-- ========== NOS FORMULES ========== -->
     <section class="formules">
       <div class="container">
-        <header class="formules-header" data-animate>
+        <header class="section-head formules-head" data-animate>
           <span class="text-label">Nos formules</span>
           <h2>Des activités<br/>pour tous les goûts</h2>
         </header>
 
-        <div class="formules-items">
-          <article class="formules-item" data-animate data-delay="1">
-            <span class="formules-number">01</span>
+        <div class="num-list">
+          <article class="num-item" data-animate data-delay="1">
+            <span class="num-index">01</span>
             <h3>Spectacles et soupers-bénéfice</h3>
             <p>
               Des artistes et de la gastronomie réunis au profit de la
@@ -150,8 +133,8 @@ import Footer from '../components/Footer.astro';
             </p>
           </article>
 
-          <article class="formules-item" data-animate data-delay="2">
-            <span class="formules-number">02</span>
+          <article class="num-item" data-animate data-delay="2">
+            <span class="num-index">02</span>
             <h3>Soirées thématiques</h3>
             <p>
               Humour, musique, découvertes : des soirées qui font du bien
@@ -159,8 +142,8 @@ import Footer from '../components/Footer.astro';
             </p>
           </article>
 
-          <article class="formules-item" data-animate data-delay="3">
-            <span class="formules-number">03</span>
+          <article class="num-item" data-animate data-delay="3">
+            <span class="num-index">03</span>
             <h3>Activités communautaires</h3>
             <p>
               Marches et rassemblements familiaux, pour bouger et se
@@ -181,11 +164,13 @@ import Footer from '../components/Footer.astro';
             partenariat pour la cause&#8239;? Parlons-en.
           </p>
           <div class="cta-buttons">
-            <a href="mailto:info@msespoir.ca?subject=Proposition%20d%27activit%C3%A9" class="link-underline">
+            <a href="mailto:info@msespoir.ca?subject=Proposition%20d%27activit%C3%A9" class="btn btn-primary">
               Proposer une activité
+              <span class="btn-arrow">→</span>
             </a>
             <a href="/don" class="link-underline">
               Faire un don
+              <span class="arrow">→</span>
             </a>
           </div>
         </div>
@@ -197,169 +182,33 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-  /* ========== HERO ========== */
-  .hero {
-    position: relative;
-    min-height: 55vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .hero-visual {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .hero-image {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-    display: block;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(27, 58, 95, 0.3) 0%,
-      rgba(27, 58, 95, 0.6) 50%,
-      rgba(27, 58, 95, 0.9) 100%
-    );
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    padding: clamp(3rem, 6vw, 6rem);
-    padding-top: clamp(7rem, 12vh, 10rem);
-    color: white;
-    max-width: 1200px;
-  }
-
-  .hero-tagline {
-    margin-bottom: 2rem;
-  }
-
-  .hero-tagline .text-label {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .hero h1 {
-    color: white;
-    margin-bottom: 3rem;
-    font-weight: 300;
-  }
-
-  .hero-line {
-    display: block;
-  }
-
-  .hero-accent {
-    color: var(--color-accent);
-    font-style: italic;
-  }
-
-  .hero-description {
-    max-width: 380px;
-    font-size: 1rem;
-    line-height: 1.8;
-    opacity: 0.9;
-    margin: 0;
-    font-weight: 300;
-  }
-
   /* ========== À VENIR ========== */
   .a-venir {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-white);
   }
 
-  .a-venir-content {
-    max-width: 680px;
-  }
-
-  .a-venir-content .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .a-venir-content h2 {
-    margin-bottom: 2rem;
+  .a-venir-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: center;
   }
 
   .a-venir-content p {
     color: var(--color-gris);
-    margin: 0 0 3rem 0;
+    margin: 0 0 2.5rem 0;
     line-height: 1.8;
-    max-width: 540px;
+    max-width: 480px;
   }
 
   /* ========== ACTIVITÉS PASSÉES ========== */
   .passees {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-cream);
   }
 
-  .passees-header {
-    margin-bottom: clamp(5rem, 10vw, 8rem);
-    max-width: 500px;
-  }
-
-  .passees-header .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .passees-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .passees-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 3rem;
-    padding: 3rem 0;
-    border-bottom: 1px solid var(--color-sand);
-  }
-
-  .passees-item:first-child {
-    border-top: 1px solid var(--color-sand);
-  }
-
-  .passees-year {
-    font-family: var(--font-heading);
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: var(--color-gris-clair);
-    letter-spacing: 0.02em;
-  }
-
-  .passees-content h3 {
-    font-size: 1.375rem;
-    margin-bottom: 1rem;
-    font-weight: 300;
-  }
-
-  .passees-content p {
-    color: var(--color-gris);
-    margin: 0;
-    max-width: 500px;
-    line-height: 1.7;
-  }
+  .passees-head { margin-bottom: clamp(4rem, 9vw, 6rem); }
 
   .passees-photos {
     display: grid;
@@ -369,132 +218,27 @@ import Footer from '../components/Footer.astro';
     max-width: 640px;
   }
 
-  .passees-photos .image-frame {
-    aspect-ratio: 13/20;
-  }
-
-  .passees-content strong {
-    color: var(--color-noir);
-    font-weight: 500;
-  }
+  .passees-photos .image-frame { aspect-ratio: 13/20; }
 
   /* ========== NOS FORMULES ========== */
   .formules {
-    padding: clamp(8rem, 15vw, 12rem) 0;
+    padding: var(--section-y) 0;
     background: var(--color-white);
   }
 
-  .formules-header {
-    margin-bottom: clamp(5rem, 10vw, 8rem);
-    max-width: 500px;
-  }
-
-  .formules-header .text-label {
-    margin-bottom: 2rem;
-    display: block;
-  }
-
-  .formules-items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(3rem, 6vw, 6rem);
-  }
-
-  .formules-item {
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--color-sand);
-  }
-
-  .formules-number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--color-gris-clair);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .formules-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-    font-weight: 300;
-  }
-
-  .formules-item p {
-    color: var(--color-gris);
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-
-  /* ========== CTA ========== */
-  .cta-section {
-    padding: clamp(8rem, 15vw, 12rem) 0;
-    background: var(--color-sand);
-  }
-
-  .cta-content {
-    max-width: 500px;
-  }
-
-  .cta-content h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-content > p {
-    color: var(--color-gris);
-    margin-bottom: 3rem;
-    font-size: 1.0625rem;
-  }
-
-  .cta-buttons {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-  }
+  .formules-head { margin-bottom: clamp(4rem, 9vw, 7rem); }
 
   /* ========== RESPONSIVE ========== */
   @media (max-width: 900px) {
-    .passees-item {
+    .a-venir-grid {
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 2.5rem;
     }
 
-    .passees-photos {
-      grid-template-columns: 1fr;
-    }
-
-    .formules-items {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
+    .passees-photos { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   }
 
-  @media (max-width: 600px) {
-    .cta-buttons {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.5rem;
-    }
+  @media (max-width: 480px) {
+    .passees-photos { grid-template-columns: 1fr; }
   }
 </style>
-
-<script>
-  // Scroll animations
-  const animatedElements = document.querySelectorAll('[data-animate]');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -80px 0px'
-  });
-
-  animatedElements.forEach(el => observer.observe(el));
-</script>

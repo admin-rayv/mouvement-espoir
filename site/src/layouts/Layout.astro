@@ -1,10 +1,19 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description?: string;
+  /** Image de hero à précharger (LCP) */
+  preloadImage?: string;
 }
 
-const { title, description = "OBNL québécois entièrement bénévole : 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques." } = Astro.props;
+const {
+  title,
+  description = "OBNL québécois entièrement bénévole : 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques.",
+  preloadImage,
+} = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL('/images/og-image.jpg', Astro.site);
@@ -41,6 +50,16 @@ const organisation = {
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <!-- Polices : Montserrat (titres) + Inter (corps) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Inter:wght@300;400;500&display=swap"
+    />
+
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+
     <!-- Open Graph -->
     <meta property="og:site_name" content="Mouvement solidaire eSPoir" />
     <meta property="og:title" content={title} />
@@ -63,12 +82,90 @@ const organisation = {
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
 
     <script type="application/ld+json" set:html={JSON.stringify(organisation)} />
+
+    <ClientRouter />
   </head>
   <body>
+    <a href="#contenu" class="skip-link">Aller au contenu</a>
     <slot />
   </body>
 </html>
 
-<style is:global>
-  @import '../styles/global.css';
-</style>
+<script>
+  /* ---------- Animations au défilement ---------- */
+  let observer: IntersectionObserver | null = null;
+
+  function initReveal() {
+    observer?.disconnect();
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer?.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -70px 0px' },
+    );
+    document.querySelectorAll('[data-animate]').forEach((el) => observer?.observe(el));
+  }
+
+  /* ---------- Compteurs (ex. : 100 %) ---------- */
+  function initCounters() {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const counters = document.querySelectorAll<HTMLElement>('[data-count]');
+    if (!counters.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          io.unobserve(el);
+          const target = Number(el.dataset.count ?? '0');
+          if (reduce) {
+            el.textContent = String(target);
+            return;
+          }
+          const duration = 1600;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const t = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - t, 4);
+            el.textContent = String(Math.round(target * eased));
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+      },
+      { threshold: 0.4 },
+    );
+    counters.forEach((el) => io.observe(el));
+  }
+
+  /* ---------- En-tête : état au défilement ---------- */
+  let lastY = 0;
+
+  function updateHeader() {
+    const header = document.getElementById('header');
+    if (!header) return;
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 60);
+    const menuOpen = header.classList.contains('menu-open');
+    header.classList.toggle('is-hidden', !menuOpen && y > 320 && y > lastY + 4);
+    if (y < lastY - 4 || y <= 320) header.classList.remove('is-hidden');
+    lastY = y;
+  }
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  function init() {
+    lastY = window.scrollY;
+    updateHeader();
+    initReveal();
+    initCounters();
+  }
+
+  document.addEventListener('astro:page-load', init);
+</script>
