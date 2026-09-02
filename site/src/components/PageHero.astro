@@ -11,7 +11,8 @@ interface Props {
   lines: string[];
   /** Paragraphe d'introduction (HTML accepté) */
   description?: string;
-  image: string;
+  /** Photo de fond (facultative : sans photo, fond bleu nuit) */
+  image?: string;
   imagePosition?: string;
   /** Hero pleine hauteur (accueil) */
   tall?: boolean;
@@ -32,15 +33,17 @@ const {
 
 <section class:list={['hero', 'grain', { 'hero-tall': tall }]}>
   <div class="hero-visual" aria-hidden="true">
-    <div class="hero-image">
-      <img
-        src={image}
-        alt=""
-        style={`object-position: ${imagePosition}`}
-        fetchpriority="high"
-        decoding="async"
-      />
-    </div>
+    {image && (
+      <div class="hero-image">
+        <img
+          src={image}
+          alt=""
+          style={`object-position: ${imagePosition}`}
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+    )}
     <div class="hero-overlay"></div>
     <div class="hero-glow"></div>
   </div>
@@ -91,7 +94,7 @@ const {
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
-    background: var(--color-navy);
+    background: linear-gradient(160deg, #1B3A5F 0%, #132A45 100%);
     color: white;
   }
 

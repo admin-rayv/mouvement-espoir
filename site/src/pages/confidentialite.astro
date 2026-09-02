@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="Politique de confidentialité — Mouvement solidaire eSPoir"
+  description="Comment le Mouvement solidaire eSPoir recueille, utilise et protège vos renseignements personnels, conformément à la Loi 25 du Québec.">
+  <Header />
+
+  <main id="contenu">
+    <PageHero
+      label="Politique de confidentialité"
+      lines={['Vos renseignements,', '<em>protégés.</em>']}
+      description="Le Mouvement solidaire eSPoir recueille le strict minimum de renseignements personnels, ne les vend jamais et vous permet d'y accéder ou de les faire supprimer en tout temps."
+    />
+
+    <section class="policy">
+      <div class="container">
+        <div class="policy-grid">
+          <aside class="policy-aside" data-animate>
+            <span class="text-label">Sommaire</span>
+            <nav class="policy-toc" aria-label="Sommaire de la politique">
+              <a href="#responsable">Qui est responsable</a>
+              <a href="#collecte">Ce que nous recueillons</a>
+              <a href="#utilisation">Pourquoi nous l'utilisons</a>
+              <a href="#partage">Avec qui nous le partageons</a>
+              <a href="#conservation">Combien de temps</a>
+              <a href="#temoins">Témoins et services tiers</a>
+              <a href="#droits">Vos droits</a>
+              <a href="#securite">Sécurité</a>
+              <a href="#modifications">Modifications</a>
+            </nav>
+            <p class="policy-updated caption">Dernière mise à jour&nbsp;: 2 septembre 2026</p>
+          </aside>
+
+          <div class="policy-body" data-animate data-delay="1">
+            <p class="text-lead">
+              Cette politique explique comment le Mouvement solidaire eSPoir
+              (« le Mouvement », « nous ») traite les renseignements
+              personnels recueillis par l'entremise de ce site et de ses
+              activités, conformément à la <em>Loi sur la protection des
+              renseignements personnels dans le secteur privé</em> du Québec
+              (Loi 25).
+            </p>
+
+            <h2 id="responsable">1. Qui est responsable</h2>
+            <p>
+              Le Mouvement solidaire eSPoir est un organisme à but non
+              lucratif enregistré au Québec (NEQ&nbsp;: 1181 4407 11), dont
+              le siège est situé au 243, boul. Brien, bureau 250, Repentigny
+              (Québec) J6A 6M4.
+            </p>
+            <p>
+              La personne responsable de la protection des renseignements
+              personnels est la présidence de l'organisme. Toute question ou
+              demande peut lui être adressée à
+              <a href="mailto:info@msespoir.ca" class="policy-link">info@msespoir.ca</a>.
+            </p>
+
+            <h2 id="collecte">2. Ce que nous recueillons</h2>
+            <p>Nous recueillons uniquement les renseignements que vous nous transmettez volontairement&nbsp;:</p>
+            <ul>
+              <li><strong>Infolettre</strong>&nbsp;: votre adresse courriel.</li>
+              <li><strong>Courriels et demandes</strong>&nbsp;: votre nom, votre adresse courriel et le contenu de votre message.</li>
+              <li><strong>Dons</strong>&nbsp;: votre nom, vos coordonnées et le montant du don, nécessaires au suivi comptable et, lorsque ce sera possible, à l'émission de reçus fiscaux.</li>
+              <li><strong>Bénévolat et partenariats</strong>&nbsp;: les renseignements que vous choisissez de partager pour collaborer avec nous.</li>
+            </ul>
+            <p>
+              Le site lui-même ne crée aucun compte utilisateur et ne
+              recueille aucun renseignement de navigation à des fins
+              publicitaires.
+            </p>
+
+            <h2 id="utilisation">3. Pourquoi nous l'utilisons</h2>
+            <ul>
+              <li>Répondre à vos messages et à vos demandes.</li>
+              <li>Vous informer de nos activités-bénéfice et des nouvelles du Mouvement, si vous vous êtes abonné à l'infolettre.</li>
+              <li>Administrer les dons, tenir nos registres et remplir nos obligations légales et comptables.</li>
+              <li>Coordonner le bénévolat et les partenariats.</li>
+            </ul>
+            <p>Nous n'utilisons jamais vos renseignements à d'autres fins sans votre consentement.</p>
+
+            <h2 id="partage">4. Avec qui nous le partageons</h2>
+            <p>
+              Nous ne vendons, ne louons ni n'échangeons vos renseignements
+              personnels. Ils peuvent être communiqués uniquement&nbsp;:
+            </p>
+            <ul>
+              <li>aux fournisseurs de services qui nous aident à exploiter le site, à envoyer l'infolettre ou à traiter les dons, et qui sont tenus de les protéger;</li>
+              <li>aux autorités, lorsque la loi l'exige.</li>
+            </ul>
+            <p>
+              Certains de ces fournisseurs peuvent héberger des données à
+              l'extérieur du Québec. Nous nous assurons que ces données
+              bénéficient d'une protection adéquate.
+            </p>
+
+            <h2 id="conservation">5. Combien de temps</h2>
+            <p>
+              Nous conservons vos renseignements aussi longtemps que
+              nécessaire aux fins décrites ci-dessus. Les renseignements liés
+              aux dons sont conservés pendant la durée exigée par les lois
+              fiscales. Vous pouvez vous désabonner de l'infolettre en tout
+              temps&nbsp;: votre adresse est alors retirée de notre liste.
+            </p>
+
+            <h2 id="temoins">6. Témoins et services tiers</h2>
+            <p>
+              Ce site n'utilise pas de témoins (cookies) de suivi ni d'outil
+              publicitaire. Il fait appel à deux services tiers&nbsp;:
+            </p>
+            <ul>
+              <li><strong>Vercel</strong>, qui héberge le site et peut enregistrer des journaux techniques (adresse IP, type de navigateur) à des fins de sécurité et de bon fonctionnement.</li>
+              <li><strong>Google Fonts</strong>, qui fournit les polices de caractères; votre navigateur transmet alors votre adresse IP aux serveurs de Google pour les télécharger.</li>
+            </ul>
+            <p>
+              Si nous ajoutons un outil de mesure d'audience, cette
+              politique sera mise à jour pour l'indiquer.
+            </p>
+
+            <h2 id="droits">7. Vos droits</h2>
+            <p>Vous pouvez, en tout temps&nbsp;:</p>
+            <ul>
+              <li>demander l'accès aux renseignements que nous détenons à votre sujet;</li>
+              <li>demander leur rectification s'ils sont inexacts ou incomplets;</li>
+              <li>retirer votre consentement et demander leur suppression, sous réserve de nos obligations légales;</li>
+              <li>vous désabonner de nos communications.</li>
+            </ul>
+            <p>
+              Pour exercer ces droits, écrivez-nous à
+              <a href="mailto:info@msespoir.ca?subject=Renseignements%20personnels" class="policy-link">info@msespoir.ca</a>.
+              Nous répondons dans un délai de 30 jours. Si vous n'êtes pas
+              satisfait de notre réponse, vous pouvez déposer une plainte
+              auprès de la
+              <a href="https://www.cai.gouv.qc.ca/" class="policy-link" rel="noopener" target="_blank">Commission d'accès à l'information du Québec</a>.
+            </p>
+
+            <h2 id="securite">8. Sécurité</h2>
+            <p>
+              Nous prenons des mesures raisonnables pour protéger vos
+              renseignements contre l'accès, l'utilisation ou la divulgation
+              non autorisés. L'accès y est limité aux bénévoles qui en ont
+              besoin pour accomplir leurs tâches. En cas d'incident de
+              confidentialité présentant un risque de préjudice sérieux,
+              nous vous en informerons ainsi que la Commission d'accès à
+              l'information, comme l'exige la loi.
+            </p>
+
+            <h2 id="modifications">9. Modifications</h2>
+            <p>
+              Nous pouvons modifier cette politique pour refléter l'évolution
+              de nos pratiques ou de la loi. La date de la dernière mise à
+              jour figure en haut de cette page. Les changements importants
+              seront annoncés sur le site.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .policy {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .policy-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: start;
+  }
+
+  .policy-aside {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .policy-aside .text-label { margin-bottom: 1.5rem; }
+
+  .policy-toc {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .policy-toc a {
+    padding: 0.7rem 0;
+    font-size: 0.9375rem;
+    color: var(--color-gris);
+    border-bottom: 1px solid var(--color-line);
+    transition: color 0.4s, padding-left 0.5s var(--ease-elegant);
+  }
+
+  .policy-toc a:hover {
+    color: var(--color-navy);
+    padding-left: 0.5rem;
+  }
+
+  .policy-updated { margin: 1.75rem 0 0; }
+
+  .policy-body { max-width: 680px; }
+
+  .policy-body .text-lead { margin-bottom: 3rem; }
+  .policy-body .text-lead em { font-style: italic; }
+
+  .policy-body h2 {
+    font-size: clamp(1.375rem, 2vw, 1.75rem);
+    font-weight: 400;
+    margin: 3rem 0 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-line);
+    scroll-margin-top: 7rem;
+  }
+
+  .policy-body p {
+    color: var(--color-gris);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .policy-body ul {
+    margin: 0 0 1.5rem;
+    padding-left: 1.25rem;
+    color: var(--color-gris);
+    line-height: 1.8;
+  }
+
+  .policy-body li { margin-bottom: 0.5rem; }
+
+  .policy-link {
+    color: var(--color-navy);
+    border-bottom: 1px solid var(--color-accent-soft);
+    transition: border-color 0.4s;
+  }
+
+  .policy-link:hover { border-color: var(--color-navy); }
+
+  @media (max-width: 900px) {
+    .policy-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .policy-aside { position: static; }
+  }
+</style>
