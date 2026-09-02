@@ -339,7 +339,7 @@ import PageHero from '../components/PageHero.astro';
 
   .partners-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     border-top: 1px solid var(--color-line);
     border-left: 1px solid var(--color-line);
     margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
@@ -349,7 +349,7 @@ import PageHero from '../components/PageHero.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
+    padding: clamp(1rem, 2vw, 1.75rem);
     aspect-ratio: 4/3;
     border-right: 1px solid var(--color-line);
     border-bottom: 1px solid var(--color-line);
@@ -363,14 +363,15 @@ import PageHero from '../components/PageHero.astro';
     height: 100%;
     object-fit: contain;
     filter: grayscale(100%);
-    opacity: 0.7;
-    transition: filter 0.6s var(--ease-elegant), opacity 0.6s var(--ease-elegant), transform 0.6s var(--ease-elegant);
+    opacity: 0.8;
+    transform: scale(1.12);
+    transition: filter 0.6s var(--ease-elegant), opacity 0.6s var(--ease-elegant), transform 0.8s var(--ease-elegant);
   }
 
   .partner-item:hover img {
     filter: none;
     opacity: 1;
-    transform: scale(1.04);
+    transform: scale(1.18);
   }
 
   .partners-cta {
@@ -460,7 +461,8 @@ import PageHero from '../components/PageHero.astro';
   }
 
   @media (max-width: 600px) {
-    .partners-grid { grid-template-columns: repeat(2, 1fr); }
+    .partners-grid { grid-template-columns: 1fr; }
+    .partner-item { aspect-ratio: 16/9; }
     .partners-cta {
       flex-direction: column;
       align-items: flex-start;
