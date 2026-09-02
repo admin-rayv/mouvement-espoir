@@ -7,13 +7,14 @@ import PageHero from '../components/PageHero.astro';
 
 <Layout title="Mouvement solidaire eSPoir — Financer. Chercher. Guérir la sclérose en plaques."
   description="Mouvement solidaire eSPoir : OBNL québécois entièrement bénévole. 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques."
-  preloadImage="/images/hero-home.jpg">
+  preloadImage="/images/equipe-benevoles-mouvement-solidaire-espoir.jpg">
   <Header />
 
   <main id="contenu">
     <PageHero
       tall
-      image="/images/hero-home.jpg"
+      image="/images/equipe-benevoles-mouvement-solidaire-espoir.jpg"
+      imagePosition="center 30%"
       label='Mouvement solidaire e<span class="sp-emphasis">SP</span>oir'
       lines={['Financer.', 'Chercher.', '<em>Guérir</em> la sclérose en plaques.']}
       description="Nous organisons des activités, culturelles et autres, afin de rassembler la communauté autour d'une cause porteuse d'espoir&#8239;: la guérison de la sclérose en plaques. Les fonds ainsi recueillis sont entièrement consacrés au soutien de projets de recherche menés par des équipes reconnues pour leur expertise de pointe dans le domaine."
@@ -362,17 +363,11 @@ import PageHero from '../components/PageHero.astro';
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.8;
     transform: scale(1.12);
-    transition: filter 0.6s var(--ease-elegant), opacity 0.6s var(--ease-elegant), transform 0.8s var(--ease-elegant);
+    transition: transform 0.8s var(--ease-elegant);
   }
 
-  .partner-item:hover img {
-    filter: none;
-    opacity: 1;
-    transform: scale(1.18);
-  }
+  .partner-item:hover img { transform: scale(1.18); }
 
   .partners-cta {
     display: flex;
