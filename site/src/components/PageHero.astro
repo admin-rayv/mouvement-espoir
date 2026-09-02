@@ -118,7 +118,7 @@ const {
     object-fit: cover;
     filter: grayscale(100%) contrast(1.05) brightness(0.95);
     transform: scale(1.1);
-    animation: hero-zoom 3.2s var(--ease-elegant) forwards;
+    animation: hero-zoom 6s var(--ease-elegant) forwards;
   }
 
   @keyframes hero-zoom {
@@ -175,7 +175,7 @@ const {
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.85);
     opacity: 0;
-    animation: hero-fade 1.2s var(--ease-elegant) 0.2s forwards;
+    animation: hero-fade 2s var(--ease-elegant) 0.3s forwards;
   }
 
   .hero-label::before {
@@ -207,8 +207,8 @@ const {
   .hero-line-inner {
     display: block;
     transform: translateY(110%);
-    animation: hero-line-up 1.3s var(--ease-elegant) forwards;
-    animation-delay: calc(0.35s + var(--i) * 0.13s);
+    animation: hero-line-up 1.9s var(--ease-elegant) forwards;
+    animation-delay: calc(0.45s + var(--i) * 0.2s);
   }
 
   .hero-title :global(em) {
@@ -219,7 +219,7 @@ const {
   .hero-bottom {
     margin-top: clamp(2.25rem, 4vw, 3.5rem);
     opacity: 0;
-    animation: hero-fade 1.4s var(--ease-elegant) 0.9s forwards;
+    animation: hero-fade 2.2s var(--ease-elegant) 1.3s forwards;
   }
 
   .hero-description {
@@ -239,7 +239,7 @@ const {
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
     opacity: 0;
-    animation: hero-fade 1.4s var(--ease-elegant) 1.3s forwards;
+    animation: hero-fade 2.2s var(--ease-elegant) 1.8s forwards;
   }
 
   .hero-meta {
@@ -283,7 +283,7 @@ const {
     inset: 0;
     background: white;
     transform: translateX(-100%);
-    animation: hero-scroll-sweep 2.2s var(--ease-elegant) infinite;
+    animation: hero-scroll-sweep 3s var(--ease-elegant) infinite;
   }
 
   @keyframes hero-line-up {

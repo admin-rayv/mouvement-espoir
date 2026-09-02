@@ -41,7 +41,7 @@
 
   /* Mouvement */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-elegant: cubic-bezier(0.25, 0.8, 0.25, 1);
   --ease-soft: cubic-bezier(0.25, 0.1, 0.25, 1);
   --transition-slow: 0.9s var(--ease-elegant);
   --transition-medium: 0.5s var(--ease-elegant);
@@ -122,17 +122,17 @@ img, svg, video {
 /* ---------- Transitions de page ---------- */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 0.45s;
+  animation-duration: 0.7s;
   animation-timing-function: var(--ease-elegant);
 }
 
 /* ---------- Animations au défilement ---------- */
 [data-animate] {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(32px);
   transition:
-    opacity 1.1s var(--ease-elegant),
-    transform 1.1s var(--ease-elegant);
+    opacity 1.8s var(--ease-elegant),
+    transform 1.8s var(--ease-elegant);
   will-change: opacity, transform;
 }
 
@@ -148,34 +148,51 @@ img, svg, video {
 [data-animate="slide-left"].visible,
 [data-animate="slide-right"].visible { transform: none; }
 
-/* Révélation d'image : rideau + zoom arrière */
+/* Révélation d'image : rideau qui se retire + zoom arrière
+   (le conteneur n'est jamais masqué : l'observateur et le chargement
+   différé fonctionnent ; seul un voile superposé se retire) */
 [data-animate="reveal"] {
   opacity: 1;
   transform: none;
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path 1.4s var(--ease-elegant);
 }
-[data-animate="reveal"] img {
+[data-animate="reveal"] .image-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--color-cream);
+  transform-origin: bottom center;
+  transition: transform 2s var(--ease-elegant);
+  pointer-events: none;
+}
+[data-animate="reveal"] .image-frame img {
   transform: scale(1.12);
-  transition: transform 1.8s var(--ease-elegant);
+  transition: transform 2.6s var(--ease-elegant);
 }
-[data-animate="reveal"].visible { clip-path: inset(0 0 0 0); }
-[data-animate="reveal"].visible img { transform: scale(1); }
+[data-animate="reveal"].visible .image-frame::after { transform: scaleY(0); }
+[data-animate="reveal"].visible .image-frame img { transform: scale(1); }
+
+/* Cadre décalé : apparaît après l'image */
+[data-animate="reveal"].frame-offset::before {
+  opacity: 0;
+  transition: opacity 1.4s var(--ease-elegant) 0.9s, transform 0.9s var(--ease-elegant);
+}
+[data-animate="reveal"].visible.frame-offset::before { opacity: 1; }
 
 /* Ligne qui se trace */
 [data-animate="line"] {
   opacity: 1;
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 1.4s var(--ease-elegant);
+  transition: transform 2s var(--ease-elegant);
 }
 [data-animate="line"].visible { transform: scaleX(1); }
 
-[data-delay="1"] { transition-delay: 0.12s; }
-[data-delay="2"] { transition-delay: 0.24s; }
-[data-delay="3"] { transition-delay: 0.36s; }
-[data-delay="4"] { transition-delay: 0.48s; }
-[data-delay="5"] { transition-delay: 0.6s; }
+[data-delay="1"] { transition-delay: 0.2s; }
+[data-delay="2"] { transition-delay: 0.4s; }
+[data-delay="3"] { transition-delay: 0.6s; }
+[data-delay="4"] { transition-delay: 0.8s; }
+[data-delay="5"] { transition-delay: 1s; }
 
 /* ---------- Typographie ---------- */
 h1, h2, h3, h4 {
@@ -517,7 +534,7 @@ section { position: relative; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.4s var(--ease-elegant), filter 1.2s var(--ease-elegant);
+  transition: transform 2s var(--ease-elegant), filter 1.2s var(--ease-elegant);
 }
 
 .image-frame:hover img { transform: scale(1.035); }
@@ -805,7 +822,7 @@ section { position: relative; }
   [data-animate="line"] {
     opacity: 1;
     transform: none;
-    clip-path: none;
   }
-  [data-animate="reveal"] img { transform: none; }
+  [data-animate="reveal"] .image-frame::after { display: none; }
+  [data-animate="reveal"] .image-frame img { transform: none; }
 }

@@ -106,7 +106,7 @@ const organisation = {
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -70px 0px' },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
     );
     document.querySelectorAll('[data-animate]').forEach((el) => observer?.observe(el));
   }
@@ -128,7 +128,7 @@ const organisation = {
             el.textContent = String(target);
             return;
           }
-          const duration = 1600;
+          const duration = 2600;
           const start = performance.now();
           const tick = (now: number) => {
             const t = Math.min(1, (now - start) / duration);
