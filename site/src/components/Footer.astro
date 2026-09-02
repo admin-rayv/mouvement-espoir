@@ -1,18 +1,23 @@
 ---
-// Footer component - Raffiné, sobre
+// Footer — bleu profond, hiérarchie éditoriale
 ---
 
-<footer class="footer">
+<footer class="footer grain">
+  <div class="footer-glow" aria-hidden="true"></div>
+
   <div class="footer-container">
     <div class="footer-top">
       <div class="footer-cta">
-        <h2>Envie de donner<br/>un coup de pouce&#8239;?</h2>
+        <div class="footer-cta-text">
+          <span class="footer-label">Rejoindre le Mouvement</span>
+          <h2>Envie de donner<br/>un coup de pouce&#8239;?</h2>
+        </div>
         <div class="footer-cta-buttons">
-          <a href="/contact" class="btn btn-secondary btn-light">
+          <a href="/contact" class="btn btn-ghost">
             Devenir bénévole
             <span class="btn-arrow">→</span>
           </a>
-          <a href="/don" class="btn btn-secondary btn-light">
+          <a href="/don" class="btn btn-white">
             Faire un don
             <span class="btn-arrow">→</span>
           </a>
@@ -22,14 +27,17 @@
 
     <div class="footer-main">
       <div class="footer-brand">
-        <img src="/images/logo-espoir.png" alt="Mouvement solidaire eSPoir" class="footer-logo-img" />
+        <img src="/images/logo-espoir.png" alt="Mouvement solidaire eSPoir" class="footer-logo-img" width="140" height="140" loading="lazy" />
+        <p class="footer-tagline">Financer. Chercher.<br/>Guérir la sclérose en plaques.</p>
       </div>
 
-      <nav class="footer-nav">
+      <nav class="footer-nav" aria-label="Navigation secondaire">
+        <span class="footer-nav-title">Explorer</span>
         <ul>
           <li><a href="/histoire">Notre histoire</a></li>
           <li><a href="/nouvelles">Nouvelles</a></li>
           <li><a href="/activites">Activités</a></li>
+          <li><a href="/don">Faire un don</a></li>
           <li><a href="/contact">Nous joindre</a></li>
         </ul>
       </nav>
@@ -55,44 +63,81 @@
     </div>
 
     <div class="footer-bottom">
-      <p>OBNL enregistré au Québec · NEQ : 1181 4407 11</p>
+      <p>OBNL enregistré au Québec · NEQ&nbsp;: 1181 4407 11</p>
       <p>© {new Date().getFullYear()} Mouvement solidaire eSPoir</p>
     </div>
   </div>
+
+  <span class="footer-watermark" aria-hidden="true">eSPoir</span>
 </footer>
 
 <style>
   .footer {
-    background: var(--color-noir);
+    position: relative;
+    background: linear-gradient(180deg, #1B3A5F 0%, #142E4C 60%, #10253E 100%);
     color: white;
+    overflow: hidden;
+  }
+
+  .footer-glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    max-width: 900px;
+    max-height: 900px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 163, 214, 0.28), rgba(79, 163, 214, 0) 60%);
+    pointer-events: none;
   }
 
   .footer-container {
+    position: relative;
+    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 clamp(2rem, 6vw, 5rem);
+    padding: 0 var(--gutter);
   }
 
   .footer-top {
-    padding: clamp(5rem, 12vw, 10rem) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: clamp(5rem, 11vw, 9rem) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .footer-cta {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 3rem;
   }
 
+  .footer-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-label::before {
+    content: '';
+    width: 1.75rem;
+    height: 1px;
+    background: var(--color-accent);
+  }
+
   .footer-cta h2 {
     color: white;
-    font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4.2vw, 3rem);
     font-weight: 300;
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.15;
   }
 
   .footer-cta-buttons {
@@ -101,36 +146,48 @@
     flex-wrap: wrap;
   }
 
-  .btn-light {
-    border-color: rgba(255, 255, 255, 0.3);
+  .btn-ghost {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.35);
     color: white;
   }
 
-  .btn-light:hover {
+  .btn-ghost:hover {
     border-color: white;
-    background: white;
-    color: var(--color-noir);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
   }
 
   .footer-main {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr 1.2fr 1fr;
     gap: clamp(2rem, 5vw, 5rem);
     padding: clamp(4rem, 8vw, 6rem) 0;
   }
 
   .footer-logo-img {
-    height: 100px;
+    height: 92px;
     width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+  }
+
+  .footer-tagline {
+    margin: 1.75rem 0 0;
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .footer-nav-title {
     display: block;
-    font-size: 0.8125rem; /* 13px - plus lisible */
+    font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 0.7;
+    letter-spacing: 0.18em;
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 1.75rem;
   }
 
@@ -140,80 +197,93 @@
     margin: 0;
   }
 
-  .footer-nav li {
-    margin-bottom: 0.875rem;
-  }
+  .footer-nav li { margin-bottom: 0.75rem; }
 
-  .footer-nav a {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.9375rem; /* 15px */
+  .footer-nav a,
+  .footer-email,
+  .footer-social-links a {
+    position: relative;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.9375rem;
     font-weight: 400;
     transition: color 0.4s var(--ease-elegant);
   }
 
-  .footer-nav a:hover {
-    color: white;
+  .footer-nav a::after,
+  .footer-email::after,
+  .footer-social-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--ease-elegant);
+  }
+
+  .footer-nav a:hover,
+  .footer-email:hover,
+  .footer-social-links a:hover { color: white; }
+
+  .footer-nav a:hover::after,
+  .footer-email:hover::after,
+  .footer-social-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 
   .footer-contact p {
-    font-size: 0.9375rem; /* 15px */
-    line-height: 1.7;
-    opacity: 0.85;
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.82);
     margin: 0 0 1.25rem 0;
-    font-weight: 400;
-  }
-
-  .footer-email {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.9375rem; /* 15px */
-    font-weight: 400;
-    transition: opacity 0.4s var(--ease-elegant);
-  }
-
-  .footer-email:hover {
-    opacity: 0.6;
   }
 
   .footer-social-links {
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
-  }
-
-  .footer-social-links a {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.9375rem; /* 15px */
-    font-weight: 400;
-    transition: color 0.4s var(--ease-elegant);
-  }
-
-  .footer-social-links a:hover {
-    color: white;
+    gap: 0.75rem;
+    align-items: flex-start;
   }
 
   .footer-bottom {
     display: flex;
     justify-content: space-between;
-    padding: 2.5rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.875rem; /* 14px */
-    font-weight: 400;
-    opacity: 0.6;
-    letter-spacing: 0.02em;
+    gap: 1rem;
+    padding: 2.25rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.03em;
   }
 
-  .footer-bottom p {
-    margin: 0;
+  .footer-bottom p { margin: 0; }
+
+  .footer-watermark {
+    position: absolute;
+    right: -0.05em;
+    bottom: -0.32em;
+    z-index: 1;
+    font-family: var(--font-heading);
+    font-size: clamp(8rem, 26vw, 24rem);
+    font-weight: 200;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.035);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
   }
 
   @media (max-width: 900px) {
-    .footer-main {
-      grid-template-columns: 1fr 1fr;
-    }
-
+    .footer-main { grid-template-columns: 1fr 1fr; }
     .footer-brand {
       grid-column: 1 / -1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
   }
 
@@ -222,15 +292,14 @@
       flex-direction: column;
       align-items: flex-start;
     }
-
+    .footer-cta-buttons { width: 100%; flex-direction: column; }
     .footer-main {
       grid-template-columns: 1fr;
       gap: 2.5rem;
     }
-
     .footer-bottom {
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.5rem;
     }
   }
 </style>
