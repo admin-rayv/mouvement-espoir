@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+
+<Layout title="Petit pépin — Mouvement solidaire eSPoir"
+  description="Votre inscription à l'infolettre n'a pas pu être enregistrée. Réessayez ou écrivez-nous."
+  noindex>
+  <Header />
+
+  <main id="contenu">
+    <PageHero
+      label="Infolettre"
+      lines={['Oups, quelque chose', '<em>a coincé.</em>']}
+      description="Votre inscription n'a pas pu être enregistrée. Ce n'est probablement qu'un pépin passager — réessayez dans quelques instants."
+    />
+
+    <section class="suite">
+      <div class="container">
+        <div class="suite-content" data-animate>
+          <p class="text-muted">
+            Si le problème persiste, écrivez-nous directement et nous vous
+            ajouterons à la liste avec plaisir.
+          </p>
+          <div class="cta-buttons">
+            <a href="/#newsletter" class="btn btn-primary">
+              Réessayer
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="mailto:info@msespoir.com?subject=Abonnement%20%C3%A0%20l%27infolettre" class="link-underline">
+              Nous écrire
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .suite {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .suite-content { max-width: 560px; }
+  .suite-content p { margin-bottom: 2.5rem; }
+</style>

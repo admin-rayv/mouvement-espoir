@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+
+<Layout title="Encore un clic — Mouvement solidaire eSPoir"
+  description="Votre demande d'abonnement à l'infolettre est bien reçue : confirmez-la en cliquant sur le lien envoyé dans votre boîte courriel."
+  noindex>
+  <Header />
+
+  <main id="contenu">
+    <PageHero
+      label="Infolettre"
+      lines={['Un dernier clic', '<em>et c’est fait.</em>']}
+      description="Votre demande est bien reçue&#8239;! Un courriel de confirmation vient de partir vers votre boîte. Cliquez sur le lien qu'il contient pour activer votre abonnement."
+    />
+
+    <section class="suite">
+      <div class="container">
+        <div class="suite-content" data-animate>
+          <p class="text-muted">
+            Rien reçu après quelques minutes&#8239;? Jetez un œil dans vos
+            courriels indésirables — le message vient du Mouvement solidaire
+            eSPoir.
+          </p>
+          <div class="cta-buttons">
+            <a href="/" class="btn btn-secondary">
+              Retour à l'accueil
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .suite {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .suite-content { max-width: 560px; }
+  .suite-content p { margin-bottom: 2.5rem; }
+</style>

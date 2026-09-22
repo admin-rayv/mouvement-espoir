@@ -7,12 +7,15 @@ interface Props {
   description?: string;
   /** Image de hero à précharger (LCP) */
   preloadImage?: string;
+  /** Page utilitaire : exclue des moteurs de recherche */
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "OBNL québécois entièrement bénévole : 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques.",
   preloadImage,
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -46,6 +49,7 @@ const organisation = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#1B3A5F" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href="/sitemap-index.xml" />
