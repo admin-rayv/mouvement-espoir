@@ -14,6 +14,8 @@ interface Props {
   /** Photo de fond (facultative : sans photo, fond bleu nuit) */
   image?: string;
   imagePosition?: string;
+  /** Logo affiché en grand à gauche du texte (remplace la photo de fond) */
+  logo?: string;
   /** Hero pleine hauteur (accueil) */
   tall?: boolean;
   /** Petites mentions en bas du hero (accueil) */
@@ -26,6 +28,7 @@ const {
   description,
   image,
   imagePosition = 'center',
+  logo,
   tall = false,
   meta = [],
 } = Astro.props;
@@ -49,22 +52,30 @@ const {
   </div>
 
   <div class="hero-content container container-wide">
-    <div class="hero-inner">
-      <p class="hero-label"><span set:html={label} /></p>
-
-      <h1 class="hero-title">
-        {lines.map((line, i) => (
-          <span class="hero-line" style={`--i: ${i}`}>
-            <span class="hero-line-inner" set:html={line} />
-          </span>
-        ))}
-      </h1>
-
-      {description && (
-        <div class="hero-bottom">
-          <p class="hero-description" set:html={description} />
+    <div class:list={[{ 'hero-main': logo }]}>
+      {logo && (
+        <div class="hero-logo" aria-hidden="true">
+          <img src={logo} alt="" width="1200" height="1090" fetchpriority="high" decoding="async" />
         </div>
       )}
+
+      <div class="hero-inner">
+        <p class="hero-label"><span set:html={label} /></p>
+
+        <h1 class="hero-title">
+          {lines.map((line, i) => (
+            <span class="hero-line" style={`--i: ${i}`}>
+              <span class="hero-line-inner" set:html={line} />
+            </span>
+          ))}
+        </h1>
+
+        {description && (
+          <div class="hero-bottom">
+            <p class="hero-description" set:html={description} />
+          </div>
+        )}
+      </div>
     </div>
 
     {(meta.length > 0 || tall) && (
@@ -166,6 +177,35 @@ const {
   }
 
   .hero-inner { max-width: 1000px; }
+
+  /* ---------- Variante logo : dessin en grand à gauche du texte ---------- */
+  .hero-main {
+    display: grid;
+    grid-template-columns: 1fr minmax(260px, 500px);
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .hero-main .hero-logo { order: 2; }
+
+  .hero-logo img {
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.94);
+    animation:
+      hero-fade 1.8s var(--ease-elegant) 0.3s forwards,
+      hero-logo-in 2.2s var(--ease-elegant) 0.3s forwards;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
+  }
+
+  @keyframes hero-logo-in {
+    to { transform: scale(1); }
+  }
+
+  .hero-main .hero-title {
+    font-size: clamp(2.5rem, 4.6vw, 4.25rem);
+  }
 
   .hero-label {
     display: inline-flex;
@@ -308,12 +348,20 @@ const {
     .hero-content { padding-top: clamp(7rem, 20vh, 10rem); }
     .hero-foot { flex-direction: column; align-items: flex-start; }
     .hero-scroll { display: none; }
+
+    .hero-main {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .hero-main .hero-logo { order: -1; }
+    .hero-logo { width: min(52vw, 260px); }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .hero-image img { transform: none; animation: none; }
     .hero-line-inner { transform: none; animation: none; }
     .hero-label, .hero-bottom, .hero-foot { opacity: 1; animation: none; }
+    .hero-logo img { opacity: 1; transform: none; animation: none; }
     .hero-scroll-line::after { animation: none; }
   }
 </style>
