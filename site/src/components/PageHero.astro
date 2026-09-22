@@ -406,10 +406,18 @@ const {
 
     .hero-main .hero-inner { max-width: 100%; }
 
+    /* Sur petit écran, le hero logo prend sa hauteur naturelle :
+       pas de grand vide entre le menu et le texte */
+    .hero-tall.has-logo { min-height: auto; }
+    .hero.has-logo .hero-content {
+      padding-top: clamp(8rem, 16vh, 11rem);
+      padding-bottom: 3.5rem;
+    }
+
     /* Mobile : la vague dépasse en haut à droite, derrière le texte */
     .hero-logo {
       position: absolute;
-      top: 6rem;
+      top: 4.5rem;
       right: -18vw;
       transform: none;
       width: min(72vw, 340px);
