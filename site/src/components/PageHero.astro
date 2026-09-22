@@ -181,36 +181,55 @@ const {
   /* ---------- Variante logo : dessin en très grand à droite du texte ---------- */
 
   /* Fond enrichi : halos lumineux qui redonnent la profondeur du dégradé */
+  /* Réplique du voile bleu des heros photo, posé sur un fond blanc :
+     le même dégradé rgba(27,58,95, 0.35 → 0.96) composé sur du blanc */
   .hero.has-logo {
     background:
-      radial-gradient(ellipse 85% 75% at 74% 40%, rgba(79, 163, 214, 0.26), rgba(79, 163, 214, 0) 62%),
-      radial-gradient(ellipse 70% 60% at 8% 10%, rgba(64, 108, 155, 0.55), rgba(64, 108, 155, 0) 65%),
-      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(23, 48, 78, 0.9), rgba(23, 48, 78, 0) 70%),
-      linear-gradient(160deg, #1B3A5F 0%, #10243D 100%);
+      radial-gradient(ellipse 55% 65% at 18% 55%, rgba(27, 58, 95, 0.22), rgba(27, 58, 95, 0) 65%),
+      linear-gradient(
+        to bottom,
+        #AFBAC7 0%,
+        #8293A7 45%,
+        #2B415A 85%,
+        #192E46 100%
+      );
   }
 
-  .hero-main {
-    display: grid;
-    grid-template-columns: 1fr minmax(300px, 700px);
-    gap: clamp(2rem, 4vw, 4rem);
-    align-items: center;
-  }
+  .hero-main { position: static; }
 
-  .hero-main .hero-logo { order: 2; }
-
-  .hero-logo {
+  .hero-main .hero-inner {
+    max-width: min(620px, 52vw);
     position: relative;
-    /* Déborde légèrement du cadre : présence imposante */
-    margin-right: clamp(-7rem, -5vw, -2rem);
+    z-index: 2;
+  }
+
+  /* La vague entre dans la page : surdimensionnée, coupée par le bord droit */
+  .hero-logo {
+    position: absolute;
+    top: 50%;
+    right: max(-14vw, -260px);
+    transform: translateY(-52%);
+    width: min(60vw, 1080px);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Largeurs intermédiaires : la vague se replie pour ne pas manger le texte */
+  @media (max-width: 1250px) and (min-width: 901px) {
+    .hero-logo {
+      width: 52vw;
+      right: -10vw;
+    }
+    .hero-main .hero-inner { max-width: 50vw; }
   }
 
   /* Halo lumineux derrière le logo */
   .hero-logo::before {
     content: '';
     position: absolute;
-    inset: -22%;
+    inset: -18%;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(79, 163, 214, 0.38), rgba(79, 163, 214, 0) 62%);
+    background: radial-gradient(circle, rgba(79, 163, 214, 0.26), rgba(79, 163, 214, 0) 62%);
     mix-blend-mode: screen;
     pointer-events: none;
   }
@@ -224,7 +243,9 @@ const {
     animation:
       hero-fade 2s var(--ease-elegant) 0.3s forwards,
       hero-logo-in 2.6s var(--ease-elegant) 0.3s forwards;
-    filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.35));
+    filter:
+      drop-shadow(0 24px 56px rgba(0, 0, 0, 0.32))
+      drop-shadow(0 0 44px rgba(79, 163, 214, 0.20));
   }
 
   @keyframes hero-logo-in {
@@ -307,6 +328,8 @@ const {
   }
 
   .hero-foot {
+    position: relative;
+    z-index: 3;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -381,14 +404,16 @@ const {
     .hero-foot { flex-direction: column; align-items: flex-start; }
     .hero-scroll { display: none; }
 
-    .hero-main {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .hero-main .hero-logo { order: -1; }
+    .hero-main .hero-inner { max-width: 100%; }
+
+    /* Mobile : la vague dépasse en haut à droite, derrière le texte */
     .hero-logo {
-      width: min(62vw, 320px);
-      margin-right: 0;
+      position: absolute;
+      top: 6rem;
+      right: -18vw;
+      transform: none;
+      width: min(72vw, 340px);
+      opacity: 0.85;
     }
   }
 
