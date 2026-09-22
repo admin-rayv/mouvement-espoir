@@ -199,21 +199,33 @@ import PageHero from '../components/PageHero.astro';
               Un courriel à l'occasion, jamais de pourriel.
             </p>
           </div>
-          <form class="newsletter-form" action="#" method="POST">
+          <form class="newsletter-form" action="https://app.cyberimpact.com/optin" method="POST" accept-charset="utf-8">
             <div class="field">
               <input
                 type="email"
-                name="email"
+                id="ci_email"
+                name="ci_email"
+                maxlength="255"
                 placeholder="votre@courriel.com"
                 required
                 aria-label="Adresse courriel"
                 autocomplete="email"
               />
             </div>
+            <input type="hidden" name="ci_groups" value="2" />
+            <input type="hidden" name="ci_account" value="1adb2c0c-d6d7-4f7c-4167-82eaef0431cc" />
+            <input type="hidden" name="ci_language" value="fr_ca" />
+            <input type="hidden" name="ci_sent_url" value="https://mouvement-espoir.vercel.app/infolettre/merci" />
+            <input type="hidden" name="ci_error_url" value="https://mouvement-espoir.vercel.app/infolettre/erreur" />
+            <input type="hidden" name="ci_confirm_url" value="https://mouvement-espoir.vercel.app/infolettre/confirme" />
             <button type="submit" class="btn btn-primary">
               S'abonner à l'infolettre
               <span class="btn-arrow">→</span>
             </button>
+            <p class="newsletter-legal">
+              En vous abonnant, vous consentez à recevoir nos communications.
+              Vous pourrez vous désabonner en tout temps.
+            </p>
           </form>
         </div>
       </div>
@@ -425,6 +437,13 @@ import PageHero from '../components/PageHero.astro';
   }
 
   .newsletter-form .btn { align-self: flex-start; }
+
+  .newsletter-legal {
+    margin: -0.5rem 0 0;
+    font-size: 0.8125rem;
+    color: var(--color-gris-clair);
+    line-height: 1.6;
+  }
 
   /* ========== RESPONSIVE ========== */
   @media (max-width: 1000px) {
