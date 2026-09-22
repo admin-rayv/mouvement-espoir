@@ -34,7 +34,7 @@ const {
 } = Astro.props;
 ---
 
-<section class:list={['hero', 'grain', { 'hero-tall': tall }]}>
+<section class:list={['hero', 'grain', { 'hero-tall': tall, 'has-logo': logo }]}>
   <div class="hero-visual" aria-hidden="true">
     {image && (
       <div class="hero-image">
@@ -178,33 +178,65 @@ const {
 
   .hero-inner { max-width: 1000px; }
 
-  /* ---------- Variante logo : dessin en grand à gauche du texte ---------- */
+  /* ---------- Variante logo : dessin en très grand à droite du texte ---------- */
+
+  /* Fond enrichi : halos lumineux qui redonnent la profondeur du dégradé */
+  .hero.has-logo {
+    background:
+      radial-gradient(ellipse 85% 75% at 74% 40%, rgba(79, 163, 214, 0.26), rgba(79, 163, 214, 0) 62%),
+      radial-gradient(ellipse 70% 60% at 8% 10%, rgba(64, 108, 155, 0.55), rgba(64, 108, 155, 0) 65%),
+      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(23, 48, 78, 0.9), rgba(23, 48, 78, 0) 70%),
+      linear-gradient(160deg, #1B3A5F 0%, #10243D 100%);
+  }
+
   .hero-main {
     display: grid;
-    grid-template-columns: 1fr minmax(260px, 500px);
-    gap: clamp(2.5rem, 6vw, 6rem);
+    grid-template-columns: 1fr minmax(300px, 700px);
+    gap: clamp(2rem, 4vw, 4rem);
     align-items: center;
   }
 
   .hero-main .hero-logo { order: 2; }
 
+  .hero-logo {
+    position: relative;
+    /* Déborde légèrement du cadre : présence imposante */
+    margin-right: clamp(-7rem, -5vw, -2rem);
+  }
+
+  /* Halo lumineux derrière le logo */
+  .hero-logo::before {
+    content: '';
+    position: absolute;
+    inset: -22%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 163, 214, 0.38), rgba(79, 163, 214, 0) 62%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
   .hero-logo img {
+    position: relative;
     width: 100%;
     height: auto;
     opacity: 0;
-    transform: scale(0.94);
+    transform: scale(0.92) rotate(-4deg);
     animation:
-      hero-fade 1.8s var(--ease-elegant) 0.3s forwards,
-      hero-logo-in 2.2s var(--ease-elegant) 0.3s forwards;
-    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
+      hero-fade 2s var(--ease-elegant) 0.3s forwards,
+      hero-logo-in 2.6s var(--ease-elegant) 0.3s forwards;
+    filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.35));
   }
 
   @keyframes hero-logo-in {
-    to { transform: scale(1); }
+    to { transform: scale(1) rotate(0deg); }
   }
 
   .hero-main .hero-title {
-    font-size: clamp(2.5rem, 4.6vw, 4.25rem);
+    font-size: clamp(2.25rem, 3.8vw, 3.5rem);
+  }
+
+  .hero-main .hero-description {
+    font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
   }
 
   .hero-label {
@@ -354,7 +386,10 @@ const {
       gap: 2rem;
     }
     .hero-main .hero-logo { order: -1; }
-    .hero-logo { width: min(52vw, 260px); }
+    .hero-logo {
+      width: min(62vw, 320px);
+      margin-right: 0;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
