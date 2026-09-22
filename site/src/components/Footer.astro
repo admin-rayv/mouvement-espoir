@@ -27,9 +27,7 @@
 
     <div class="footer-main">
       <div class="footer-brand">
-        <div class="footer-logo-card">
-          <img src="/images/logo-espoir-texte.png" alt="Mouvement solidaire eSPoir — Financer. Chercher. Guérir la sclérose en plaques." class="footer-logo-img" width="720" height="678" loading="lazy" />
-        </div>
+        <img src="/images/logo-espoir-texte-blanc.png" alt="Mouvement solidaire eSPoir — Financer. Chercher. Guérir la sclérose en plaques." class="footer-logo-img" width="720" height="678" loading="lazy" />
       </div>
 
       <nav class="footer-nav" aria-label="Navigation secondaire">
@@ -165,8 +163,8 @@
 
   .footer-main {
     display: grid;
-    grid-template-columns: 1.6fr 1fr 1.2fr 1fr;
-    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: auto 1fr 1.2fr 1fr;
+    gap: clamp(1.5rem, 3vw, 3rem);
     padding: clamp(4rem, 8vw, 6rem) 0;
   }
 
@@ -176,15 +174,8 @@
     align-items: flex-start;
   }
 
-  .footer-logo-card {
-    background: var(--color-white);
-    border-radius: 6px;
-    padding: 1.5rem 1.75rem;
-    box-shadow: 0 18px 44px -18px rgba(0, 0, 0, 0.45);
-  }
-
   .footer-logo-img {
-    width: 280px;
+    width: 340px;
     max-width: 100%;
     height: auto;
   }
