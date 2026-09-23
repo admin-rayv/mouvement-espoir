@@ -1,0 +1,6 @@
+
+# Fichiers de travail locaux
+site/*.pdf
+site/export-pdf.mjs
+site/screenshot.mjs
+.DS_Store
