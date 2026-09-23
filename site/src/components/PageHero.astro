@@ -4,6 +4,9 @@
  * Photo traitée en monochrome bleu nuit, révélation ligne par ligne,
  * léger zoom arrière au chargement, grain subtil.
  */
+import { ui } from '../i18n/ui';
+import { langFromUrl } from '../i18n/config';
+
 interface Props {
   /** Petit libellé au-dessus du titre (HTML accepté) */
   label: string;
@@ -38,6 +41,8 @@ const {
   tall = false,
   meta = [],
 } = Astro.props;
+
+const tUi = ui[langFromUrl(Astro.url)];
 ---
 
 <section class:list={['hero', 'grain', { 'hero-tall': tall, 'has-logo': logo }]}>
@@ -64,8 +69,8 @@ const {
         <div class="hero-logo">
           <img
             src={logo}
-            alt="Logo du Mouvement solidaire eSPoir : une vague formée de mains tendues, symbole de solidarité face à la sclérose en plaques"
-            title="Mouvement solidaire eSPoir — Financer. Chercher. Guérir la sclérose en plaques."
+            alt={tUi.logoAlt}
+            title={tUi.logoTitleFull}
             width="1200"
             height="1090"
             fetchpriority="high"
@@ -101,8 +106,8 @@ const {
           </ul>
         )}
         {tall && (
-          <a href="#intro" class="hero-scroll" aria-label="Défiler vers le contenu">
-            <span class="hero-scroll-text">Défiler</span>
+          <a href="#intro" class="hero-scroll" aria-label={tUi.scrollAria}>
+            <span class="hero-scroll-text">{tUi.scroll}</span>
             <span class="hero-scroll-line"></span>
           </a>
         )}

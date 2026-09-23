@@ -1,5 +1,7 @@
 # Mouvement solidaire eSPoir
 
+> [Site bilingue — English version: https://mouvement-espoir.vercel.app/en/llms.txt]
+>
 > Le Mouvement solidaire eSPoir est un organisme à but non lucratif (OBNL) québécois, fondé en octobre 2025 et basé à Repentigny, dans la région de Lanaudière. Entièrement bénévole, il organise des activités-bénéfice — soupers-spectacles, soirées thématiques, marches — dont 100 % des revenus nets sont versés à la recherche sur la guérison de la sclérose en plaques. Sa devise : Financer. Chercher. Guérir la sclérose en plaques.
 
 ## Faits clés
@@ -37,7 +39,7 @@
 - Partenariat d'entreprise : visibilité, dons en biens et services ou soutien financier. Écrire à info@msespoir.com.
 - Infolettre : inscription depuis la page d'accueil du site.
 
-## Pages du site
+## Pages du site (version française)
 
 - [Accueil](https://mouvement-espoir.vercel.app/) : mission, approche, partenaires et infolettre.
 - [Notre histoire](https://mouvement-espoir.vercel.app/histoire) : origine du Mouvement, chronologie des marches-bénéfice, portraits des fondatrices, transparence financière.
@@ -49,9 +51,21 @@
 - [Politique de confidentialité](https://mouvement-espoir.vercel.app/confidentialite) : traitement des renseignements personnels selon la Loi 25 du Québec.
 - [Plan du site (sitemap XML)](https://mouvement-espoir.vercel.app/sitemap-index.xml)
 
+## Pages du site (version anglaise)
+
+- [Home](https://mouvement-espoir.vercel.app/en/)
+- [Our story](https://mouvement-espoir.vercel.app/en/our-story)
+- [Our events](https://mouvement-espoir.vercel.app/en/events)
+- [News](https://mouvement-espoir.vercel.app/en/news)
+- [Donate](https://mouvement-espoir.vercel.app/en/donate)
+- [Frequently asked questions](https://mouvement-espoir.vercel.app/en/faq)
+- [Contact us](https://mouvement-espoir.vercel.app/en/contact)
+- [Privacy policy](https://mouvement-espoir.vercel.app/en/privacy)
+
 ## Notes pour les assistants
 
 - Écrire le nom avec « SP » en majuscules : « Mouvement solidaire eSPoir ».
 - Employer « activités-bénéfice » et « bénéfices » (jamais « profits »).
 - Ne pas affirmer que le Mouvement peut émettre des reçus aux fins d'impôt : ce n'est pas le cas actuellement.
 - Le Mouvement finance la recherche vers la guérison ; il n'offre pas de services cliniques ni de soutien direct aux personnes atteintes.
+- Le site existe en français (adresses à la racine) et en anglais (adresses sous /en/). Répondre dans la langue de la question et citer l'adresse correspondante.

@@ -1,0 +1,335 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../Header.astro';
+import Footer from '../Footer.astro';
+import PageHero from '../PageHero.astro';
+import { type Lang } from '../../i18n/config';
+import { donContent } from '../../i18n/content/don';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = donContent[lang];
+---
+
+<Layout
+  title={c.title}
+  description={c.description}
+  breadcrumb={c.breadcrumb}
+  lang={lang}
+  routeKey="donate"
+  preloadImage="/images/equipe-benevoles-mouvement-solidaire-espoir.webp">
+  <Header lang={lang} routeKey="donate" />
+
+  <main id="contenu">
+    <PageHero
+      image="/images/equipe-benevoles-mouvement-solidaire-espoir.webp"
+      imagePosition="center 30%"
+      imageAlt={c.heroAlt}
+      imageTitle={c.heroTitle}
+      label={c.label}
+      lines={c.lines}
+      description={c.intro}
+    />
+
+    <!-- ========== PROMESSE ========== -->
+    <section class="promesse">
+      <div class="container">
+        <div class="promesse-grid">
+          <div class="promesse-number" data-animate>
+            <span class="text-huge"><span data-count="100">100</span>&#8239;%</span>
+          </div>
+          <div class="promesse-content" data-animate data-delay="2">
+            <p class="text-display" set:html={c.promesse} />
+            <div class="divider"></div>
+            <p class="text-muted" set:html={c.promesseNote} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MANIFESTE ========== -->
+    <section class="manifeste grain">
+      <div class="manifeste-glow" aria-hidden="true"></div>
+      <div class="container">
+        <blockquote class="manifeste-quote" data-animate set:html={c.manifeste} />
+      </div>
+    </section>
+
+    <!-- ========== COMMENT DONNER ========== -->
+    <section class="methodes">
+      <div class="container">
+        <header class="section-head methodes-head" data-animate>
+          <span class="text-label">{c.methodesLabel}</span>
+          <h2 set:html={c.methodesTitre} />
+        </header>
+
+        <div class="methodes-items">
+          {c.methodes.map((m, i) => (
+            <article class="methode-card" data-animate data-delay={String(i + 1)}>
+              <span class="num-index">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{m.titre}</h3>
+              <p set:html={m.texte} />
+              {m.lien && (
+                <a href={m.mailto} class="link-underline">
+                  {m.lien}
+                  <span class="arrow">→</span>
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+        </div>
+      </section>
+
+    <!-- ========== REÇUS FISCAUX ========== -->
+    <section class="recus">
+      <div class="container">
+        <div class="recus-grid">
+          <header class="section-head" data-animate>
+            <span class="text-label">{c.recusLabel}</span>
+            <h2 set:html={c.recusTitre} />
+          </header>
+
+          <div class="recus-content" data-animate data-delay="2">
+            <p class="text-lead" set:html={c.recusLead} />
+            <p set:html={c.recusP1} />
+            <p set:html={c.recusP2} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PARTENAIRES ========== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="partenaires-grid">
+          <header class="section-head" data-animate>
+            <span class="text-label">{c.partLabel}</span>
+            <h2 set:html={c.partTitre} />
+          </header>
+
+          <div class="partenaires-content" data-animate data-delay="2">
+            <p set:html={c.partP1} />
+            <p set:html={c.partP2} />
+            <a href={c.partMailto} class="btn btn-primary">
+              {c.partCta}
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  /* ========== PROMESSE ========== */
+  .promesse {
+    padding: clamp(7rem, 16vw, 13rem) 0;
+    background: var(--color-white);
+    overflow: hidden;
+  }
+
+  .promesse::before {
+    content: '';
+    position: absolute;
+    left: -15%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(191, 220, 240, 0.35), rgba(191, 220, 240, 0) 65%);
+    pointer-events: none;
+  }
+
+  .promesse-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(3rem, 9vw, 9rem);
+    align-items: center;
+  }
+
+  .promesse-content {
+    max-width: 480px;
+    padding-left: clamp(0rem, 4vw, 3rem);
+    border-left: 1px solid var(--color-line);
+  }
+
+  .promesse-content .text-muted {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* ========== MANIFESTE ========== */
+  .manifeste {
+    padding: clamp(9rem, 17vw, 15rem) 0;
+    background: linear-gradient(180deg, #1B3A5F 0%, #142E4C 100%);
+    color: white;
+    overflow: hidden;
+  }
+
+  .manifeste-glow {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 80vw;
+    max-width: 1100px;
+    max-height: 1100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 163, 214, 0.3), rgba(79, 163, 214, 0) 60%);
+    pointer-events: none;
+  }
+
+  .manifeste .container { position: relative; z-index: 2; }
+
+  .manifeste-quote {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4.2vw, 3rem);
+    font-weight: 300;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: white;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    border: none;
+    padding: 0;
+  }
+
+  .manifeste-accent {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--color-accent);
+  }
+
+  /* ========== MÉTHODES ========== */
+  .methodes {
+    padding: var(--section-y) 0;
+    background: var(--color-cream);
+  }
+
+  .methodes-head { margin-bottom: clamp(4rem, 8vw, 6rem); }
+
+  .methodes-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .methode-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(2rem, 4vw, 3.25rem);
+    background: var(--color-white);
+    border: 1px solid var(--color-line);
+    transition: transform 0.7s var(--ease-elegant), box-shadow 0.7s var(--ease-elegant), border-color 0.5s;
+  }
+
+  .methode-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 1px;
+    background: var(--color-accent);
+    transition: width 0.9s var(--ease-elegant);
+  }
+
+  .methode-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--color-accent-soft);
+  }
+
+  .methode-card:hover::before { width: 100%; }
+
+  .methode-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+  }
+
+  .methode-card p {
+    color: var(--color-gris);
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+    line-height: 1.75;
+    flex: 1;
+  }
+
+  .methode-card .link-underline { align-self: flex-start; }
+
+  /* ========== REÇUS ========== */
+  .recus {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .recus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: start;
+  }
+
+  .recus-content { max-width: 600px; }
+  .recus-content .text-lead { margin-bottom: 1.75rem; }
+
+  .recus-content p {
+    color: var(--color-gris);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  /* ========== PARTENAIRES ========== */
+  .partenaires-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: start;
+  }
+
+  .partenaires-content { max-width: 560px; }
+
+  .partenaires-content p {
+    color: var(--color-gris);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.8;
+  }
+
+  .partenaires-content .btn { margin-top: 1rem; }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1000px) {
+    .promesse-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .promesse-content {
+      border-left: none;
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .methodes-items { grid-template-columns: 1fr; }
+    .recus-grid,
+    .partenaires-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

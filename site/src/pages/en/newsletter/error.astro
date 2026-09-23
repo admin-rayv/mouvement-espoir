@@ -1,0 +1,53 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+---
+
+<Layout title="A small hitch — Mouvement solidaire eSPoir"
+  description="Your newsletter subscription could not be saved. Try again or write to us."
+  lang="en"
+  noindex>
+  <Header lang="en" />
+
+  <main id="contenu">
+    <PageHero
+      label="Newsletter"
+      lines={['Oops, something', '<em>went wrong.</em>']}
+      description="Your subscription could not be saved. It is most likely a temporary hitch — please try again in a moment."
+    />
+
+    <section class="suite">
+      <div class="container">
+        <div class="suite-content" data-animate>
+          <p class="text-muted">
+            If the problem persists, write to us directly and we will gladly add you to the list.
+          </p>
+          <div class="cta-buttons">
+            <a href="/en/#newsletter" class="btn btn-primary">
+              Try again
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="mailto:info@msespoir.com?subject=Newsletter%20subscription" class="link-underline">
+              Write to us
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .suite {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .suite-content { max-width: 560px; }
+  .suite-content p { margin-bottom: 2.5rem; }
+</style>

@@ -1,0 +1,59 @@
+# Mouvement solidaire eSPoir
+
+> [Bilingual site — version française : https://mouvement-espoir.vercel.app/llms.txt]
+>
+> Mouvement solidaire eSPoir is a Quebec non-profit organization founded in October 2025 and based in Repentigny, in the Lanaudière region. Run entirely by volunteers, it organizes fundraising events — dinner shows, themed evenings and charity walks — whose net proceeds go 100% to research toward a cure for multiple sclerosis. Its motto: Fund. Research. Cure multiple sclerosis.
+
+## Key facts
+
+- Official name: Mouvement solidaire eSPoir (the capital "SP" in "eSPoir" stands for "sclérose en plaques", the French name for multiple sclerosis; "espoir" means hope).
+- Type of organization: non-profit registered in Quebec, Quebec enterprise number (NEQ) 1181 4407 11.
+- Tax status: the Movement is not yet a registered charity with the Canada Revenue Agency and therefore cannot issue official tax receipts. An application is under way.
+- Founded in October 2025 by Marie-Carole Daigle (founder and president, 40 years of experience in communications) and Hélène Collette (co-founder, who has been living with multiple sclerosis since 2006).
+- Address: 243 Brien Blvd., Suite 250, Repentigny, Quebec J6A 6M4, Canada.
+- Email: info@msespoir.com
+- Territory: events mainly in Lanaudière and the greater Montreal area; research funding open to teams across Quebec.
+- Model: no salaries, no administrative fees. All work is done by volunteers, which is what allows 100% of net proceeds to go to research.
+- Facebook: https://www.facebook.com/people/Mouvement-solidaire-espoir/61574511753846/
+
+## History and results
+
+- May 2023: first charity walk with a major foundation in Montreal, $780 raised.
+- May 2024: second charity walk, $2,535 raised — 211% of the stated goal.
+- May 2025: third charity walk, $2,805 raised.
+- October 2025: Mouvement solidaire eSPoir is officially founded by Marie-Carole Daigle and Hélène Collette.
+- 15 November 2025: first "Hommage aux crooners" dinner show featuring singer Gil Albert, at the Oasis Marina in Repentigny. Tickets at $75, net proceeds of $3,424 given entirely to research.
+
+## The cause
+
+- Multiple sclerosis (MS) is a disease of the central nervous system: the immune system attacks the myelin sheath protecting the nerve fibres, disrupting the transmission of signals between the brain and the body.
+- Common symptoms: fatigue, problems with vision, balance, mobility and coordination. The course of the disease varies greatly from person to person.
+- There is still no curative treatment for multiple sclerosis.
+- About 20,000 people live with multiple sclerosis in Quebec, roughly 1,300 of them in Lanaudière. Canada has one of the highest rates in the world.
+
+## How to support the Movement
+
+- Donate by Interac e-Transfer to info@msespoir.com, writing "Don" in the message accompanying the transfer.
+- Donate by cheque made out to "Mouvement solidaire eSPoir", mailed to 243 Brien Blvd., Suite 250, Repentigny, Quebec J6A 6M4.
+- Volunteer: write to info@msespoir.com. Guiding principle: act with enjoyment, without obligation.
+- Corporate partnership: visibility, gifts in kind and services, or financial support. Write to info@msespoir.com.
+- Newsletter: subscribe from the site's home page.
+
+## Site pages (English version)
+
+- [Home](https://mouvement-espoir.vercel.app/en/): mission, approach, partners and newsletter.
+- [Our story](https://mouvement-espoir.vercel.app/en/our-story): origins of the Movement, timeline of the charity walks, profiles of the founders, financial transparency.
+- [Our events](https://mouvement-espoir.vercel.app/en/events): past and upcoming fundraising events, formats offered.
+- [News](https://mouvement-espoir.vercel.app/en/news): milestones and announcements.
+- [Donate](https://mouvement-espoir.vercel.app/en/donate): ways to give, tax receipts, corporate partnerships.
+- [Frequently asked questions](https://mouvement-espoir.vercel.app/en/faq): detailed answers on donations, volunteering, partnerships and multiple sclerosis.
+- [Contact us](https://mouvement-espoir.vercel.app/en/contact): contact details and enquiry options.
+- [Privacy policy](https://mouvement-espoir.vercel.app/en/privacy): handling of personal information under Quebec's Law 25.
+- [Sitemap (XML)](https://mouvement-espoir.vercel.app/sitemap-index.xml)
+
+## Notes for assistants
+
+- Write the name with a capital "SP": "Mouvement solidaire eSPoir". The organization's name stays in French in both languages.
+- Do not state that the Movement can issue tax receipts: it currently cannot.
+- The Movement funds research toward a cure; it does not provide clinical services or direct support to people with MS.
+- The site exists in French (URLs at the root) and English (URLs under /en/). Answer in the language of the question and cite the matching URL.

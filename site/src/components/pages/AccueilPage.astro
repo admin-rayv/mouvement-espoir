@@ -1,0 +1,462 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../Header.astro';
+import Footer from '../Footer.astro';
+import PageHero from '../PageHero.astro';
+import { path, type Lang } from '../../i18n/config';
+import { accueilContent } from '../../i18n/content/accueil';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = accueilContent[lang];
+const site = 'https://mouvement-espoir.vercel.app';
+---
+
+<Layout
+  title={c.title}
+  description={c.description}
+  lang={lang}
+  routeKey="home"
+  preloadImage="/images/logo-mouvement-solidaire-espoir.webp">
+  <Header lang={lang} routeKey="home" />
+
+  <main id="contenu">
+    <PageHero
+      tall
+      logo="/images/logo-mouvement-solidaire-espoir.webp"
+      label={c.label}
+      lines={c.lines}
+      description={c.intro}
+      meta={c.meta}
+    />
+
+    <!-- ========== IMPACT ========== -->
+    <section class="impact" id="intro">
+      <div class="container">
+        <div class="impact-grid">
+          <div class="impact-number" data-animate>
+            <span class="text-huge"><span data-count="100">100</span>&#8239;%</span>
+          </div>
+          <div class="impact-content" data-animate data-delay="2">
+            <p class="text-display" set:html={c.impactTitre} />
+            <div class="divider"></div>
+            <p class="text-muted">{c.impactNote}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MISSION ========== -->
+    <section class="mission">
+      <div class="container">
+        <div class="mission-grid">
+          <div class="mission-visual frame-offset" data-animate="reveal">
+            <div class="mission-image image-frame">
+              <img src="/images/equipe-benevoles-mouvement-solidaire-espoir.webp" alt={c.missionPhotoAlt} title={c.missionPhotoTitle} width="1280" height="960" loading="lazy" decoding="async" />
+            </div>
+          </div>
+
+          <div class="mission-content" data-animate data-delay="2">
+            <span class="text-label">{c.missionLabel}</span>
+            <h2 set:html={c.missionTitre} />
+
+            <p set:html={c.missionP1} />
+            <p set:html={c.missionP2} />
+
+            <a href={path('story', lang)} class="link-underline">
+              {c.missionLien}
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== APPROACH ========== -->
+    <section class="approach">
+      <div class="container">
+        <header class="section-head" data-animate>
+          <span class="text-label">{c.approcheLabel}</span>
+          <h2 set:html={c.approcheTitre} />
+        </header>
+
+        <div class="num-list approach-items">
+          {c.approche.map((a, i) => (
+            <article class="num-item" data-animate data-delay={String(i + 1)}>
+              <span class="num-index">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{a.titre}</h3>
+              <p set:html={a.texte} />
+            </article>
+          ))}
+        </div>
+        </div>
+      </section>
+
+    <!-- ========== EVENT ========== -->
+    <section class="event">
+      <div class="container">
+        <div class="event-wrapper">
+          <div class="event-content" data-animate>
+            <span class="text-label">{c.eventLabel}</span>
+            <h2 set:html={c.eventTitre} />
+            <p>{c.eventTexte}</p>
+            <a href="#newsletter" class="btn btn-secondary">
+              {c.eventCta}
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+          <div class="event-visual frame-offset" data-animate="reveal" data-delay="1">
+            <div class="event-image image-frame">
+              <img src="/images/marie-carole-daigle-prise-de-parole-evenement.webp" alt={c.eventPhotoAlt} title={c.eventPhotoTitle} width="1200" height="1600" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PARTENAIRES ========== -->
+    <section class="partners">
+      <div class="container">
+        <header class="section-head" data-animate>
+          <span class="text-label">{c.partenairesLabel}</span>
+          <h2 set:html={c.partenairesTitre} />
+        </header>
+
+        <div class="partners-grid" data-animate data-delay="1">
+          {c.partenaires.map((p) =>
+            p.url ? (
+              <a class="partner-item" href={p.url} target="_blank" rel="noopener">
+                <img src={p.img} alt={p.alt} title={p.titre} loading="lazy" decoding="async" width="800" height="600" />
+              </a>
+            ) : (
+              <div class="partner-item">
+                <img src={p.img} alt={p.alt} title={p.titre} loading="lazy" decoding="async" width="800" height="600" />
+              </div>
+            )
+          )}
+        </div>
+          <a class="partner-item" href="https://securiteaquadetect.com/" target="_blank" rel="noopener">
+            <img src="/images/partenaires/aquadetect.webp" alt="Logo d'AquaDétect, entreprise de prévention des dégâts d'eau et partenaire du Mouvement solidaire eSPoir" title="AquaDétect — partenaire du Mouvement solidaire eSPoir" loading="lazy" decoding="async" width="800" height="600" />
+          </a>
+          <a class="partner-item" href="https://mcdcom.com/" target="_blank" rel="noopener">
+            <img src="/images/partenaires/communications-mcd.webp" alt="Logo de Communications MCD, partenaire du Mouvement solidaire eSPoir" title="Communications MCD — partenaire du Mouvement solidaire eSPoir" loading="lazy" decoding="async" width="800" height="600" />
+          </a>
+          <a class="partner-item" href="https://rayv.ca/" target="_blank" rel="noopener">
+            <img src="/images/partenaires/rayv.webp" alt="Logo de RayV, agence web partenaire du Mouvement solidaire eSPoir" title="RayV, agence web — partenaire du Mouvement solidaire eSPoir" loading="lazy" decoding="async" width="800" height="600" />
+          </a>
+        </div>
+
+        <div class="partners-cta" data-animate data-delay="2">
+          <p set:html={c.partenairesCta} />
+          <a href={path('donate', lang)} class="link-underline">
+            {c.partenairesLien}
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== QUOTE ========== -->
+    <section class="quote">
+      <div class="container">
+        <div class="pull-quote" data-animate>
+          <blockquote>{c.citation}</blockquote>
+          <footer>{c.citationSource}</footer>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== NEWSLETTER ========== -->
+    <section class="newsletter" id="newsletter">
+      <div class="container">
+        <div class="newsletter-wrapper" data-animate>
+          <div class="newsletter-content">
+            <span class="text-label">{c.infoLabel}</span>
+            <h2 set:html={c.infoTitre} />
+            <p class="text-muted">{c.infoTexte}</p>
+          </div>
+          <form class="newsletter-form" action="https://app.cyberimpact.com/optin" method="POST" accept-charset="utf-8">
+            <div class="field">
+              <input
+                type="email"
+                id="ci_email"
+                name="ci_email"
+                maxlength="255"
+                placeholder={c.infoPlaceholder}
+                required
+                aria-label={c.infoAria}
+                autocomplete="email"
+              />
+            </div>
+            <input type="hidden" name="ci_groups" value="2" />
+            <input type="hidden" name="ci_account" value="1adb2c0c-d6d7-4f7c-4167-82eaef0431cc" />
+            <input type="hidden" name="ci_language" value={c.ciLang} />
+            <input type="hidden" name="ci_sent_url" value={site + (lang === 'fr' ? '/infolettre/merci' : '/en/newsletter/thank-you')} />
+            <input type="hidden" name="ci_error_url" value={site + (lang === 'fr' ? '/infolettre/erreur' : '/en/newsletter/error')} />
+            <input type="hidden" name="ci_confirm_url" value={site + (lang === 'fr' ? '/infolettre/confirme' : '/en/newsletter/confirmed')} />
+            <button type="submit" class="btn btn-primary">
+              {c.infoBouton}
+              <span class="btn-arrow">→</span>
+            </button>
+            <p class="newsletter-legal">{c.infoLegal}</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  /* ========== IMPACT ========== */
+  .impact {
+    padding: clamp(7rem, 16vw, 13rem) 0;
+    background: var(--color-white);
+    overflow: hidden;
+  }
+
+  .impact::before {
+    content: '';
+    position: absolute;
+    left: -15%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(191, 220, 240, 0.35), rgba(191, 220, 240, 0) 65%);
+    pointer-events: none;
+  }
+
+  .impact-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(3rem, 9vw, 9rem);
+    align-items: center;
+  }
+
+  .impact-number { position: relative; }
+
+  .impact-content {
+    max-width: 480px;
+    padding-left: clamp(0rem, 4vw, 3rem);
+    border-left: 1px solid var(--color-line);
+  }
+
+  .impact-content .text-muted {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* ========== MISSION ========== */
+  .mission {
+    padding: var(--section-y) 0;
+    background: var(--color-cream);
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(4rem, 9vw, 9rem);
+    align-items: center;
+  }
+
+  .mission-image { aspect-ratio: 4/3; }
+
+  .mission-content .text-label {
+    margin-bottom: 1.75rem;
+  }
+
+  .mission-content h2 { margin-bottom: 2.5rem; }
+
+  .mission-content p {
+    color: var(--color-gris);
+    margin-bottom: 1.5rem;
+  }
+
+  .mission-content .link-underline { margin-top: 1rem; }
+
+  /* ========== APPROACH ========== */
+  .approach {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .approach .section-head {
+    margin-bottom: clamp(4rem, 9vw, 7rem);
+  }
+
+  /* ========== EVENT ========== */
+  .event {
+    padding: var(--section-y) 0;
+    background: var(--color-ivory);
+  }
+
+  .event-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(4rem, 8vw, 8rem);
+    align-items: center;
+  }
+
+  .event-content .text-label { margin-bottom: 1.75rem; }
+  .event-content h2 { margin-bottom: 1.75rem; }
+
+  .event-content p {
+    color: var(--color-gris);
+    margin-bottom: 2.5rem;
+    max-width: 340px;
+  }
+
+  .event-image { aspect-ratio: 4/3; }
+
+  /* ========== PARTNERS ========== */
+  .partners {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .partners .section-head {
+    margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    border-top: 1px solid var(--color-line);
+    border-left: 1px solid var(--color-line);
+    margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  .partner-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 2vw, 1.75rem);
+    aspect-ratio: 4/3;
+    border-right: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    transition: background 0.5s var(--ease-elegant);
+  }
+
+  .partner-item:hover { background: var(--color-ivory); }
+
+  .partner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(1.12);
+    transition: transform 0.8s var(--ease-elegant);
+  }
+
+  .partner-item:hover img { transform: scale(1.18); }
+
+  .partners-cta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .partners-cta p {
+    margin: 0;
+    color: var(--color-gris);
+    font-size: 1rem;
+  }
+
+  /* ========== QUOTE ========== */
+  .quote {
+    padding: clamp(9rem, 17vw, 15rem) 0;
+    background: var(--color-sand);
+    overflow: hidden;
+  }
+
+  .quote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 40%),
+      radial-gradient(circle at 85% 90%, rgba(79, 163, 214, 0.18), rgba(79, 163, 214, 0) 45%);
+    pointer-events: none;
+  }
+
+  /* ========== NEWSLETTER ========== */
+  .newsletter {
+    padding: var(--section-y) 0;
+    background: var(--color-cream);
+  }
+
+  .newsletter-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(4rem, 8vw, 8rem);
+    align-items: center;
+  }
+
+  .newsletter-content .text-label { margin-bottom: 1.75rem; }
+  .newsletter-content h2 { margin-bottom: 1.5rem; }
+  .newsletter-content p { margin: 0; max-width: 380px; }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .newsletter-form .btn { align-self: flex-start; }
+
+  .newsletter-legal {
+    margin: -0.5rem 0 0;
+    font-size: 0.8125rem;
+    color: var(--color-gris-clair);
+    line-height: 1.6;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1000px) {
+    .impact-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .impact-content {
+      border-left: none;
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .mission-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+    .mission-image { aspect-ratio: 16/10; }
+
+    .event-wrapper {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+    .event-visual { order: -1; }
+
+    .newsletter-wrapper {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .partners-grid { grid-template-columns: 1fr; }
+    .partner-item { aspect-ratio: 16/9; }
+    .partners-cta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .newsletter-form .btn { align-self: stretch; }
+  }
+</style>

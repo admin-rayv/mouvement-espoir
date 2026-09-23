@@ -1,0 +1,49 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+---
+
+<Layout title="One more click — Mouvement solidaire eSPoir"
+  description="Your newsletter subscription request has been received: confirm it by clicking the link sent to your inbox."
+  lang="en"
+  noindex>
+  <Header lang="en" />
+
+  <main id="contenu">
+    <PageHero
+      label="Newsletter"
+      lines={['One last click', '<em>and you’re in.</em>']}
+      description="Your request has been received! A confirmation email is on its way to your inbox. Click the link it contains to activate your subscription."
+    />
+
+    <section class="suite">
+      <div class="container">
+        <div class="suite-content" data-animate>
+          <p class="text-muted">
+            Nothing after a few minutes? Take a look in your junk mail — the message comes from Mouvement solidaire eSPoir.
+          </p>
+          <div class="cta-buttons">
+            <a href="/en/" class="btn btn-secondary">
+              Back to home
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .suite {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .suite-content { max-width: 560px; }
+  .suite-content p { margin-bottom: 2.5rem; }
+</style>

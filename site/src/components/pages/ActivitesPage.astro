@@ -1,0 +1,258 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../Header.astro';
+import Footer from '../Footer.astro';
+import PageHero from '../PageHero.astro';
+import { path, type Lang } from '../../i18n/config';
+import { activitesContent } from '../../i18n/content/activites';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = activitesContent[lang];
+
+const site = 'https://mouvement-espoir.vercel.app';
+const organisateur = { '@type': 'NGO', name: 'Mouvement solidaire eSPoir', url: site + path('home', lang) };
+
+const evenements = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: lang === 'fr' ? 'Activités-bénéfice du Mouvement solidaire eSPoir' : 'Fundraising events of Mouvement solidaire eSPoir',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'Event',
+        name: 'Souper-spectacle « Hommage aux crooners »',
+        description:
+          lang === 'fr'
+            ? "Premier souper-spectacle du Mouvement solidaire eSPoir, mettant en vedette le chanteur Gil Albert. L'activité a dégagé un bénéfice de 3 424 $, versé entièrement à la recherche sur la sclérose en plaques."
+            : 'The first dinner show held by Mouvement solidaire eSPoir, featuring singer Gil Albert. The event generated $3,424 in net proceeds, given entirely to multiple sclerosis research.',
+        startDate: '2025-11-15T18:00',
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        inLanguage: lang === 'fr' ? 'fr-CA' : 'en-CA',
+        location: {
+          '@type': 'Place',
+          name: 'Oasis Marina',
+          address: { '@type': 'PostalAddress', addressLocality: 'Repentigny', addressRegion: 'QC', addressCountry: 'CA' },
+        },
+        organizer: organisateur,
+        performer: { '@type': 'Person', name: 'Gil Albert' },
+        offers: {
+          '@type': 'Offer',
+          price: '75',
+          priceCurrency: 'CAD',
+          availability: 'https://schema.org/SoldOut',
+          validFrom: '2025-10-01T00:00',
+          url: site + path('events', lang),
+        },
+        image: site + '/images/souper-spectacle-hommage-crooners-2025.webp',
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'Event',
+        name: lang === 'fr' ? 'Marche-bénéfice pour la sclérose en plaques 2025' : 'Multiple sclerosis charity walk 2025',
+        description:
+          lang === 'fr'
+            ? "Marche-bénéfice organisée avec une grande fondation à Montréal. L'équipe du Mouvement solidaire eSPoir y a amassé 2 805 $ pour la recherche."
+            : 'Charity walk organized with a major foundation in Montreal. The Mouvement solidaire eSPoir team raised $2,805 for research.',
+        startDate: '2025-05-01',
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        location: {
+          '@type': 'Place',
+          name: 'Montréal',
+          address: { '@type': 'PostalAddress', addressLocality: 'Montréal', addressRegion: 'QC', addressCountry: 'CA' },
+        },
+        organizer: organisateur,
+      },
+    },
+  ],
+};
+---
+
+<Layout
+  title={c.title}
+  description={c.description}
+  preloadImage="/images/souper-spectacle-hommage-crooners-2025.webp"
+  breadcrumb={c.breadcrumb}
+  schema={evenements}
+  lang={lang}
+  routeKey="events">
+  <Header lang={lang} routeKey="events" />
+
+  <main id="contenu">
+    <PageHero
+      image="/images/souper-spectacle-hommage-crooners-2025.webp"
+      imagePosition="center 22%"
+      imageAlt={c.heroAlt}
+      imageTitle={c.heroTitle}
+      label={c.label}
+      lines={c.lines}
+      description={c.intro}
+    />
+
+    <!-- ========== À VENIR ========== -->
+    <section class="a-venir">
+      <div class="container">
+        <div class="a-venir-grid">
+          <header class="section-head" data-animate>
+            <span class="text-label">{c.avenirLabel}</span>
+            <h2 set:html={c.avenirTitre} />
+          </header>
+          <div class="a-venir-content" data-animate data-delay="2">
+            <p set:html={c.avenirTexte} />
+            <a href={c.avenirHref} class="btn btn-secondary">
+              {c.avenirCta}
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ACTIVITÉS PASSÉES ========== -->
+    <section class="passees">
+      <div class="container">
+        <header class="section-head passees-head" data-animate>
+          <span class="text-label">{c.passeesLabel}</span>
+          <h2 set:html={c.passeesTitre} />
+        </header>
+
+        <div class="timeline">
+          {c.timeline.map((ev, i) => (
+            <article class="timeline-item" data-animate data-delay={String(i + 1)}>
+              <span class="timeline-year">{ev.annee}</span>
+              <div>
+                <h3 set:html={ev.titre} />
+                <p set:html={ev.texte} />
+                {ev.photos && (
+                  <div class="passees-photos">
+                    <div data-animate="reveal">
+                      <div class="image-frame">
+                        <img src="/images/marie-carole-daigle-allocution-souper-spectacle.webp" alt={c.photo1Alt} title={c.photo1Title} width="1400" height="1867" loading="lazy" decoding="async" />
+                      </div>
+                    </div>
+                    <div data-animate="reveal" data-delay="2">
+                      <div class="image-frame">
+                        <img src="/images/affiche-souper-spectacle-crooners-2025.webp" alt={c.photo2Alt} title={c.photo2Title} width="1036" height="1600" loading="lazy" decoding="async" />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+        </div>
+      </section>
+
+    <!-- ========== NOS FORMULES ========== -->
+    <section class="formules">
+      <div class="container">
+        <header class="section-head formules-head" data-animate>
+          <span class="text-label">{c.formulesLabel}</span>
+          <h2 set:html={c.formulesTitre} />
+        </header>
+
+        <div class="num-list">
+          {c.formules.map((f, i) => (
+            <article class="num-item" data-animate data-delay={String(i + 1)}>
+              <span class="num-index">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{f.titre}</h3>
+              <p>{f.texte}</p>
+            </article>
+          ))}
+        </div>
+        </div>
+      </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content" data-animate>
+          <h2 set:html={c.ctaTitre} />
+          <p set:html={c.ctaTexte} />
+          <div class="cta-buttons">
+            <a href={c.ctaMailto} class="btn btn-primary">
+              {c.ctaBouton}
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href={path('donate', lang)} class="link-underline">
+              {c.ctaDon}
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  /* ========== À VENIR ========== */
+  .a-venir {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .a-venir-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: center;
+  }
+
+  .a-venir-content p {
+    color: var(--color-gris);
+    margin: 0 0 2.5rem 0;
+    line-height: 1.8;
+    max-width: 480px;
+  }
+
+  /* ========== ACTIVITÉS PASSÉES ========== */
+  .passees {
+    padding: var(--section-y) 0;
+    background: var(--color-cream);
+  }
+
+  .passees-head { margin-bottom: clamp(4rem, 9vw, 6rem); }
+
+  .passees-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+    max-width: 640px;
+  }
+
+  .passees-photos .image-frame { aspect-ratio: 13/20; }
+
+  /* ========== NOS FORMULES ========== */
+  .formules {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .formules-head { margin-bottom: clamp(4rem, 9vw, 7rem); }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    .a-venir-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .passees-photos { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  }
+
+  @media (max-width: 480px) {
+    .passees-photos { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,6 +1,8 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
+import { languages, routes, path, type Lang, type RouteKey } from '../i18n/config';
+import { ui } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -13,29 +15,73 @@ interface Props {
   breadcrumb?: string;
   /** Données structurées supplémentaires propres à la page */
   schema?: unknown;
+  /** Langue de la page */
+  lang?: Lang;
+  /** Clé de route : permet de générer les liens hreflang vers l'autre langue */
+  routeKey?: RouteKey;
 }
 
 const {
   title,
-  description = "OBNL québécois entièrement bénévole : 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques.",
+  description,
   preloadImage,
   noindex = false,
   breadcrumb,
   schema,
+  lang = 'fr',
+  routeKey,
 } = Astro.props;
+
+const t = ui[lang];
+
+const defaultDescription = {
+  fr: "OBNL québécois entièrement bénévole : 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques.",
+  en: "An all-volunteer Quebec non-profit: 100% of the net proceeds from our fundraising events go to research toward a cure for multiple sclerosis.",
+}[lang];
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL('/images/og-image.jpg', Astro.site);
+
+// Liens de langue : chaque page connaît son équivalent dans l'autre langue
+const alternates = routeKey
+  ? (Object.keys(languages) as Lang[]).map((l) => ({
+      lang: l,
+      hreflang: languages[l].htmlLang,
+      href: new URL(path(routeKey, l), Astro.site).toString(),
+    }))
+  : [];
+
+const orgSchema = {
+  fr: {
+    description:
+      "Organisme à but non lucratif québécois qui organise des activités-bénéfice dont 100 % des revenus nets financent la recherche sur la guérison de la sclérose en plaques.",
+    slogan: "Financer. Chercher. Guérir la sclérose en plaques.",
+    knowsAbout: ["Sclérose en plaques", "Recherche médicale", "Financement de la recherche", "Activités-bénéfice", "Bénévolat"],
+    president: "Fondatrice et présidente",
+    cofounder: "Cofondatrice",
+    home: "Accueil",
+  },
+  en: {
+    description:
+      "A Quebec non-profit organization that runs fundraising events whose net proceeds go entirely to research toward a cure for multiple sclerosis.",
+    slogan: "Fund. Research. Cure multiple sclerosis.",
+    knowsAbout: ["Multiple sclerosis", "Medical research", "Research funding", "Fundraising events", "Volunteering"],
+    president: "Founder and President",
+    cofounder: "Co-founder",
+    home: "Home",
+  },
+}[lang];
 
 const organisation = {
   "@context": "https://schema.org",
   "@type": "NGO",
   name: "Mouvement solidaire eSPoir",
-  url: Astro.site?.toString(),
+  url: new URL(path('home', lang), Astro.site).toString(),
   logo: new URL('/images/logo-mouvement-solidaire-espoir.png', Astro.site).toString(),
-  description: "Organisme à but non lucratif québécois qui organise des activités-bénéfice dont 100 % des revenus nets financent la recherche sur la guérison de la sclérose en plaques.",
+  description: orgSchema.description,
   email: "info@msespoir.com",
   foundingDate: "2025-10",
+  inLanguage: ["fr-CA", "en-CA"],
   address: {
     "@type": "PostalAddress",
     streetAddress: "243, boul. Brien, bureau 250",
@@ -48,14 +94,8 @@ const organisation = {
     { "@type": "AdministrativeArea", name: "Québec" },
     { "@type": "AdministrativeArea", name: "Lanaudière" },
   ],
-  knowsAbout: [
-    "Sclérose en plaques",
-    "Recherche médicale",
-    "Financement de la recherche",
-    "Activités-bénéfice",
-    "Bénévolat",
-  ],
-  slogan: "Financer. Chercher. Guérir la sclérose en plaques.",
+  knowsAbout: orgSchema.knowsAbout,
+  slogan: orgSchema.slogan,
   nonprofitStatus: "NonprofitANBI",
   identifier: {
     "@type": "PropertyValue",
@@ -63,8 +103,8 @@ const organisation = {
     value: "1181440711",
   },
   founder: [
-    { "@type": "Person", name: "Marie-Carole Daigle", jobTitle: "Fondatrice et présidente" },
-    { "@type": "Person", name: "Hélène Collette", jobTitle: "Cofondatrice" },
+    { "@type": "Person", name: "Marie-Carole Daigle", jobTitle: orgSchema.president },
+    { "@type": "Person", name: "Hélène Collette", jobTitle: orgSchema.cofounder },
   ],
   sameAs: ["https://www.facebook.com/people/Mouvement-solidaire-espoir/61574511753846/"],
 };
@@ -77,8 +117,8 @@ const breadcrumbSchema = breadcrumb && {
     {
       "@type": "ListItem",
       position: 1,
-      name: "Accueil",
-      item: Astro.site?.toString(),
+      name: orgSchema.home,
+      item: new URL(path('home', lang), Astro.site).toString(),
     },
     {
       "@type": "ListItem",
@@ -91,16 +131,22 @@ const breadcrumbSchema = breadcrumb && {
 ---
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang={languages[lang].htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={description ?? defaultDescription} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta name="theme-color" content="#1B3A5F" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Versions linguistiques -->
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+    {alternates.length > 0 && (
+      <link rel="alternate" hreflang="x-default" href={new URL(path(routeKey!, 'fr'), Astro.site).toString()} />
+    )}
 
     <!-- Polices auto-hébergées : Montserrat (titres) + Inter (corps) -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-latin.woff2" crossorigin />
@@ -111,10 +157,13 @@ const breadcrumbSchema = breadcrumb && {
     <!-- Open Graph -->
     <meta property="og:site_name" content="Mouvement solidaire eSPoir" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={description ?? defaultDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:locale" content="fr_CA" />
+    <meta property="og:locale" content={languages[lang].ogLocale} />
+    {alternates.filter((a) => a.lang !== lang).map((a) => (
+      <meta property="og:locale:alternate" content={languages[a.lang].ogLocale} />
+    ))}
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -123,7 +172,7 @@ const breadcrumbSchema = breadcrumb && {
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={description ?? defaultDescription} />
     <meta name="twitter:image" content={ogImageURL} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -136,7 +185,7 @@ const breadcrumbSchema = breadcrumb && {
     <ClientRouter />
   </head>
   <body>
-    <a href="#contenu" class="skip-link">Aller au contenu</a>
+    <a href="#contenu" class="skip-link">{t.skipLink}</a>
     <slot />
   </body>
 </html>

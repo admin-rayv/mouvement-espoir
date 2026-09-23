@@ -1,0 +1,232 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../Header.astro';
+import Footer from '../Footer.astro';
+import PageHero from '../PageHero.astro';
+import { type Lang } from '../../i18n/config';
+import { nouvellesContent } from '../../i18n/content/nouvelles';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = nouvellesContent[lang];
+---
+
+<Layout
+  title={c.title}
+  description={c.description}
+  breadcrumb={c.breadcrumb}
+  lang={lang}
+  routeKey="news"
+  preloadImage="/images/mains-unies-espoir-guerison.webp">
+  <Header lang={lang} routeKey="news" />
+
+  <main id="contenu">
+    <PageHero
+      image="/images/mains-unies-espoir-guerison.webp"
+      imageAlt={c.heroAlt}
+      imageTitle={c.heroTitle}
+      label={c.label}
+      lines={c.lines}
+      description={c.intro}
+    />
+
+    <!-- ========== À LA UNE ========== -->
+    <section class="featured">
+      <div class="container">
+        <header class="section-head featured-head" data-animate>
+          <span class="text-label">{c.uneLabel}</span>
+        </header>
+
+        <article class="featured-item">
+          <div class="featured-photo frame-offset" data-animate="reveal">
+            <div class="image-frame">
+              <img src="/images/marie-carole-daigle-prise-de-parole-evenement.webp" alt={c.unePhotoAlt} title={c.unePhotoTitle} width="1200" height="1600" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="featured-text" data-animate data-delay="2">
+            <div class="meta">
+              <span class="meta-date">{c.uneDate}</span>
+              <span class="meta-cat">{c.uneCat}</span>
+            </div>
+            <h2 set:html={c.uneTitre} />
+            <p set:html={c.uneP1} />
+            <p set:html={c.uneP2} />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== TOUTES LES NOUVELLES ========== -->
+    <section class="nouvelles">
+      <div class="container">
+        <header class="section-head nouvelles-head" data-animate>
+          <span class="text-label">{c.listeLabel}</span>
+          <h2 set:html={c.listeTitre} />
+        </header>
+
+        <div class="nouvelles-list">
+          {c.items.map((item, i) => (
+            <article class="nouvelle-item" data-animate data-delay={String(i + 1)}>
+              <div class="meta meta-col">
+                <span class="meta-date">{item.date}</span>
+                <span class="meta-cat">{item.cat}</span>
+              </div>
+              <div class="nouvelle-content">
+                <h3>{item.titre}</h3>
+                <p set:html={item.texte} />
+              </div>
+            </article>
+          ))}
+        </div>
+        </div>
+      </section>
+
+    <!-- ========== RESTEZ INFORMÉ ========== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content" data-animate>
+          <span class="text-label suivez-label">{c.suivezLabel}</span>
+          <h2 set:html={c.suivezTitre} />
+          <p>{c.suivezTexte}</p>
+          <div class="cta-buttons">
+            <a href="https://www.facebook.com/people/Mouvement-solidaire-espoir/61574511753846/" target="_blank" rel="noopener" class="link-underline">Facebook</a>
+            <a href="#" class="link-underline">Instagram</a>
+            <a href="mailto:info@msespoir.com" class="link-underline">
+              {c.suivezEcrire}
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  /* ========== À LA UNE ========== */
+  .featured {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .featured-head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+
+  .featured-item {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(3rem, 7vw, 7rem);
+    align-items: center;
+  }
+
+  .featured-photo .image-frame { aspect-ratio: 4/3; }
+
+  .featured-text h2 {
+    margin-bottom: 2rem;
+    font-size: clamp(1.875rem, 3.4vw, 2.75rem);
+  }
+
+  .featured-text p {
+    color: var(--color-gris);
+    margin: 0 0 1.25rem 0;
+    line-height: 1.8;
+  }
+
+  /* ========== META ========== */
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .meta-date {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-marine);
+  }
+
+  .meta-cat {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-marine);
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--color-line-strong);
+    border-radius: 999px;
+  }
+
+  /* ========== TOUTES LES NOUVELLES ========== */
+  .nouvelles {
+    padding: var(--section-y) 0;
+    background: var(--color-cream);
+  }
+
+  .nouvelles-head { margin-bottom: clamp(3.5rem, 7vw, 5rem); }
+
+  .nouvelles-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nouvelle-item {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+    padding: 2.75rem 0;
+    border-bottom: 1px solid var(--color-line);
+    transition: padding-left 0.6s var(--ease-elegant);
+  }
+
+  .nouvelle-item:first-child { border-top: 1px solid var(--color-line); }
+
+  .meta-col {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.875rem;
+    margin: 0;
+    padding-top: 0.35rem;
+  }
+
+  .nouvelle-content h3 {
+    font-size: 1.375rem;
+    margin-bottom: 0.875rem;
+    font-weight: 400;
+  }
+
+  .nouvelle-content p {
+    color: var(--color-gris);
+    margin: 0;
+    max-width: 580px;
+    line-height: 1.8;
+  }
+
+  /* ========== RESTEZ INFORMÉ ========== */
+  .suivez-label { margin-bottom: 1.75rem; }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    .featured-item {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .featured-photo .image-frame { aspect-ratio: 16/10; }
+
+    .nouvelle-item {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .meta-col {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.25rem;
+      padding-top: 0;
+    }
+  }
+</style>

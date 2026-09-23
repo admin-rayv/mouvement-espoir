@@ -1,0 +1,414 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../Header.astro';
+import Footer from '../Footer.astro';
+import PageHero from '../PageHero.astro';
+import { path, type Lang } from '../../i18n/config';
+import { histoireContent } from '../../i18n/content/histoire';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = histoireContent[lang];
+---
+
+<Layout
+  title={c.title}
+  description={c.description}
+  breadcrumb={c.breadcrumb}
+  lang={lang}
+  routeKey="story"
+  preloadImage="/images/marcher-ensemble-contre-la-sclerose-en-plaques.webp">
+  <Header lang={lang} routeKey="story" />
+
+  <main id="contenu">
+    <PageHero
+      image="/images/marcher-ensemble-contre-la-sclerose-en-plaques.webp"
+      imageAlt={c.heroAlt}
+      imageTitle={c.heroTitle}
+      label={c.label}
+      lines={c.lines}
+      description={c.intro}
+    />
+
+    <!-- ========== ORIGINE ========== -->
+    <section class="origine">
+      <div class="container">
+        <div class="origine-grid">
+          <header class="section-head" data-animate>
+            <span class="text-label">{c.origineLabel}</span>
+            <h2 set:html={c.origineTitre} />
+          </header>
+
+          <div class="origine-text" data-animate data-delay="2">
+            <p class="text-lead">{c.origineLead}</p>
+            <p>{c.origineP1}</p>
+            <p>{c.origineP2}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PARCOURS ========== -->
+    <section class="parcours">
+      <div class="container">
+        <div class="parcours-top">
+          <header class="section-head" data-animate>
+            <span class="text-label">{c.parcoursLabel}</span>
+            <h2 set:html={c.parcoursTitre} />
+          </header>
+
+          <figure class="parcours-photo frame-offset" data-animate="reveal" data-delay="2">
+            <div class="image-frame">
+              <img src="/images/marche-benefice-sclerose-en-plaques-equipe-espoir.webp" alt={c.marchePhotoAlt} title={c.marchePhotoTitle} width="900" height="909" loading="lazy" decoding="async" />
+            </div>
+            <figcaption class="caption">{c.marcheCaption}</figcaption>
+          </figure>
+        </div>
+
+        <div class="timeline">
+          {c.timeline.map((ev, i) => (
+            <article class:list={['timeline-item', { 'is-highlight': ev.highlight }]} data-animate data-delay={String(i + 1)}>
+              <span class="timeline-year">{ev.annee}</span>
+              <div>
+                <h3 set:html={ev.titre} />
+                <p set:html={ev.texte} />
+              </div>
+            </article>
+          ))}
+        </div>
+        </div>
+      </section>
+
+    <!-- ========== VISION ========== -->
+    <section class="vision">
+      <div class="container">
+        <div class="pull-quote" data-animate>
+          <blockquote set:html={c.visionCitation} />
+          <p class="vision-text">{c.visionTexte}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ÉQUIPE ========== -->
+    <section class="equipe">
+      <div class="container">
+        <header class="section-head" data-animate>
+          <span class="text-label">{c.equipeLabel}</span>
+          <h2>{c.equipeTitre}</h2>
+        </header>
+
+        <div class="equipe-grid">
+          {c.membres.map((m) => (
+            <article class="membre">
+              <div class="membre-photo frame-offset" data-animate="reveal">
+                <div class="image-frame">
+                  <img src={m.photo} alt={m.alt} title={m.photoTitle} width={m.w} height={m.h} loading="lazy" decoding="async" />
+                </div>
+              </div>
+              <div class="membre-info" data-animate data-delay="2">
+                <h3>{m.nom}</h3>
+                <span class="membre-role">{m.role}</span>
+                {m.textes.map((txt) => <p>{txt}</p>)}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <figure class="equipe-photo" data-animate="reveal">
+          <div class="image-frame">
+            <img src="/images/fondatrices-mouvement-espoir-seance-travail.webp" alt={c.equipePhotoAlt} title={c.equipePhotoTitle} width="1100" height="1213" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="caption">{c.equipeCaption}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== TRANSPARENCE ========== -->
+    <section class="transparence">
+      <div class="container">
+        <div class="transparence-grid">
+          <div class="transparence-visual" data-animate>
+            <span class="text-huge"><span data-count="100">100</span>&#8239;%</span>
+            <span class="transparence-label">{c.transpLegende}</span>
+          </div>
+
+          <div class="transparence-content" data-animate data-delay="2">
+            <span class="text-label">{c.transpLabel}</span>
+            <h2 set:html={c.transpTitre} />
+            <p>{c.transpP1}</p>
+            <p set:html={c.transpP2} />
+            <div class="transparence-legal">
+              <span>{c.transpLegal1}</span>
+              <span>{c.transpLegal2}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content" data-animate>
+          <h2 set:html={c.ctaTitre} />
+          <p>{c.ctaTexte}</p>
+          <div class="cta-buttons">
+            <a href={path('events', lang)} class="btn btn-primary">
+              {c.ctaBouton}
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href={path('donate', lang)} class="link-underline">
+              {c.ctaDon}
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  /* ========== ORIGINE ========== */
+  .origine {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .origine-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: start;
+  }
+
+  .origine-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 560px;
+    padding-top: 0.5rem;
+  }
+
+  .origine-text .text-lead { margin: 0 0 0.5rem; }
+
+  .origine-text p {
+    color: var(--color-gris);
+    margin: 0;
+    line-height: 1.8;
+  }
+
+  .origine-text .text-lead { color: var(--color-noir); }
+
+  /* ========== PARCOURS ========== */
+  .parcours {
+    padding: var(--section-y) 0;
+    background: var(--color-cream);
+  }
+
+  .parcours-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: end;
+    margin-bottom: clamp(4rem, 9vw, 7rem);
+  }
+
+  .parcours-photo { margin: 0; }
+  .parcours-photo .image-frame { aspect-ratio: 1 / 1; }
+  .parcours-photo figcaption { margin-top: 1.5rem; }
+
+  /* ========== VISION ========== */
+  .vision {
+    padding: clamp(9rem, 17vw, 15rem) 0;
+    background: var(--color-sand);
+    overflow: hidden;
+  }
+
+  .vision::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 40%),
+      radial-gradient(circle at 85% 90%, rgba(79, 163, 214, 0.18), rgba(79, 163, 214, 0) 45%);
+    pointer-events: none;
+  }
+
+  .vision-text {
+    color: var(--color-gris);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    max-width: 540px;
+    margin: 2.5rem auto 0;
+  }
+
+  /* ========== ÉQUIPE ========== */
+  .equipe {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .equipe .section-head {
+    margin-bottom: clamp(4rem, 9vw, 6rem);
+  }
+
+  .equipe-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5rem, 10vw, 8rem);
+  }
+
+  .membre {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: clamp(3rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .membre:nth-child(even) .membre-photo { order: 2; }
+
+  .membre-photo .image-frame { aspect-ratio: 4/5; }
+
+  .membre-info { max-width: 540px; }
+
+  .membre-info h3 {
+    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+  }
+
+  .membre-role {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-marine);
+    margin-bottom: 2rem;
+  }
+
+  .membre-role::before {
+    content: '';
+    width: 1.75rem;
+    height: 1px;
+    background: var(--color-accent);
+  }
+
+  .membre-info p {
+    color: var(--color-gris);
+    margin: 0 0 1.25rem 0;
+    line-height: 1.8;
+  }
+
+  .equipe-photo {
+    margin: clamp(5rem, 10vw, 8rem) auto 0;
+    max-width: 860px;
+  }
+
+  .equipe-photo .image-frame { aspect-ratio: 4 / 3; }
+  .equipe-photo .image-frame img { object-position: center 25%; }
+  .equipe-photo figcaption { margin-top: 1.5rem; }
+
+  /* ========== TRANSPARENCE ========== */
+  .transparence {
+    padding: var(--section-y) 0;
+    background: var(--color-ivory);
+    overflow: hidden;
+  }
+
+  .transparence::before {
+    content: '';
+    position: absolute;
+    left: -15%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(191, 220, 240, 0.4), rgba(191, 220, 240, 0) 65%);
+    pointer-events: none;
+  }
+
+  .transparence-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(4rem, 9vw, 9rem);
+    align-items: center;
+  }
+
+  .transparence-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .transparence-label {
+    font-size: 0.8125rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gris);
+    margin-top: 1.5rem;
+  }
+
+  .transparence-content .text-label { margin-bottom: 1.75rem; }
+  .transparence-content h2 { margin-bottom: 2rem; }
+
+  .transparence-content p {
+    color: var(--color-gris);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.8;
+  }
+
+  .transparence-legal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .transparence-legal span {
+    font-size: 0.8125rem;
+    color: var(--color-gris);
+    letter-spacing: 0.04em;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    .origine-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .parcours-top {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 3rem;
+    }
+
+    .parcours-photo { max-width: 440px; }
+
+    .membre {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .membre:nth-child(even) .membre-photo { order: 0; }
+
+    .membre-photo { max-width: 420px; }
+
+    .transparence-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+  }
+</style>

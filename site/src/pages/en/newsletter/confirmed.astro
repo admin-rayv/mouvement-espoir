@@ -1,0 +1,53 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import PageHero from '../../../components/PageHero.astro';
+---
+
+<Layout title="Welcome — Mouvement solidaire eSPoir"
+  description="Your subscription to the Mouvement solidaire eSPoir newsletter is confirmed."
+  lang="en"
+  noindex>
+  <Header lang="en" />
+
+  <main id="contenu">
+    <PageHero
+      label="Newsletter"
+      lines={['Welcome to', '<em>the Movement.</em>']}
+      description="Your subscription is confirmed! You will now receive news about our fundraising events and about research. An email now and then, never spam."
+    />
+
+    <section class="suite">
+      <div class="container">
+        <div class="suite-content" data-animate>
+          <p class="text-muted">
+            While you wait for the next newsletter, here are two fine ways to move the cause forward right now.
+          </p>
+          <div class="cta-buttons">
+            <a href="/en/events" class="btn btn-primary">
+              See our events
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="/en/donate" class="link-underline">
+              Donate
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .suite {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .suite-content { max-width: 560px; }
+  .suite-content p { margin-bottom: 2.5rem; }
+</style>

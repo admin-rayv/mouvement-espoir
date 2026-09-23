@@ -1,25 +1,39 @@
 ---
 // Header — verre dépoli au défilement, logo blanc sur le hero, lien actif
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+import { path, languages, type Lang, type RouteKey } from '../i18n/config';
+import { ui } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+  routeKey?: RouteKey;
+}
+
+const { lang = 'fr', routeKey } = Astro.props;
+const t = ui[lang];
+const other: Lang = lang === 'fr' ? 'en' : 'fr';
 
 const links = [
-  { href: '/histoire', label: 'Notre histoire' },
-  { href: '/nouvelles', label: 'Nouvelles' },
-  { href: '/activites', label: 'Activités' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/contact', label: 'Nous joindre' },
+  { href: path('story', lang), label: t.nav.story },
+  { href: path('news', lang), label: t.nav.news },
+  { href: path('events', lang), label: t.nav.events },
+  { href: path('faq', lang), label: t.nav.faq },
+  { href: path('contact', lang), label: t.nav.contact },
 ];
 
-const isActive = (href: string) => path === href;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => currentPath === href.replace(/\/$/, '');
+
+// Le sélecteur pointe vers la même page dans l'autre langue
+const switchHref = routeKey ? path(routeKey, other) : path('home', other);
 ---
 
 <header class="header" id="header">
   <div class="header-container">
-    <a href="/" class="logo" aria-label="Mouvement solidaire eSPoir — Accueil">
-      <img src="/images/logo-mouvement-solidaire-espoir.webp" alt="Logo du Mouvement solidaire eSPoir : une vague formée de mains tendues, symbole de solidarité face à la sclérose en plaques" title="Mouvement solidaire eSPoir — Accueil" class="logo-img" width="1200" height="1090" />
+    <a href={path('home', lang)} class="logo" aria-label={t.homeAria}>
+      <img src="/images/logo-mouvement-solidaire-espoir.webp" alt={t.logoAlt} title={t.logoTitleHome} class="logo-img" width="1200" height="1090" />
     </a>
 
-    <nav class="nav" aria-label="Navigation principale">
+    <nav class="nav" aria-label={t.navAria}>
       <ul class="nav-list">
         {links.map((l) => (
           <li>
@@ -31,18 +45,23 @@ const isActive = (href: string) => path === href;
       </ul>
     </nav>
 
-    <a href="/don" class="btn btn-primary btn-donate">
-      Faire un don
-    </a>
+    <div class="header-actions">
+      <a href={switchHref} class="lang-switch" aria-label={t.langSwitchAria} hreflang={languages[other].htmlLang} lang={languages[other].htmlLang}>
+        {languages[other].short}
+      </a>
+      <a href={path('donate', lang)} class="btn btn-primary btn-donate">
+        {t.nav.donate}
+      </a>
+    </div>
 
-    <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+    <button class="mobile-menu-toggle" aria-label={t.menu} aria-expanded="false" aria-controls="mobile-menu">
       <span></span>
       <span></span>
     </button>
   </div>
 
   <div class="mobile-menu grain" id="mobile-menu">
-    <nav class="mobile-nav" aria-label="Navigation mobile">
+    <nav class="mobile-nav" aria-label={t.navMobileAria}>
       <ul class="mobile-nav-list">
         {links.map((l, i) => (
           <li style={`--i: ${i}`}>
@@ -53,7 +72,8 @@ const isActive = (href: string) => path === href;
         ))}
       </ul>
       <div class="mobile-footer" style="--i: 4">
-        <a href="/don" class="btn btn-white mobile-donate">Faire un don</a>
+        <a href={path('donate', lang)} class="btn btn-white mobile-donate">{t.nav.donate}</a>
+        <a href={switchHref} class="mobile-lang" hreflang={languages[other].htmlLang} lang={languages[other].htmlLang}>{languages[other].label}</a>
         <a href="mailto:info@msespoir.com" class="mobile-email">info@msespoir.com</a>
       </div>
     </nav>
@@ -172,6 +192,34 @@ const isActive = (href: string) => path === href;
 
   .header:not(.scrolled) .nav-link { color: rgba(255, 255, 255, 0.92); }
   .nav-link:hover { opacity: 0.7; }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .lang-switch {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--color-noir);
+    padding: 0.35rem 0.1rem;
+    border-bottom: 1px solid transparent;
+    transition: color 0.4s var(--ease-elegant), border-color 0.4s var(--ease-elegant);
+  }
+
+  .lang-switch:hover { border-bottom-color: currentColor; }
+
+  .header:not(.scrolled) .lang-switch { color: rgba(255, 255, 255, 0.92); }
+
+  .mobile-lang {
+    font-size: 0.9375rem;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    align-self: flex-start;
+  }
 
   .btn-donate {
     padding: 0.8rem 1.5rem;
@@ -314,6 +362,7 @@ const isActive = (href: string) => path === href;
   @media (max-width: 900px) {
     .nav { display: none; }
     .btn-donate { display: none; }
+    .header-actions { margin-left: auto; margin-right: 1rem; }
     .mobile-menu-toggle { display: flex; }
     .mobile-menu { display: block; }
     .header { padding: 1.25rem 0; }

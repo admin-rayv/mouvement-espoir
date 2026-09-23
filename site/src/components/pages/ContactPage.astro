@@ -1,0 +1,247 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../Header.astro';
+import Footer from '../Footer.astro';
+import PageHero from '../PageHero.astro';
+import { type Lang } from '../../i18n/config';
+import { contactContent } from '../../i18n/content/contact';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = contactContent[lang];
+---
+
+<Layout
+  title={c.title}
+  description={c.description}
+  breadcrumb={c.breadcrumb}
+  lang={lang}
+  routeKey="contact"
+  preloadImage="/images/mains-jointes-soutien-sclerose-en-plaques.webp">
+  <Header lang={lang} routeKey="contact" />
+
+  <main id="contenu">
+    <PageHero
+      image="/images/mains-jointes-soutien-sclerose-en-plaques.webp"
+      imageAlt={c.heroAlt}
+      imageTitle={c.heroTitle}
+      label={c.label}
+      lines={c.lines}
+      description={c.intro}
+    />
+
+    <!-- ========== ENGAGE ========== -->
+    <section class="engage">
+      <div class="container">
+        <header class="section-head engage-head" data-animate>
+          <span class="text-label">{c.engageLabel}</span>
+          <h2 set:html={c.engageTitle} />
+        </header>
+
+        <div class="engage-items">
+          {c.cards.map((card, i) => (
+            <article class="engage-card" data-animate data-delay={String(i + 1)}>
+              <span class="num-index">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{card.titre}</h3>
+              <p set:html={card.texte} />
+              <a href={card.mailto} class="link-underline">
+                {card.lien}
+                <span class="arrow">→</span>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== COORDONNÉES ========== -->
+    <section class="coordonnees">
+      <div class="container">
+        <div class="coordonnees-grid">
+          <div class="coordonnees-text" data-animate>
+            <span class="text-label">{c.coordLabel}</span>
+            <h2 set:html={c.coordTitle} />
+            <p set:html={c.coordTexte} />
+          </div>
+
+          <div class="coordonnees-details" data-animate data-delay="2">
+            <div class="coord-block">
+              <span class="coord-label">{c.labelAdresse}</span>
+              <p set:html={c.adresse} />
+            </div>
+
+            <div class="coord-block">
+              <span class="coord-label">{c.labelCourriel}</span>
+              <a href="mailto:info@msespoir.com" class="link-underline coord-link">
+                info@msespoir.com
+              </a>
+            </div>
+
+            <div class="coord-block">
+              <span class="coord-label">{c.labelSuivez}</span>
+              <div class="social-links">
+                <a href="https://www.facebook.com/people/Mouvement-solidaire-espoir/61574511753846/" target="_blank" rel="noopener" class="link-underline">Facebook</a>
+                <a href="#" aria-label="Instagram" class="link-underline">Instagram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  /* ========== ENGAGE ========== */
+  .engage {
+    padding: var(--section-y) 0;
+    background: var(--color-white);
+  }
+
+  .engage-head { margin-bottom: clamp(4rem, 8vw, 6rem); }
+
+  .engage-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .engage-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(2rem, 4vw, 3.25rem);
+    background: var(--color-ivory);
+    border: 1px solid var(--color-line);
+    transition: transform 0.7s var(--ease-elegant), box-shadow 0.7s var(--ease-elegant), border-color 0.5s, background 0.5s;
+  }
+
+  .engage-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 1px;
+    background: var(--color-accent);
+    transition: width 0.9s var(--ease-elegant);
+  }
+
+  .engage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--color-accent-soft);
+    background: var(--color-white);
+  }
+
+  .engage-card:hover::before { width: 100%; }
+
+  .engage-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+  }
+
+  .engage-card p {
+    color: var(--color-gris);
+    margin: 0 0 2rem 0;
+    font-size: 1rem;
+    line-height: 1.75;
+    flex: 1;
+  }
+
+  .engage-card .link-underline { align-self: flex-start; }
+
+  /* ========== COORDONNÉES ========== */
+  .coordonnees {
+    padding: var(--section-y) 0;
+    background: var(--color-cream);
+    overflow: hidden;
+  }
+
+  .coordonnees::before {
+    content: '';
+    position: absolute;
+    right: -10%;
+    bottom: -30%;
+    width: 55vw;
+    height: 55vw;
+    max-width: 720px;
+    max-height: 720px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 163, 214, 0.16), rgba(79, 163, 214, 0) 65%);
+    pointer-events: none;
+  }
+
+  .coordonnees-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(4rem, 9vw, 9rem);
+    align-items: start;
+  }
+
+  .coordonnees-text .text-label { margin-bottom: 1.75rem; }
+  .coordonnees-text h2 { margin-bottom: 2.5rem; }
+
+  .coordonnees-text p {
+    color: var(--color-gris);
+    margin: 0;
+    max-width: 440px;
+  }
+
+  .coordonnees-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coord-block {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .coord-block:last-child { border-bottom: 1px solid var(--color-line); }
+
+  .coord-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-marine);
+    padding-top: 0.3rem;
+  }
+
+  .coord-block p {
+    color: var(--color-noir);
+    margin: 0;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .coord-link { font-size: 1.0625rem; }
+
+  .social-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    .engage-items { grid-template-columns: 1fr; }
+
+    .coordonnees-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .coord-block {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+</style>

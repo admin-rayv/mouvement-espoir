@@ -23,13 +23,17 @@ import Footer from '../components/Footer.astro';
           Le lien est peut-être erroné, ou la page a été déplacée.
           Le Mouvement, lui, continue d'avancer.
         </p>
+        <p class="notfound-text notfound-en" lang="en">
+          This link may be broken, or the page may have moved.
+          The Movement, meanwhile, keeps going.
+        </p>
         <div class="notfound-actions">
           <a href="/" class="btn btn-white">
             Retour à l'accueil
             <span class="btn-arrow">→</span>
           </a>
           <a href="/don" class="notfound-link">Faire un don</a>
-          <a href="/contact" class="notfound-link">Nous joindre</a>
+          <a href="/en/" class="notfound-link" lang="en" hreflang="en-CA">English</a>
         </div>
       </div>
     </section>
@@ -128,6 +132,11 @@ import Footer from '../components/Footer.astro';
   .notfound-title em {
     font-style: normal;
     color: var(--color-accent);
+  }
+
+  .notfound-en {
+    opacity: 0.72;
+    margin-top: -0.75rem;
   }
 
   .notfound-text {

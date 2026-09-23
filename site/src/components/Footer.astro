@@ -1,5 +1,12 @@
 ---
 // Footer — bleu profond, hiérarchie éditoriale
+import { path, type Lang } from '../i18n/config';
+import { ui } from '../i18n/ui';
+
+interface Props { lang?: Lang }
+const { lang = 'fr' } = Astro.props;
+const t = ui[lang];
+const f = t.footer;
 ---
 
 <footer class="footer grain">
@@ -9,16 +16,16 @@
     <div class="footer-top">
       <div class="footer-cta">
         <div class="footer-cta-text">
-          <span class="footer-label">Rejoindre le Mouvement</span>
-          <h2>Envie de donner<br/>un coup de pouce&#8239;?</h2>
+          <span class="footer-label">{f.label}</span>
+          <h2 set:html={f.title} />
         </div>
         <div class="footer-cta-buttons">
-          <a href="/contact" class="btn btn-ghost">
-            Devenir bénévole
+          <a href={path('contact', lang)} class="btn btn-ghost">
+            {f.volunteer}
             <span class="btn-arrow">→</span>
           </a>
-          <a href="/don" class="btn btn-white">
-            Faire un don
+          <a href={path('donate', lang)} class="btn btn-white">
+            {f.donate}
             <span class="btn-arrow">→</span>
           </a>
         </div>
@@ -27,34 +34,31 @@
 
     <div class="footer-main">
       <div class="footer-brand">
-        <img src="/images/logo-mouvement-solidaire-espoir-devise-blanc.webp" alt="Logo du Mouvement solidaire eSPoir avec sa devise : Financer. Chercher. Guérir la sclérose en plaques." title="Mouvement solidaire eSPoir" class="footer-logo-img" width="720" height="678" loading="lazy" />
+        <img src="/images/logo-mouvement-solidaire-espoir-devise-blanc.webp" alt={f.logoAlt} title={f.tagline} class="footer-logo-img" width="720" height="678" loading="lazy" />
       </div>
 
-      <nav class="footer-nav" aria-label="Navigation secondaire">
-        <span class="footer-nav-title">Explorer</span>
+      <nav class="footer-nav" aria-label={t.navSecondaryAria}>
+        <span class="footer-nav-title">{f.explore}</span>
         <ul>
-          <li><a href="/histoire">Notre histoire</a></li>
-          <li><a href="/nouvelles">Nouvelles</a></li>
-          <li><a href="/activites">Activités</a></li>
-          <li><a href="/don">Faire un don</a></li>
-          <li><a href="/faq">Questions fréquentes</a></li>
-          <li><a href="/contact">Nous joindre</a></li>
+          <li><a href={path('story', lang)}>{t.nav.story}</a></li>
+          <li><a href={path('news', lang)}>{t.nav.news}</a></li>
+          <li><a href={path('events', lang)}>{t.nav.events}</a></li>
+          <li><a href={path('donate', lang)}>{t.nav.donate}</a></li>
+          <li><a href={path('faq', lang)}>{f.faq}</a></li>
+          <li><a href={path('contact', lang)}>{t.nav.contact}</a></li>
         </ul>
       </nav>
 
       <div class="footer-contact">
-        <span class="footer-nav-title">Nous joindre</span>
-        <p>
-          243, boul. Brien, bureau 250<br />
-          Repentigny (Québec)&nbsp;&nbsp;J6A 6M4
-        </p>
+        <span class="footer-nav-title">{f.reach}</span>
+        <p set:html={f.address} />
         <a href="mailto:info@msespoir.com" class="footer-email">
           info@msespoir.com
         </a>
       </div>
 
       <div class="footer-social">
-        <span class="footer-nav-title">Suivez-nous</span>
+        <span class="footer-nav-title">{f.follow}</span>
         <div class="footer-social-links">
           <a href="https://www.facebook.com/people/Mouvement-solidaire-espoir/61574511753846/" target="_blank" rel="noopener">Facebook</a>
           <a href="#" aria-label="Instagram">Instagram</a>
@@ -63,13 +67,13 @@
     </div>
 
     <div class="footer-bottom">
-      <p>OBNL enregistré au Québec · NEQ&nbsp;: 1181 4407 11</p>
+      <p set:html={f.legal} />
       <p>
-        <a href="/confidentialite" class="footer-bottom-link">Politique de confidentialité</a>
+        <a href={path('privacy', lang)} class="footer-bottom-link">{f.privacy}</a>
         <span class="footer-sep">·</span>
         © {new Date().getFullYear()} Mouvement solidaire eSPoir
         <span class="footer-sep">·</span>
-        Conçu par <a href="https://rayv.ca/" target="_blank" rel="noopener" class="footer-bottom-link">RayV — agence web</a>
+        {f.credit} <a href="https://rayv.ca/" target="_blank" rel="noopener" class="footer-bottom-link">{f.creditLink}</a>
       </p>
     </div>
   </div>
