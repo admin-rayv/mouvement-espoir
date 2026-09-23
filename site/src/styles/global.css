@@ -319,6 +319,27 @@ a {
   transition: color var(--transition-medium), opacity var(--transition-medium);
 }
 
+/* Liens contextuels dans le corps de texte : discrets mais visibles */
+main p > a:not(.btn):not(.link-underline):not(.policy-link),
+main li > a:not(.btn):not(.link-underline):not(.policy-link) {
+  color: var(--color-navy);
+  border-bottom: 1px solid var(--color-accent-soft);
+  transition: border-color var(--transition-medium), color var(--transition-medium);
+}
+
+main p > a:not(.btn):not(.link-underline):not(.policy-link):hover,
+main li > a:not(.btn):not(.link-underline):not(.policy-link):hover {
+  color: var(--color-accent-dark);
+  border-bottom-color: var(--color-navy);
+}
+
+/* Sur les fonds sombres (hero, manifeste), on inverse */
+.hero p > a,
+.manifeste p > a {
+  color: var(--color-accent);
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+}
+
 .link-underline {
   position: relative;
   display: inline-flex;

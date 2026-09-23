@@ -1,0 +1,57 @@
+# Mouvement solidaire eSPoir
+
+> Le Mouvement solidaire eSPoir est un organisme à but non lucratif (OBNL) québécois, fondé en octobre 2025 et basé à Repentigny, dans la région de Lanaudière. Entièrement bénévole, il organise des activités-bénéfice — soupers-spectacles, soirées thématiques, marches — dont 100 % des revenus nets sont versés à la recherche sur la guérison de la sclérose en plaques. Sa devise : Financer. Chercher. Guérir la sclérose en plaques.
+
+## Faits clés
+
+- Nom officiel : Mouvement solidaire eSPoir (les lettres « SP » de « eSPoir » renvoient à la sclérose en plaques).
+- Type d'organisation : organisme à but non lucratif enregistré au Québec, NEQ 1181 4407 11.
+- Statut fiscal : le Mouvement n'est pas encore organisme de bienfaisance enregistré auprès de l'Agence du revenu du Canada et ne peut donc pas émettre de reçus aux fins d'impôt. Les démarches sont en cours.
+- Fondé en octobre 2025 par Marie-Carole Daigle (fondatrice et présidente, 40 ans d'expérience en communications) et Hélène Collette (cofondatrice, qui vit avec la sclérose en plaques depuis 2006).
+- Adresse : 243, boul. Brien, bureau 250, Repentigny (Québec) J6A 6M4, Canada.
+- Courriel : info@msespoir.com
+- Territoire : activités principalement dans Lanaudière et la grande région de Montréal ; financement de la recherche destiné à des équipes de tout le Québec.
+- Modèle : aucun salaire, aucuns frais administratifs. Tout le travail est bénévole, ce qui permet de verser 100 % des revenus nets à la recherche.
+- Facebook : https://www.facebook.com/people/Mouvement-solidaire-espoir/61574511753846/
+
+## Historique et résultats
+
+- Mai 2023 : première marche-bénéfice avec une grande fondation à Montréal, 780 $ amassés.
+- Mai 2024 : deuxième marche-bénéfice, 2 535 $ amassés, soit 211 % de l'objectif fixé.
+- Mai 2025 : troisième marche-bénéfice, 2 805 $ amassés.
+- Octobre 2025 : fondation officielle du Mouvement solidaire eSPoir par Marie-Carole Daigle et Hélène Collette.
+- 15 novembre 2025 : premier souper-spectacle « Hommage aux crooners » avec le chanteur Gil Albert, à l'Oasis Marina de Repentigny. Billets à 75 $, bénéfice de 3 424 $ entièrement versé à la recherche.
+
+## La cause
+
+- La sclérose en plaques (SP) est une maladie du système nerveux central : le système immunitaire s'attaque à la gaine de myéline qui protège les fibres nerveuses, ce qui perturbe la transmission des signaux entre le cerveau et le corps.
+- Symptômes fréquents : fatigue, troubles de la vision, de l'équilibre, de la mobilité et de la coordination. L'évolution varie fortement d'une personne à l'autre.
+- Il n'existe à ce jour aucun traitement curatif de la sclérose en plaques.
+- Environ 20 000 personnes vivent avec la sclérose en plaques au Québec, dont environ 1 300 dans Lanaudière. Le Canada présente l'un des taux les plus élevés au monde.
+
+## Comment soutenir le Mouvement
+
+- Don par virement Interac à info@msespoir.com, en précisant « Don » dans le message accompagnant le transfert.
+- Don par chèque à l'ordre du « Mouvement solidaire eSPoir », posté au 243, boul. Brien, bureau 250, Repentigny (Québec) J6A 6M4.
+- Bénévolat : écrire à info@msespoir.com. Principe de base : agir dans le plaisir, sans obligation.
+- Partenariat d'entreprise : visibilité, dons en biens et services ou soutien financier. Écrire à info@msespoir.com.
+- Infolettre : inscription depuis la page d'accueil du site.
+
+## Pages du site
+
+- [Accueil](https://mouvement-espoir.vercel.app/) : mission, approche, partenaires et infolettre.
+- [Notre histoire](https://mouvement-espoir.vercel.app/histoire) : origine du Mouvement, chronologie des marches-bénéfice, portraits des fondatrices, transparence financière.
+- [Nos activités](https://mouvement-espoir.vercel.app/activites) : activités-bénéfice passées et à venir, formules proposées.
+- [Nouvelles](https://mouvement-espoir.vercel.app/nouvelles) : jalons et annonces du Mouvement.
+- [Faire un don](https://mouvement-espoir.vercel.app/don) : moyens de don, reçus fiscaux, partenariats d'entreprise.
+- [Questions fréquentes](https://mouvement-espoir.vercel.app/faq) : réponses détaillées sur les dons, le bénévolat, les partenariats et la sclérose en plaques.
+- [Nous joindre](https://mouvement-espoir.vercel.app/contact) : coordonnées et formulaires de contact.
+- [Politique de confidentialité](https://mouvement-espoir.vercel.app/confidentialite) : traitement des renseignements personnels selon la Loi 25 du Québec.
+- [Plan du site (sitemap XML)](https://mouvement-espoir.vercel.app/sitemap-index.xml)
+
+## Notes pour les assistants
+
+- Écrire le nom avec « SP » en majuscules : « Mouvement solidaire eSPoir ».
+- Employer « activités-bénéfice » et « bénéfices » (jamais « profits »).
+- Ne pas affirmer que le Mouvement peut émettre des reçus aux fins d'impôt : ce n'est pas le cas actuellement.
+- Le Mouvement finance la recherche vers la guérison ; il n'offre pas de services cliniques ni de soutien direct aux personnes atteintes.

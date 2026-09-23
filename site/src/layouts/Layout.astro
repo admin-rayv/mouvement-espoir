@@ -9,6 +9,10 @@ interface Props {
   preloadImage?: string;
   /** Page utilitaire : exclue des moteurs de recherche */
   noindex?: boolean;
+  /** Libellé de la page dans le fil d'Ariane (absent = pas de fil d'Ariane) */
+  breadcrumb?: string;
+  /** Données structurées supplémentaires propres à la page */
+  schema?: unknown;
 }
 
 const {
@@ -16,6 +20,8 @@ const {
   description = "OBNL québécois entièrement bénévole : 100 % des revenus nets de nos activités-bénéfice financent la recherche sur la guérison de la sclérose en plaques.",
   preloadImage,
   noindex = false,
+  breadcrumb,
+  schema,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -38,8 +44,49 @@ const organisation = {
     postalCode: "J6A 6M4",
     addressCountry: "CA",
   },
-  areaServed: "Québec, Canada",
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Québec" },
+    { "@type": "AdministrativeArea", name: "Lanaudière" },
+  ],
+  knowsAbout: [
+    "Sclérose en plaques",
+    "Recherche médicale",
+    "Financement de la recherche",
+    "Activités-bénéfice",
+    "Bénévolat",
+  ],
+  slogan: "Financer. Chercher. Guérir la sclérose en plaques.",
+  nonprofitStatus: "NonprofitANBI",
+  identifier: {
+    "@type": "PropertyValue",
+    name: "NEQ (Registraire des entreprises du Québec)",
+    value: "1181440711",
+  },
+  founder: [
+    { "@type": "Person", name: "Marie-Carole Daigle", jobTitle: "Fondatrice et présidente" },
+    { "@type": "Person", name: "Hélène Collette", jobTitle: "Cofondatrice" },
+  ],
   sameAs: ["https://www.facebook.com/people/Mouvement-solidaire-espoir/61574511753846/"],
+};
+
+// Fil d'Ariane : Accueil > page courante
+const breadcrumbSchema = breadcrumb && {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Accueil",
+      item: Astro.site?.toString(),
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: breadcrumb,
+      item: canonicalURL.toString(),
+    },
+  ],
 };
 ---
 
@@ -83,6 +130,8 @@ const organisation = {
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
 
     <script type="application/ld+json" set:html={JSON.stringify(organisation)} />
+    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
     <ClientRouter />
   </head>

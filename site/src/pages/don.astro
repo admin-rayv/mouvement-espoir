@@ -5,8 +5,9 @@ import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 ---
 
-<Layout title="Faire un don — Mouvement solidaire eSPoir"
+<Layout title="Faire un don — Recherche sur la sclérose en plaques, Québec"
   description="Faites un don par virement Interac ou par chèque : 100 % des revenus nets financent la recherche sur la guérison de la sclérose en plaques. Aucuns frais administratifs."
+  breadcrumb="Faire un don"
   preloadImage="/images/equipe-benevoles-mouvement-solidaire-espoir.webp">
   <Header />
 
@@ -36,7 +37,9 @@ import PageHero from '../components/PageHero.astro';
             <div class="divider"></div>
             <p class="text-muted">
               Aucuns frais administratifs. Tout notre travail est bénévole.
-              Chaque dollar dégagé par nos activités-bénéfice va à la recherche.
+              Chaque dollar dégagé par nos
+              <a href="/activites">activités-bénéfice</a> va à la recherche —
+              <a href="/histoire">voici comment nous en rendons compte</a>.
             </p>
           </div>
         </div>
@@ -116,6 +119,10 @@ import PageHero from '../components/PageHero.astro';
               moins précieuse — chaque dollar reçu finance directement
               la recherche. Nous mettrons cette page à jour dès que les
               reçus seront disponibles.
+            </p>
+            <p>
+              D'autres questions sur les dons&#8239;? Consultez notre
+              <a href="/faq">foire aux questions</a>.
             </p>
           </div>
         </div>
