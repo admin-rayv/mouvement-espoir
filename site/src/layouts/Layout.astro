@@ -26,7 +26,7 @@ const organisation = {
   "@type": "NGO",
   name: "Mouvement solidaire eSPoir",
   url: Astro.site?.toString(),
-  logo: new URL('/images/logo-espoir.png', Astro.site).toString(),
+  logo: new URL('/images/logo-mouvement-solidaire-espoir.png', Astro.site).toString(),
   description: "Organisme à but non lucratif québécois qui organise des activités-bénéfice dont 100 % des revenus nets financent la recherche sur la guérison de la sclérose en plaques.",
   email: "info@msespoir.com",
   foundingDate: "2025-10",
@@ -55,13 +55,9 @@ const organisation = {
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Polices : Montserrat (titres) + Inter (corps) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Inter:wght@300;400;500&display=swap"
-    />
+    <!-- Polices auto-hébergées : Montserrat (titres) + Inter (corps) -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin />
 
     {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
 

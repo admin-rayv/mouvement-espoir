@@ -14,6 +14,10 @@ interface Props {
   /** Photo de fond (facultative : sans photo, fond bleu nuit) */
   image?: string;
   imagePosition?: string;
+  /** Texte alternatif de la photo (référencement et accessibilité) */
+  imageAlt?: string;
+  /** Infobulle de la photo */
+  imageTitle?: string;
   /** Logo affiché en grand à gauche du texte (remplace la photo de fond) */
   logo?: string;
   /** Hero pleine hauteur (accueil) */
@@ -28,6 +32,8 @@ const {
   description,
   image,
   imagePosition = 'center',
+  imageAlt = '',
+  imageTitle,
   logo,
   tall = false,
   meta = [],
@@ -35,27 +41,36 @@ const {
 ---
 
 <section class:list={['hero', 'grain', { 'hero-tall': tall, 'has-logo': logo }]}>
-  <div class="hero-visual" aria-hidden="true">
+  <div class="hero-visual">
     {image && (
       <div class="hero-image">
         <img
           src={image}
-          alt=""
+          alt={imageAlt}
+          title={imageTitle}
           style={`object-position: ${imagePosition}`}
           fetchpriority="high"
           decoding="async"
         />
       </div>
     )}
-    <div class="hero-overlay"></div>
-    <div class="hero-glow"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
   </div>
 
   <div class="hero-content container container-wide">
     <div class:list={[{ 'hero-main': logo }]}>
       {logo && (
-        <div class="hero-logo" aria-hidden="true">
-          <img src={logo} alt="" width="1200" height="1090" fetchpriority="high" decoding="async" />
+        <div class="hero-logo">
+          <img
+            src={logo}
+            alt="Logo du Mouvement solidaire eSPoir : une vague formée de mains tendues, symbole de solidarité face à la sclérose en plaques"
+            title="Mouvement solidaire eSPoir — Financer. Chercher. Guérir la sclérose en plaques."
+            width="1200"
+            height="1090"
+            fetchpriority="high"
+            decoding="async"
+          />
         </div>
       )}
 
@@ -234,22 +249,25 @@ const {
     pointer-events: none;
   }
 
+  /* Le logo est peint dès le premier rendu (il porte le LCP) :
+     l'entrée se joue sur la transformation, pas sur une opacité nulle. */
   .hero-logo img {
     position: relative;
     width: 100%;
     height: auto;
-    opacity: 0;
-    transform: scale(0.92) rotate(-4deg);
-    animation:
-      hero-fade 2s var(--ease-elegant) 0.3s forwards,
-      hero-logo-in 2.6s var(--ease-elegant) 0.3s forwards;
+    opacity: 0.45;
+    transform: scale(0.94) rotate(-3deg);
+    animation: hero-logo-in 1.6s var(--ease-elegant) forwards;
     filter:
       drop-shadow(0 24px 56px rgba(0, 0, 0, 0.32))
       drop-shadow(0 0 44px rgba(79, 163, 214, 0.20));
   }
 
   @keyframes hero-logo-in {
-    to { transform: scale(1) rotate(0deg); }
+    to {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
   }
 
   .hero-main .hero-title {
@@ -271,7 +289,7 @@ const {
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.85);
     opacity: 0;
-    animation: hero-fade 2s var(--ease-elegant) 0.3s forwards;
+    animation: hero-fade 1.2s var(--ease-elegant) 0.1s forwards;
   }
 
   .hero-label::before {
@@ -303,8 +321,8 @@ const {
   .hero-line-inner {
     display: block;
     transform: translateY(110%);
-    animation: hero-line-up 1.9s var(--ease-elegant) forwards;
-    animation-delay: calc(0.45s + var(--i) * 0.2s);
+    animation: hero-line-up 1.1s var(--ease-elegant) forwards;
+    animation-delay: calc(0.12s + var(--i) * 0.11s);
   }
 
   .hero-title :global(em) {
@@ -315,7 +333,7 @@ const {
   .hero-bottom {
     margin-top: clamp(2.25rem, 4vw, 3.5rem);
     opacity: 0;
-    animation: hero-fade 2.2s var(--ease-elegant) 1.3s forwards;
+    animation: hero-fade 1.2s var(--ease-elegant) 0.55s forwards;
   }
 
   .hero-description {
@@ -337,7 +355,7 @@ const {
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
     opacity: 0;
-    animation: hero-fade 2.2s var(--ease-elegant) 1.8s forwards;
+    animation: hero-fade 1.2s var(--ease-elegant) 0.8s forwards;
   }
 
   .hero-meta {
